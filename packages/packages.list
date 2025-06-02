@@ -1,0 +1,135 @@
+# ShadowlyOS Package List
+# Core system packages and applications
+
+# Base system
+base
+base-devel
+linux
+linux-firmware
+linux-headers
+
+# Boot and system
+grub
+efibootmgr
+os-prober
+mkinitcpio
+systemd
+
+# Network
+networkmanager
+network-manager-applet
+wpa_supplicant
+
+# Audio
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+wireplumber
+
+# Graphics and Wayland
+mesa
+xorg-xwayland
+
+# Window Manager - Hyprland
+hyprland
+hyprpaper
+hyprpicker
+hyprcursor
+xdg-desktop-portal-hyprland
+
+# XFCE4 Components
+xfce4-panel
+xfce4-settings
+xfce4-session
+xfce4-notifyd
+thunar
+thunar-volman
+thunar-archive-plugin
+xfce4-power-manager
+xfce4-screenshooter
+
+# Essential utilities
+git
+vim
+nano
+curl
+wget
+unzip
+zip
+htop
+neofetch
+tree
+man-db
+man-pages
+
+# File management
+file-roller
+gvfs
+gvfs-mtp
+ntfs-3g
+
+# Fonts
+ttf-dejavu
+ttf-liberation
+noto-fonts
+noto-fonts-emoji
+ttf-fira-code
+
+# Media
+mpv
+feh
+imagemagick
+ffmpeg
+
+# Development tools
+gcc
+make
+cmake
+python
+nodejs
+npm
+
+# Terminal and shell
+bash
+zsh
+oh-my-zsh-git
+fish
+
+# System monitoring
+btop
+bandwhich
+
+# Screenshot and utilities
+grim
+slurp
+wl-clipboard
+brightnessctl
+rofi
+jq
+
+# Archive support
+p7zip
+unrar
+lzop
+lrzip
+
+# Security
+firewalld
+clamav
+
+# Additional utilities
+ripgrep
+fd
+bat
+exa
+sd
+
+# AUR packages (to be built)
+# warp-terminal-bin
+# discord
+# virtualbox
+# yay
+# cave-git
+# komorebi-git
+
