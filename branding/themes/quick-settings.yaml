@@ -1,0 +1,1024 @@
+# ShadowlyOS Quick Settings Panel Theme Configuration
+# This file defines the appearance and behavior of the quick settings panel
+
+---
+# Global Settings
+global:
+  # Brand Colors
+  colors:
+    primary: "#2C3E50"      # Dark blue/gray for primary elements
+    secondary: "#3498DB"    # Blue for accents and highlights
+    tertiary: "#ECF0F1"     # Light gray/white for backgrounds
+    success: "#2ECC71"      # Green for success messages
+    warning: "#F39C12"      # Orange for warnings
+    error: "#E74C3C"        # Red for errors
+    background: "#FFFFFF"   # White for main background
+    surface: "#F8F9FA"      # Light gray for cards and surfaces
+    text_primary: "#2C3E50" # Dark blue/gray for text
+    text_secondary: "#7F8C8D" # Secondary text color
+    icon_active: "#3498DB"  # Blue for active icons
+    icon_inactive: "#7F8C8D" # Gray for inactive icons
+  
+  # Typography
+  typography:
+    primary_font: "Roboto"
+    light_font: "Roboto Light"
+    bold_font: "Roboto Bold"
+    base_size: 13
+    title_size: 16
+    label_size: 12
+  
+  # Animation Settings
+  animations:
+    duration_short: "0.15s"
+    duration_medium: "0.25s"
+    duration_long: "0.4s"
+    timing_function: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+    transitions:
+      - "opacity"
+      - "transform"
+      - "background-color"
+      - "border-color"
+      - "box-shadow"
+  
+  # Spacing and Layout
+  spacing:
+    tiny: "4px"
+    small: "8px"
+    medium: "16px"
+    large: "24px"
+    xlarge: "32px"
+
+# Panel Settings
+panel:
+  # Panel Dimensions
+  dimensions:
+    width: "360px"
+    max_height: "80vh"
+    min_height: "200px"
+    border_radius: "8px"
+    shadow: "0 4px 20px rgba(0, 0, 0, 0.2)"
+  
+  # Panel Background
+  background:
+    type: "blur"  # Options: solid, blur
+    color: "#FFFFFF"
+    blur_amount: "20px"
+    opacity: 0.95
+    backdrop_filter: "blur(20px)"
+  
+  # Panel Border
+  border:
+    width: "1px"
+    color: "rgba(0, 0, 0, 0.1)"
+    radius: "8px"
+  
+  # Panel Animation
+  animation:
+    open:
+      type: "slide_down_fade"
+      duration: "0.3s"
+      timing: "cubic-bezier(0.0, 0.0, 0.2, 1)"
+    
+    close:
+      type: "slide_up_fade"
+      duration: "0.2s"
+      timing: "cubic-bezier(0.4, 0.0, 1, 1)"
+  
+  # Panel Position
+  position:
+    anchor: "top_right"  # Options: top_right, top_left, top_center
+    margin_top: "8px"
+    margin_right: "8px"
+    margin_left: "8px"
+  
+  # Panel Sections Layout
+  layout:
+    padding: "16px"
+    gap: "16px"
+    sections_gap: "12px"
+
+# Header Section
+header:
+  # Header Layout
+  layout:
+    height: "48px"
+    padding: "0 16px"
+    margin_bottom: "8px"
+    border_bottom: "1px solid rgba(0, 0, 0, 0.06)"
+  
+  # User Info
+  user_info:
+    display: true
+    
+    # Avatar
+    avatar:
+      size: "32px"
+      border_radius: "16px"
+      margin_right: "12px"
+      border: "none"
+    
+    # User Name
+    name:
+      color: "#2C3E50"
+      font_size: 14
+      font_weight: "medium"
+      max_width: "160px"
+      overflow: "ellipsis"
+    
+    # User Status
+    status:
+      color: "#7F8C8D"
+      font_size: 12
+      max_width: "160px"
+      overflow: "ellipsis"
+  
+  # Action Buttons
+  actions:
+    # Settings Button
+    settings:
+      icon: "cog"
+      size: "18px"
+      color: "#7F8C8D"
+      hover_color: "#3498DB"
+      tooltip: "Open Settings"
+      action: "open_settings"
+    
+    # User Profile Button
+    profile:
+      icon: "user"
+      size: "18px"
+      color: "#7F8C8D"
+      hover_color: "#3498DB"
+      tooltip: "User Profile"
+      action: "open_profile"
+    
+    # Button Animation
+    button_animation:
+      type: "scale"
+      scale: 1.1
+      duration: "0.15s"
+
+# Quick Toggles Section
+quick_toggles:
+  # Section Layout
+  layout:
+    title: "Quick Toggles"
+    title_display: false
+    display: "grid"
+    grid_columns: 4
+    grid_gap: "12px"
+    margin_bottom: "16px"
+  
+  # Toggle Item
+  toggle_item:
+    width: "72px"
+    height: "72px"
+    background: "#FFFFFF"
+    border_radius: "8px"
+    shadow: "0 2px 8px rgba(0, 0, 0, 0.05)"
+    display: "flex"
+    flex_direction: "column"
+    align_items: "center"
+    justify_content: "center"
+    padding: "12px 8px"
+    
+    # Icon
+    icon:
+      size: "24px"
+      margin_bottom: "8px"
+      
+      # States
+      states:
+        active:
+          color: "#3498DB"
+        
+        inactive:
+          color: "#7F8C8D"
+    
+    # Label
+    label:
+      font_size: 11
+      text_align: "center"
+      max_lines: 1
+      
+      # States
+      states:
+        active:
+          color: "#2C3E50"
+          font_weight: "medium"
+        
+        inactive:
+          color: "#7F8C8D"
+          font_weight: "normal"
+    
+    # Status Indicator
+    status_indicator:
+      size: "8px"
+      border_radius: "4px"
+      position: "top_right"
+      margin: "6px"
+      
+      # States
+      states:
+        active:
+          color: "#3498DB"
+        
+        inactive:
+          display: "none"
+    
+    # States
+    states:
+      hover:
+        background: "#F8F9FA"
+        transform: "translateY(-2px)"
+        shadow: "0 4px 10px rgba(0, 0, 0, 0.08)"
+      
+      active:
+        background: "rgba(52, 152, 219, 0.1)"
+        border: "1px solid rgba(52, 152, 219, 0.2)"
+      
+      disabled:
+        opacity: 0.5
+        pointer_events: "none"
+    
+    # Animation
+    animation:
+      toggle:
+        duration: "0.3s"
+        timing: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+  
+  # Available Toggles
+  toggles:
+    # WiFi Toggle
+    wifi:
+      id: "wifi"
+      label: "WiFi"
+      icon: "wifi"
+      icons:
+        active: "wifi"
+        inactive: "wifi-slash"
+      settings_link: "network/wifi"
+      status_indicator: true
+      position: 1
+    
+    # Bluetooth Toggle
+    bluetooth:
+      id: "bluetooth"
+      label: "Bluetooth"
+      icon: "bluetooth-b"
+      icons:
+        active: "bluetooth-b"
+        inactive: "bluetooth"
+      settings_link: "devices/bluetooth"
+      status_indicator: true
+      position: 2
+    
+    # Night Light Toggle
+    night_light:
+      id: "night_light"
+      label: "Night Light"
+      icon: "moon"
+      icons:
+        active: "moon"
+        inactive: "moon"
+      settings_link: "appearance/themes/night_light"
+      status_indicator: true
+      position: 3
+    
+    # Do Not Disturb Toggle
+    do_not_disturb:
+      id: "do_not_disturb"
+      label: "Do Not Disturb"
+      icon: "bell-slash"
+      icons:
+        active: "bell-slash"
+        inactive: "bell"
+      settings_link: "notifications/do_not_disturb"
+      status_indicator: true
+      position: 4
+    
+    # Airplane Mode Toggle
+    airplane_mode:
+      id: "airplane_mode"
+      label: "Airplane Mode"
+      icon: "plane"
+      icons:
+        active: "plane"
+        inactive: "plane"
+      settings_link: "network/airplane_mode"
+      status_indicator: true
+      position: 5
+    
+    # Hotspot Toggle
+    hotspot:
+      id: "hotspot"
+      label: "Hotspot"
+      icon: "broadcast-tower"
+      icons:
+        active: "broadcast-tower"
+        inactive: "broadcast-tower"
+      settings_link: "network/hotspot"
+      status_indicator: true
+      position: 6
+    
+    # Battery Saver Toggle
+    battery_saver:
+      id: "battery_saver"
+      label: "Battery Saver"
+      icon: "battery-half"
+      icons:
+        active: "battery-half"
+        inactive: "battery-half"
+      settings_link: "power/battery_saver"
+      status_indicator: true
+      position: 7
+    
+    # Location Toggle
+    location:
+      id: "location"
+      label: "Location"
+      icon: "map-marker-alt"
+      icons:
+        active: "map-marker-alt"
+        inactive: "map-marker-alt"
+      settings_link: "privacy_security/privacy/location_services"
+      status_indicator: true
+      position: 8
+
+# Sliders Section
+sliders:
+  # Section Layout
+  layout:
+    padding: "0 16px"
+    margin_bottom: "16px"
+    gap: "16px"
+  
+  # Slider Style
+  slider_style:
+    height: "48px"
+    margin_bottom: "12px"
+    
+    # Icon
+    icon:
+      size: "18px"
+      margin_right: "12px"
+      
+      # States
+      states:
+        low:
+          icon: "volume-down"
+          color: "#7F8C8D"
+        
+        medium:
+          icon: "volume-down"
+          color: "#3498DB"
+        
+        high:
+          icon: "volume-up"
+          color: "#3498DB"
+        
+        muted:
+          icon: "volume-mute"
+          color: "#E74C3C"
+    
+    # Label
+    label:
+      font_size: 13
+      font_weight: "medium"
+      color: "#2C3E50"
+      margin_right: "auto"
+    
+    # Value Display
+    value:
+      font_size: 12
+      color: "#7F8C8D"
+      width: "36px"
+      text_align: "right"
+      margin_left: "8px"
+    
+    # Track
+    track:
+      height: "4px"
+      border_radius: "2px"
+      background: "#ECF0F1"
+      flex: 1
+      
+      # Fill
+      fill:
+        background: "#3498DB"
+        border_radius: "2px"
+    
+    # Thumb
+    thumb:
+      size: "14px"
+      border_radius: "7px"
+      background: "#3498DB"
+      border: "2px solid #FFFFFF"
+      shadow: "0 1px 3px rgba(0, 0, 0, 0.2)"
+      
+      # States
+      states:
+        hover:
+          transform: "scale(1.1)"
+          shadow: "0 1px 5px rgba(0, 0, 0, 0.3)"
+        
+        active:
+          transform: "scale(1.2)"
+          shadow: "0 1px 6px rgba(0, 0, 0, 0.4)"
+    
+    # Mute Button
+    mute_button:
+      display: "flex"
+      align_items: "center"
+      justify_content: "center"
+      width: "24px"
+      height: "24px"
+      margin_left: "8px"
+      border_radius: "12px"
+      
+      # States
+      states:
+        normal:
+          color: "#7F8C8D"
+        
+        muted:
+          color: "#E74C3C"
+        
+        hover:
+          background: "rgba(0, 0, 0, 0.05)"
+  
+  # Available Sliders
+  slider_items:
+    # Volume Slider
+    volume:
+      id: "volume"
+      label: "Volume"
+      icon: "volume-up"
+      mute_toggle: true
+      settings_link: "sound/volume"
+      default_value: 80
+      position: 1
+    
+    # Brightness Slider
+    brightness:
+      id: "brightness"
+      label: "Brightness"
+      icon: "sun"
+      mute_toggle: false
+      settings_link: "display/brightness"
+      default_value: 70
+      position: 2
+
+# Sound Profiles Section
+sound_profiles:
+  # Section Layout
+  layout:
+    title: "Sound Profile"
+    title_display: true
+    title_style:
+      font_size: 14
+      font_weight: "medium"
+      color: "#2C3E50"
+      margin_bottom: "12px"
+    padding: "0 16px"
+    margin_bottom: "16px"
+    display: "flex"
+    flex_wrap: "wrap"
+    gap: "12px"
+  
+  # Profile Item
+  profile_item:
+    height: "36px"
+    padding: "0 12px"
+    border_radius: "18px"
+    display: "flex"
+    align_items: "center"
+    background: "#F8F9FA"
+    border: "1px solid rgba(0, 0, 0, 0.05)"
+    
+    # Icon
+    icon:
+      size: "14px"
+      margin_right: "8px"
+      
+      # States
+      states:
+        active:
+          color: "#3498DB"
+        
+        inactive:
+          color: "#7F8C8D"
+    
+    # Label
+    label:
+      font_size: 12
+      
+      # States
+      states:
+        active:
+          color: "#2C3E50"
+          font_weight: "medium"
+        
+        inactive:
+          color: "#7F8C8D"
+          font_weight: "normal"
+    
+    # States
+    states:
+      hover:
+        background: "rgba(52, 152, 219, 0.1)"
+      
+      active:
+        background: "rgba(52, 152, 219, 0.15)"
+        border: "1px solid rgba(52, 152, 219, 0.3)"
+      
+      disabled:
+        opacity: 0.5
+        pointer_events: "none"
+  
+  # Available Profiles
+  profiles:
+    # Normal Profile
+    normal:
+      id: "normal"
+      label: "Normal"
+      icon: "volume-up"
+      description: "Balanced sound profile with all feedback enabled"
+      position: 1
+    
+    # Quiet Profile
+    quiet:
+      id: "quiet"
+      label: "Quiet"
+      icon: "volume-down"
+      description: "Reduced sounds for quiet environments"
+      position: 2
+    
+    # Silent Profile
+    silent:
+      id: "silent"
+      label: "Silent"
+      icon: "volume-mute"
+      description: "Critical sounds only"
+      position: 3
+    
+    # Meeting Profile
+    meeting:
+      id: "meeting"
+      label: "Meeting"
+      icon: "user-friends"
+      description: "Do not disturb mode for meetings"
+      position: 4
+
+# Media Controls Section
+media_controls:
+  # Section Layout
+  layout:
+    display: true
+    conditional: "media_playing"
+    padding: "16px"
+    margin_bottom: "16px"
+    background: "rgba(0, 0, 0, 0.03)"
+    border_radius: "8px"
+  
+  # Media Info
+  media_info:
+    # Album Art
+    album_art:
+      size: "48px"
+      border_radius: "4px"
+      margin_right: "12px"
+    
+    # Title
+    title:
+      font_size: 14
+      font_weight: "medium"
+      color: "#2C3E50"
+      margin_bottom: "4px"
+      max_lines: 1
+      overflow: "ellipsis"
+    
+    # Artist
+    artist:
+      font_size: 12
+      color: "#7F8C8D"
+      max_lines: 1
+      overflow: "ellipsis"
+  
+  # Media Controls
+  controls:
+    margin_top: "12px"
+    display: "flex"
+    align_items: "center"
+    justify_content: "center"
+    gap: "16px"
+    
+    # Previous Button
+    previous:
+      icon: "step-backward"
+      size: "16px"
+      color: "#7F8C8D"
+      hover_color: "#3498DB"
+    
+    # Play/Pause Button
+    play_pause:
+      icon: "play"
+      icons:
+        playing: "pause"
+        paused: "play"
+      size: "22px"
+      color: "#3498DB"
+      hover_color: "#2980B9"
+      background: "rgba(52, 152, 219, 0.1)"
+      width: "36px"
+      height: "36px"
+      border_radius: "18px"
+      display: "flex"
+      align_items: "center"
+      justify_content: "center"
+    
+    # Next Button
+    next:
+      icon: "step-forward"
+      size: "16px"
+      color: "#7F8C8D"
+      hover_color: "#3498DB"
+  
+  # Progress Bar
+  progress_bar:
+    margin_top: "12px"
+    height: "4px"
+    border_radius: "2px"
+    background: "rgba(0, 0, 0, 0.1)"
+    
+    # Progress
+    progress:
+      height: "100%"
+      border_radius: "2px"
+      background: "#3498DB"
+    
+    # Time Display
+    time:
+      display: true
+      margin_top: "4px"
+      font_size: 10
+      color: "#7F8C8D"
+      
+      # Current Time
+      current:
+        text_align: "left"
+      
+      # Total Time
+      total:
+        text_align: "right"
+
+# Network Info Section
+network_info:
+  # Section Layout
+  layout:
+    display: true
+    padding: "12px 16px"
+    margin_bottom: "16px"
+    border_top: "1px solid rgba(0, 0, 0, 0.06)"
+  
+  # WiFi Info
+  wifi_info:
+    display: "conditional"
+    condition: "wifi_connected"
+    
+    # Network Name
+    network_name:
+      font_size: 13
+      font_weight: "medium"
+      color: "#2C3E50"
+      margin_bottom: "4px"
+    
+    # Connection Status
+    status:
+      font_size: 12
+      color: "#7F8C8D"
+    
+    # Signal Strength
+    signal_strength:
+      display: true
+      icon: "wifi"
+      icon_size: "14px"
+      icon_color: "#3498DB"
+      margin_left: "auto"
+  
+  # Actions
+  actions:
+    # WiFi Settings Button
+    wifi_settings:
+      text: "WiFi Settings"
+      icon: "cog"
+      icon_size: "12px"
+      font_size: 12
+      color: "#3498DB"
+      margin_top: "8px"
+      hover:
+        text_decoration: "underline"
+      action: "open_wifi_settings"
+
+# Battery Info Section
+battery_info:
+  # Section Layout
+  layout:
+    display: true
+    padding: "12px 16px"
+    border_top: "1px solid rgba(0, 0, 0, 0.06)"
+  
+  # Battery Status
+  battery_status:
+    # Level
+    level:
+      font_size: 13
+      font_weight: "medium"
+      color: "#2C3E50"
+      margin_bottom: "4px"
+    
+    # Status
+    status:
+      font_size: 12
+      color: "#7F8C8D"
+    
+    # Battery Icon
+    icon:
+      display: true
+      margin_left: "auto"
+      
+      # Icons
+      icons:
+        charging: "battery-bolt"
+        full: "battery-full"
+        high: "battery-three-quarters"
+        medium: "battery-half"
+        low: "battery-quarter"
+        critical: "battery-empty"
+      
+      # Colors
+      colors:
+        charging: "#2ECC71"
+        full: "#2ECC71"
+        high: "#3498DB"
+        medium: "#3498DB"
+        low: "#F39C12"
+        critical: "#E74C3C"
+  
+  # Actions
+  actions:
+    # Power Settings Button
+    power_settings:
+      text: "Power Settings"
+      icon: "cog"
+      icon_size: "12px"
+      font_size: 12
+      color: "#3498DB"
+      margin_top: "8px"
+      hover:
+        text_decoration: "underline"
+      action: "open_power_settings"
+
+# Animations
+animations:
+  # Fade In
+  fade_in:
+    keyframes:
+      "0%": { opacity: 0 }
+      "100%": { opacity: 1 }
+    duration: "0.2s"
+    timing: "ease-out"
+  
+  # Fade Out
+  fade_out:
+    keyframes:
+      "0%": { opacity: 1 }
+      "100%": { opacity: 0 }
+    duration: "0.2s"
+    timing: "ease-in"
+  
+  # Slide Down Fade
+  slide_down_fade:
+    keyframes:
+      "0%": { opacity: 0, transform: "translateY(-20px)" }
+      "100%": { opacity: 1, transform: "translateY(0)" }
+    duration: "0.3s"
+    timing: "cubic-bezier(0.0, 0.0, 0.2, 1)"
+  
+  # Slide Up Fade
+  slide_up_fade:
+    keyframes:
+      "0%": { opacity: 1, transform: "translateY(0)" }
+      "100%": { opacity: 0, transform: "translateY(-20px)" }
+    duration: "0.2s"
+    timing: "cubic-bezier(0.4, 0.0, 1, 1)"
+  
+  # Scale In
+  scale_in:
+    keyframes:
+      "0%": { opacity: 0, transform: "scale(0.9)" }
+      "100%": { opacity: 1, transform: "scale(1)" }
+    duration: "0.2s"
+    timing: "cubic-bezier(0.0, 0.0, 0.2, 1)"
+  
+  # Scale Out
+  scale_out:
+    keyframes:
+      "0%": { opacity: 1, transform: "scale(1)" }
+      "100%": { opacity: 0, transform: "scale(0.9)" }
+    duration: "0.2s"
+    timing: "cubic-bezier(0.4, 0.0, 1, 1)"
+
+# Dark Theme Variation
+dark_theme:
+  # Colors
+  colors:
+    primary: "#ECF0F1"      # Light color for primary elements
+    secondary: "#3498DB"    # Blue for accents and highlights
+    tertiary: "#2C3E50"     # Dark blue/gray for backgrounds
+    background: "#1A1A1A"   # Dark background
+    surface: "#2C3E50"      # Dark surface
+    text_primary: "#FFFFFF" # White for text
+    text_secondary: "#BBBBBB" # Light gray for secondary text
+    icon_active: "#3498DB"  # Blue for active icons
+    icon_inactive: "#BBBBBB" # Light gray for inactive icons
+  
+  # Panel Background
+  panel:
+    background:
+      color: "#1A1A1A"
+      opacity: 0.95
+    
+    border:
+      color: "rgba(255, 255, 255, 0.1)"
+  
+  # Quick Toggles
+  quick_toggles:
+    toggle_item:
+      background: "#2C3E50"
+      
+      # States
+      states:
+        hover:
+          background: "#34495E"
+        
+        active:
+          background: "rgba(52, 152, 219, 0.2)"
+          border: "1px solid rgba(52, 152, 219, 0.3)"
+      
+      # Label
+      label:
+        states:
+          active:
+            color: "#FFFFFF"
+          
+          inactive:
+            color: "#BBBBBB"
+  
+  # Sliders
+  sliders:
+    slider_style:
+      # Label
+      label:
+        color: "#FFFFFF"
+      
+      # Value
+      value:
+        color: "#BBBBBB"
+      
+      # Track
+      track:
+        background: "#34495E"
+      
+      # Thumb
+      thumb:
+        border: "2px solid #2C3E50"
+  
+  # Sound Profiles
+  sound_profiles:
+    # Title
+    layout:
+      title_style:
+        color: "#FFFFFF"
+    
+    # Profile Item
+    profile_item:
+      background: "#34495E"
+      border: "1px solid rgba(255, 255, 255, 0.05)"
+      
+      # States
+      states:
+        hover:
+          background: "rgba(52, 152, 219, 0.2)"
+        
+        active:
+          background: "rgba(52, 152, 219, 0.3)"
+          border: "1px solid rgba(52, 152, 219, 0.4)"
+      
+      # Label
+      label:
+        states:
+          active:
+            color: "#FFFFFF"
+          
+          inactive:
+            color: "#BBBBBB"
+  
+  # Media Controls
+  media_controls:
+    layout:
+      background: "rgba(255, 255, 255, 0.05)"
+    
+    # Media Info
+    media_info:
+      # Title
+      title:
+        color: "#FFFFFF"
+      
+      # Artist
+      artist:
+        color: "#BBBBBB"
+    
+    # Progress Bar
+    progress_bar:
+      background: "rgba(255, 255, 255, 0.1)"
+      
+      # Time
+      time:
+        color: "#BBBBBB"
+  
+  # Network Info
+  network_info:
+    layout:
+      border_top: "1px solid rgba(255, 255, 255, 0.06)"
+    
+    # WiFi Info
+    wifi_info:
+      # Network Name
+      network_name:
+        color: "#FFFFFF"
+      
+      # Status
+      status:
+        color: "#BBBBBB"
+  
+  # Battery Info
+  battery_info:
+    layout:
+      border_top: "1px solid rgba(255, 255, 255, 0.06)"
+    
+    # Battery Status
+    battery_status:
+      # Level
+      level:
+        color: "#FFFFFF"
+      
+      # Status
+      status:
+        color: "#BBBBBB"
+
+# Responsive Design Settings
+responsive:
+  breakpoints:
+    small: "480px"
+    medium: "768px"
+    large: "1024px"
+  
+  adaptations:
+    small:
+      panel:
+        dimensions:
+          width: "100%"
+          max_width: "100%"
+          border_radius: "0"
+        
+        position:
+          anchor: "top"
+          margin_top: "0"
+          margin_right: "0"
+          margin_left: "0"
+      
+      quick_toggles:
+        layout:
+          grid_columns: 4
+        
+        toggle_item:
+          width: "64px"
+          height: "64px"
+          
+          # Icon
+          icon:
+            size: "20px"
+          
+          # Label
+          label:
+            font_size: 10
+    
+    medium:
+      panel:
+        dimensions:
+          width: "360px"
+          max_width: "90%"
+          border_radius: "8px"
+

@@ -1,0 +1,1721 @@
+# ShadowlyOS System Settings Theme Configuration
+# This file defines the appearance and behavior of the system settings application
+
+---
+# Global Settings
+global:
+  # Brand Colors
+  colors:
+    primary: "#2C3E50"      # Dark blue/gray for primary elements
+    secondary: "#3498DB"    # Blue for accents and highlights
+    tertiary: "#ECF0F1"     # Light gray/white for backgrounds
+    success: "#2ECC71"      # Green for success messages
+    warning: "#F39C12"      # Orange for warnings
+    error: "#E74C3C"        # Red for errors
+    background: "#FFFFFF"   # White for main background
+    surface: "#F8F9FA"      # Light gray for cards and surfaces
+    text_primary: "#2C3E50" # Dark blue/gray for text
+    text_secondary: "#7F8C8D" # Secondary text color
+  
+  # Typography
+  typography:
+    primary_font: "Roboto"
+    light_font: "Roboto Light"
+    bold_font: "Roboto Bold"
+    monospace_font: "Roboto Mono"
+    base_size: 14
+    title_size: 20
+    section_title_size: 16
+    setting_label_size: 14
+    description_size: 13
+  
+  # Animation Settings
+  animations:
+    duration_short: "0.15s"
+    duration_medium: "0.25s"
+    duration_long: "0.4s"
+    timing_function: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+    transitions:
+      - "opacity"
+      - "transform"
+      - "background-color"
+      - "border-color"
+      - "box-shadow"
+  
+  # Spacing and Layout
+  spacing:
+    tiny: "4px"
+    small: "8px"
+    medium: "16px"
+    large: "24px"
+    xlarge: "32px"
+    xxlarge: "48px"
+  
+  # Element Styling
+  elements:
+    card:
+      background: "#FFFFFF"
+      border_radius: 8
+      shadow: "0 2px 8px rgba(0, 0, 0, 0.1)"
+      padding: "16px"
+      margin_bottom: "16px"
+    
+    divider:
+      color: "rgba(0, 0, 0, 0.08)"
+      thickness: "1px"
+      margin: "16px 0"
+
+# Main Interface
+main_interface:
+  # Window Settings
+  window:
+    min_width: "900px"
+    min_height: "600px"
+    default_width: "1000px"
+    default_height: "700px"
+    background: "#F8F9FA"
+    padding: "0"
+  
+  # Layout
+  layout:
+    type: "split"  # Options: split, unified
+    sidebar_width: "280px"
+    content_width: "auto"
+    padding: "24px"
+  
+  # Header
+  header:
+    height: "64px"
+    background: "#FFFFFF"
+    shadow: "0 2px 4px rgba(0, 0, 0, 0.05)"
+    padding: "0 24px"
+    
+    # Title
+    title:
+      text: "Settings"
+      color: "#2C3E50"
+      font_size: 20
+      font_weight: "medium"
+    
+    # Search Bar
+    search:
+      width: "300px"
+      height: "40px"
+      background: "#F8F9FA"
+      border: "none"
+      border_radius: 20
+      padding: "0 16px 0 40px"
+      placeholder: "Search settings..."
+      placeholder_color: "#7F8C8D"
+      icon: "search"
+      icon_color: "#7F8C8D"
+      icon_size: 16
+      icon_position: "left"
+      icon_padding: "12px"
+      focus:
+        background: "#FFFFFF"
+        shadow: "0 2px 8px rgba(0, 0, 0, 0.1)"
+  
+  # Sidebar
+  sidebar:
+    background: "#FFFFFF"
+    border_right: "1px solid rgba(0, 0, 0, 0.08)"
+    padding: "16px 0"
+    
+    # Category Navigation
+    categories:
+      # Category Item
+      item:
+        height: "56px"
+        padding: "0 24px"
+        margin: "4px 0"
+        border_radius: 0
+        
+        # Icon
+        icon:
+          size: "24px"
+          margin_right: "16px"
+          color: "#7F8C8D"
+        
+        # Label
+        label:
+          color: "#2C3E50"
+          font_size: 14
+          font_weight: "regular"
+        
+        # States
+        states:
+          active:
+            background: "rgba(52, 152, 219, 0.08)"
+            border_left: "4px solid #3498DB"
+            padding_left: "20px"
+            
+            icon:
+              color: "#3498DB"
+            
+            label:
+              font_weight: "medium"
+          
+          hover:
+            background: "rgba(0, 0, 0, 0.03)"
+      
+      # Category Group
+      group:
+        margin_top: "24px"
+        
+        # Group Header
+        header:
+          padding: "0 24px 8px 24px"
+          color: "#7F8C8D"
+          font_size: 12
+          font_weight: "medium"
+          text_transform: "uppercase"
+          letter_spacing: "0.5px"
+    
+    # Quick Settings Panel
+    quick_settings:
+      margin_top: "24px"
+      padding: "16px 24px"
+      background: "#F8F9FA"
+      border_radius: 8
+      
+      # Title
+      title:
+        text: "Quick Settings"
+        color: "#2C3E50"
+        font_size: 14
+        font_weight: "medium"
+        margin_bottom: "16px"
+      
+      # Toggles
+      toggles:
+        display: "grid"
+        grid_template_columns: "1fr 1fr"
+        gap: "12px"
+        
+        # Toggle Item
+        item:
+          display: "flex"
+          flex_direction: "column"
+          align_items: "center"
+          padding: "12px 8px"
+          border_radius: 8
+          
+          # Icon
+          icon:
+            size: "24px"
+            color: "#3498DB"
+            margin_bottom: "8px"
+          
+          # Label
+          label:
+            color: "#2C3E50"
+            font_size: 12
+            text_align: "center"
+          
+          # States
+          states:
+            hover:
+              background: "rgba(0, 0, 0, 0.03)"
+            
+            active:
+              background: "rgba(52, 152, 219, 0.08)"
+  
+  # Main Content
+  content:
+    background: "#F8F9FA"
+    padding: "24px"
+    
+    # Section Header
+    section_header:
+      margin_bottom: "24px"
+      
+      # Title
+      title:
+        color: "#2C3E50"
+        font_size: 24
+        font_weight: "light"
+        margin_bottom: "8px"
+      
+      # Description
+      description:
+        color: "#7F8C8D"
+        font_size: 14
+        max_width: "600px"
+    
+    # Breadcrumbs
+    breadcrumbs:
+      margin_bottom: "16px"
+      
+      # Item
+      item:
+        color: "#7F8C8D"
+        font_size: 13
+        margin_right: "4px"
+        
+        # States
+        states:
+          active:
+            color: "#2C3E50"
+          
+          hover:
+            color: "#3498DB"
+      
+      # Separator
+      separator:
+        content: "/"
+        color: "#BDC3C7"
+        margin: "0 4px"
+    
+    # Settings Group
+    settings_group:
+      margin_bottom: "32px"
+      
+      # Group Header
+      header:
+        margin_bottom: "16px"
+        
+        # Title
+        title:
+          color: "#2C3E50"
+          font_size: 18
+          font_weight: "medium"
+        
+        # Description
+        description:
+          color: "#7F8C8D"
+          font_size: 14
+          margin_top: "4px"
+      
+      # Settings Card
+      card:
+        background: "#FFFFFF"
+        border_radius: 8
+        shadow: "0 2px 8px rgba(0, 0, 0, 0.05)"
+        padding: "0"
+        overflow: "hidden"
+        
+        # Individual Setting
+        setting:
+          padding: "16px 24px"
+          display: "flex"
+          align_items: "center"
+          justify_content: "space-between"
+          min_height: "56px"
+          border_bottom: "1px solid rgba(0, 0, 0, 0.08)"
+          
+          # Label and Description Container
+          info:
+            flex: 1
+            margin_right: "16px"
+            
+            # Label
+            label:
+              color: "#2C3E50"
+              font_size: 14
+              font_weight: "medium"
+            
+            # Description
+            description:
+              color: "#7F8C8D"
+              font_size: 13
+              margin_top: "4px"
+          
+          # Control Container
+          control:
+            flex: "0 0 auto"
+          
+          # States
+          states:
+            hover:
+              background: "rgba(0, 0, 0, 0.01)"
+            
+            disabled:
+              opacity: 0.5
+              pointer_events: "none"
+    
+    # Tabs
+    tabs:
+      margin_bottom: "24px"
+      border_bottom: "1px solid rgba(0, 0, 0, 0.08)"
+      
+      # Tab Item
+      tab:
+        padding: "12px 16px"
+        margin_right: "8px"
+        color: "#7F8C8D"
+        font_size: 14
+        border_bottom: "2px solid transparent"
+        
+        # States
+        states:
+          active:
+            color: "#3498DB"
+            border_bottom_color: "#3498DB"
+          
+          hover:
+            color: "#2C3E50"
+    
+    # Footer
+    footer:
+      padding: "16px 0"
+      margin_top: "32px"
+      border_top: "1px solid rgba(0, 0, 0, 0.08)"
+      
+      # Buttons
+      buttons:
+        display: "flex"
+        justify_content: "flex-end"
+        gap: "16px"
+
+# Settings Categories
+categories:
+  # Appearance Settings
+  appearance:
+    id: "appearance"
+    title: "Appearance"
+    icon: "palette"
+    description: "Customize how ShadowlyOS looks"
+    
+    # Subcategories
+    subcategories:
+      # Themes
+      themes:
+        title: "Themes"
+        icon: "brush"
+        description: "Change the visual theme of your system"
+        
+        # Settings
+        settings:
+          # Theme Selection
+          theme_selection:
+            type: "theme_selector"
+            label: "System Theme"
+            description: "Choose between light, dark, or auto themes"
+            options:
+              - id: "light"
+                name: "Light"
+                icon: "sun"
+                preview_image: "/usr/share/shadowly/themes/light-preview.png"
+              
+              - id: "dark"
+                name: "Dark"
+                icon: "moon"
+                preview_image: "/usr/share/shadowly/themes/dark-preview.png"
+              
+              - id: "auto"
+                name: "Auto"
+                icon: "sync"
+                description: "Switch automatically based on time of day"
+                preview_image: "/usr/share/shadowly/themes/auto-preview.png"
+          
+          # Accent Color
+          accent_color:
+            type: "color_picker"
+            label: "Accent Color"
+            description: "Select the highlight color used throughout the system"
+            options:
+              - id: "blue"
+                color: "#3498DB"
+                name: "Blue"
+              
+              - id: "green"
+                color: "#2ECC71"
+                name: "Green"
+              
+              - id: "purple"
+                color: "#9B59B6"
+                name: "Purple"
+              
+              - id: "orange"
+                color: "#F39C12"
+                name: "Orange"
+              
+              - id: "red"
+                color: "#E74C3C"
+                name: "Red"
+              
+              - id: "teal"
+                color: "#1ABC9C"
+                name: "Teal"
+              
+              - id: "custom"
+                name: "Custom"
+                custom: true
+          
+          # Night Light
+          night_light:
+            type: "toggle_with_options"
+            label: "Night Light"
+            description: "Reduce blue light at night to help you sleep better"
+            default: false
+            
+            # Options
+            options:
+              schedule:
+                type: "radio"
+                label: "Schedule"
+                default: "sunset_to_sunrise"
+                choices:
+                  - id: "sunset_to_sunrise"
+                    label: "Sunset to Sunrise"
+                  
+                  - id: "custom"
+                    label: "Custom Hours"
+              
+              custom_time:
+                type: "time_range"
+                label: "Custom Hours"
+                depends_on: "schedule=custom"
+                default_start: "22:00"
+                default_end: "06:00"
+              
+              intensity:
+                type: "slider"
+                label: "Color Temperature"
+                min: 1
+                max: 5
+                default: 2
+                low_label: "Less Warm"
+                high_label: "More Warm"
+      
+      # Fonts
+      fonts:
+        title: "Fonts"
+        icon: "font"
+        description: "Customize text appearance"
+        
+        # Settings
+        settings:
+          # System Font
+          system_font:
+            type: "font_selector"
+            label: "System Font"
+            description: "Change the font used throughout the system"
+            options:
+              - id: "roboto"
+                name: "Roboto (Default)"
+                preview: "AaBbCcDd 123"
+              
+              - id: "open_sans"
+                name: "Open Sans"
+                preview: "AaBbCcDd 123"
+              
+              - id: "noto_sans"
+                name: "Noto Sans"
+                preview: "AaBbCcDd 123"
+              
+              - id: "ubuntu"
+                name: "Ubuntu"
+                preview: "AaBbCcDd 123"
+              
+              - id: "custom"
+                name: "Custom Font"
+                custom: true
+          
+          # Font Size
+          font_size:
+            type: "slider"
+            label: "Font Size"
+            description: "Adjust the size of text throughout the system"
+            min: -2
+            max: 4
+            default: 0
+            step: 1
+            formatter: (value) => value === 0 ? "Default" : (value > 0 ? `+${value}` : value)
+          
+          # Font Hinting
+          font_hinting:
+            type: "dropdown"
+            label: "Font Hinting"
+            description: "Adjust how fonts are rendered"
+            default: "slight"
+            options:
+              - id: "none"
+                name: "None"
+              
+              - id: "slight"
+                name: "Slight"
+              
+              - id: "medium"
+                name: "Medium"
+              
+              - id: "full"
+                name: "Full"
+      
+      # Desktop
+      desktop:
+        title: "Desktop"
+        icon: "desktop"
+        description: "Configure desktop appearance"
+        
+        # Settings
+        settings:
+          # Wallpaper
+          wallpaper:
+            type: "wallpaper_picker"
+            label: "Wallpaper"
+            description: "Choose your desktop background image"
+            default: "/usr/share/backgrounds/shadowly/default-wallpaper.svg"
+            
+            # Built-in Wallpapers
+            built_in:
+              - id: "default"
+                name: "ShadowlyOS Default"
+                path: "/usr/share/backgrounds/shadowly/default-wallpaper.svg"
+                thumbnail: "/usr/share/backgrounds/shadowly/thumbnails/default-wallpaper.png"
+              
+              - id: "geometric"
+                name: "Geometric Flow"
+                path: "/usr/share/backgrounds/shadowly/geometric-flow.svg"
+                thumbnail: "/usr/share/backgrounds/shadowly/thumbnails/geometric-flow.png"
+              
+              - id: "mountain"
+                name: "Mountain Shadow"
+                path: "/usr/share/backgrounds/shadowly/mountain-shadow.svg"
+                thumbnail: "/usr/share/backgrounds/shadowly/thumbnails/mountain-shadow.png"
+            
+            # Options
+            options:
+              style:
+                type: "dropdown"
+                label: "Style"
+                default: "zoom"
+                choices:
+                  - id: "zoom"
+                    name: "Zoom"
+                  
+                  - id: "stretch"
+                    name: "Stretch"
+                  
+                  - id: "center"
+                    name: "Center"
+                  
+                  - id: "tile"
+                    name: "Tile"
+          
+          # Icon Size
+          icon_size:
+            type: "slider"
+            label: "Desktop Icon Size"
+            min: 16
+            max: 48
+            default: 32
+            unit: "px"
+          
+          # Show Desktop Icons
+          show_desktop_icons:
+            type: "toggle"
+            label: "Show Desktop Icons"
+            description: "Display icons on your desktop"
+            default: true
+  
+  # Sound Settings
+  sound:
+    id: "sound"
+    title: "Sound"
+    icon: "volume-up"
+    description: "Configure system sounds and audio"
+    
+    # Subcategories
+    subcategories:
+      # Volume
+      volume:
+        title: "Volume"
+        icon: "sliders-h"
+        description: "Adjust system volume levels"
+        
+        # Settings
+        settings:
+          # Output Volume
+          output_volume:
+            type: "volume_slider"
+            label: "Output Volume"
+            description: "Adjust the main output volume"
+            icon: "volume-up"
+            min: 0
+            max: 100
+            default: 80
+            mute_toggle: true
+          
+          # Input Volume
+          input_volume:
+            type: "volume_slider"
+            label: "Input Volume"
+            description: "Adjust the microphone volume"
+            icon: "microphone"
+            min: 0
+            max: 100
+            default: 80
+            mute_toggle: true
+          
+          # Balance
+          balance:
+            type: "balance_slider"
+            label: "Balance"
+            description: "Adjust the left/right audio balance"
+            default: 0
+            min: -100
+            max: 100
+            left_label: "Left"
+            right_label: "Right"
+          
+          # Volume Levels
+          volume_levels:
+            type: "multi_slider"
+            label: "Volume Levels"
+            description: "Adjust individual volume levels"
+            sliders:
+              - id: "system"
+                label: "System Sounds"
+                default: 90
+              
+              - id: "media"
+                label: "Media"
+                default: 100
+              
+              - id: "calls"
+                label: "Calls"
+                default: 100
+              
+              - id: "notifications"
+                label: "Notifications"
+                default: 80
+      
+      # Sound Theme
+      sound_theme:
+        title: "Sound Theme"
+        icon: "music"
+        description: "Customize system sound effects"
+        
+        # Settings
+        settings:
+          # Sound Profile
+          sound_profile:
+            type: "profile_selector"
+            label: "Sound Profile"
+            description: "Choose a predefined sound configuration"
+            default: "normal"
+            options:
+              - id: "normal"
+                name: "Normal"
+                description: "Balanced sound profile with all feedback enabled"
+                icon: "volume-up"
+              
+              - id: "quiet"
+                name: "Quiet"
+                description: "Reduced sounds for quiet environments"
+                icon: "volume-down"
+              
+              - id: "silent"
+                name: "Silent"
+                description: "Critical sounds only"
+                icon: "volume-mute"
+              
+              - id: "meeting"
+                name: "Meeting"
+                description: "Do not disturb mode for meetings"
+                icon: "user-friends"
+              
+              - id: "accessibility"
+                name: "Accessibility"
+                description: "Enhanced sounds for accessibility needs"
+                icon: "universal-access"
+          
+          # Alert Volume
+          alert_volume:
+            type: "slider"
+            label: "Alert Volume"
+            description: "Volume level for alerts and system events"
+            min: 0
+            max: 100
+            default: 70
+            unit: "%"
+          
+          # Enable Event Sounds
+          enable_event_sounds:
+            type: "toggle"
+            label: "Enable Event Sounds"
+            description: "Play sounds for system events"
+            default: true
+          
+          # Enable Input Feedback
+          enable_input_feedback:
+            type: "toggle"
+            label: "Enable Input Feedback"
+            description: "Play sounds when interacting with the interface"
+            default: true
+          
+          # Sound Scheduler
+          sound_scheduler:
+            type: "toggle_with_options"
+            label: "Sound Scheduler"
+            description: "Automatically switch sound profiles based on time"
+            default: false
+            
+            # Options
+            options:
+              day_profile:
+                type: "dropdown"
+                label: "Day Profile"
+                default: "normal"
+                options:
+                  - id: "normal"
+                    name: "Normal"
+                  
+                  - id: "quiet"
+                    name: "Quiet"
+              
+              night_profile:
+                type: "dropdown"
+                label: "Night Profile"
+                default: "quiet"
+                options:
+                  - id: "quiet"
+                    name: "Quiet"
+                  
+                  - id: "silent"
+                    name: "Silent"
+              
+              day_time:
+                type: "time_range"
+                label: "Day Hours"
+                default_start: "08:00"
+                default_end: "22:00"
+      
+      # Sound Devices
+      sound_devices:
+        title: "Sound Devices"
+        icon: "headphones"
+        description: "Manage audio devices"
+        
+        # Settings
+        settings:
+          # Output Device
+          output_device:
+            type: "device_selector"
+            label: "Output Device"
+            description: "Choose where to play sound"
+            device_type: "output"
+          
+          # Input Device
+          input_device:
+            type: "device_selector"
+            label: "Input Device"
+            description: "Choose which microphone to use"
+            device_type: "input"
+          
+          # Output Sample Rate
+          output_sample_rate:
+            type: "dropdown"
+            label: "Output Quality"
+            description: "Set audio quality for output devices"
+            default: "automatic"
+            options:
+              - id: "automatic"
+                name: "Automatic"
+              
+              - id: "cd"
+                name: "CD Quality (44.1kHz, 16-bit)"
+              
+              - id: "dvd"
+                name: "DVD Quality (48kHz, 16-bit)"
+              
+              - id: "studio"
+                name: "Studio Quality (96kHz, 24-bit)"
+          
+          # Microphone Mode
+          microphone_mode:
+            type: "dropdown"
+            label: "Microphone Mode"
+            description: "Configure microphone processing"
+            default: "standard"
+            options:
+              - id: "standard"
+                name: "Standard"
+              
+              - id: "voice"
+                name: "Voice Focus"
+                description: "Optimize for voice clarity"
+              
+              - id: "high_fidelity"
+                name: "High Fidelity"
+                description: "Optimize for accurate sound capture"
+  
+  # Notifications
+  notifications:
+    id: "notifications"
+    title: "Notifications"
+    icon: "bell"
+    description: "Manage notifications and alerts"
+    
+    # Subcategories
+    subcategories:
+      # Notification Settings
+      settings:
+        title: "Settings"
+        icon: "cog"
+        description: "Configure notification behavior"
+        
+        # Settings
+        settings:
+          # Do Not Disturb
+          do_not_disturb:
+            type: "toggle_with_options"
+            label: "Do Not Disturb"
+            description: "Temporarily disable notifications"
+            default: false
+            
+            # Options
+            options:
+              schedule:
+                type: "toggle"
+                label: "Scheduled"
+                default: false
+              
+              scheduled_time:
+                type: "time_range"
+                label: "Schedule"
+                depends_on: "schedule=true"
+                default_start: "22:00"
+                default_end: "07:00"
+              
+              allow_priority:
+                type: "toggle"
+                label: "Allow Priority Notifications"
+                default: true
+          
+          # Notification Display
+          notification_display:
+            type: "radio"
+            label: "Notification Display"
+            description: "How notifications appear on screen"
+            default: "show_all"
+            options:
+              - id: "show_all"
+                name: "Show all notifications"
+              
+              - id: "hide_on_lock_screen"
+                name: "Hide sensitive content on lock screen"
+              
+              - id: "hide_all_lock_screen"
+                name: "Hide all notifications on lock screen"
+          
+          # Notification Sounds
+          notification_sounds:
+            type: "toggle"
+            label: "Notification Sounds"
+            description: "Play sounds for notifications"
+            default: true
+          
+          # Notification Center
+          notification_center:
+            type: "multi_toggle"
+            label: "Notification Center"
+            toggles:
+              - id: "show_on_lock_screen"
+                label: "Show on Lock Screen"
+                default: true
+              
+              - id: "group_by_app"
+                label: "Group by Application"
+                default: true
+              
+              - id: "show_media_controls"
+                label: "Show Media Controls"
+                default: true
+      
+      # Application Notifications
+      applications:
+        title: "Applications"
+        icon: "th-large"
+        description: "Configure notifications per application"
+        
+        # Settings
+        settings:
+          # Applications list is dynamically generated
+          # This is a template for the UI
+          app_notification_template:
+            type: "app_notification_settings"
+            search: true
+            sort_by: "name"
+            
+            # Per-app settings
+            app_settings:
+              - type: "toggle"
+                label: "Allow Notifications"
+                id: "enabled"
+              
+              - type: "dropdown"
+                label: "Priority"
+                id: "priority"
+                options:
+                  - id: "low"
+                    name: "Low"
+                  
+                  - id: "normal"
+                    name: "Normal"
+                  
+                  - id: "high"
+                    name: "High"
+                  
+                  - id: "urgent"
+                    name: "Urgent"
+              
+              - type: "toggle"
+                label: "Show Banners"
+                id: "show_banners"
+              
+              - type: "toggle"
+                label: "Play Sound"
+                id: "sound"
+              
+              - type: "toggle"
+                label: "Show in Notification Center"
+                id: "show_in_center"
+  
+  # Privacy & Security
+  privacy_security:
+    id: "privacy_security"
+    title: "Privacy & Security"
+    icon: "shield-alt"
+    description: "Manage privacy and security settings"
+    
+    # Subcategories
+    subcategories:
+      # Privacy
+      privacy:
+        title: "Privacy"
+        icon: "user-shield"
+        description: "Manage app permissions and data sharing"
+        
+        # Settings
+        settings:
+          # Location Services
+          location_services:
+            type: "toggle_with_options"
+            label: "Location Services"
+            description: "Allow apps to access your location"
+            default: true
+            
+            # Options
+            options:
+              recently_used:
+                type: "info_list"
+                label: "Recently Used Location"
+                empty_text: "No apps have used your location recently"
+              
+              permission_template:
+                type: "app_permission_list"
+                permission: "location"
+          
+          # Camera & Microphone
+          camera_microphone:
+            type: "section"
+            label: "Camera & Microphone"
+            settings:
+              - type: "toggle"
+                id: "camera_access"
+                label: "Camera Access"
+                description: "Allow apps to use your camera"
+                default: true
+              
+              - type: "toggle"
+                id: "microphone_access"
+                label: "Microphone Access"
+                description: "Allow apps to use your microphone"
+                default: true
+              
+              - type: "app_permission_list"
+                id: "camera_apps"
+                permission: "camera"
+                depends_on: "camera_access=true"
+              
+              - type: "app_permission_list"
+                id: "microphone_apps"
+                permission: "microphone"
+                depends_on: "microphone_access=true"
+          
+          # Usage Statistics
+          usage_statistics:
+            type: "toggle"
+            label: "Usage Statistics"
+            description: "Help improve ShadowlyOS by sending anonymous usage data"
+            default: true
+          
+          # Clear Data
+          clear_data:
+            type: "action_button"
+            label: "Clear Personal Data"
+            button_text: "Clear Data"
+            button_style: "danger"
+            confirmation:
+              title: "Clear Personal Data"
+              message: "This will clear all personal data including browsing history, cookies, and saved passwords. This action cannot be undone."
+              confirm_button: "Clear Data"
+              cancel_button: "Cancel"
+      
+      # Security
+      security:
+        title: "Security"
+        icon: "lock"
+        description: "Configure system security settings"
+        
+        # Settings
+        settings:
+          # Screen Lock
+          screen_lock:
+            type: "section"
+            label: "Screen Lock"
+            settings:
+              - type: "dropdown"
+                id: "lock_type"
+                label: "Lock Screen Type"
+                default: "password"
+                options:
+                  - id: "none"
+                    name: "None"
+                  
+                  - id: "swipe"
+                    name: "Swipe"
+                  
+                  - id: "pattern"
+                    name: "Pattern"
+                  
+                  - id: "pin"
+                    name: "PIN"
+                  
+                  - id: "password"
+                    name: "Password"
+              
+              - type: "password_input"
+                id: "lock_password"
+                label: "Password"
+                depends_on: "lock_type=password"
+              
+              - type: "pin_input"
+                id: "lock_pin"
+                label: "PIN"
+                depends_on: "lock_type=pin"
+              
+              - type: "pattern_input"
+                id: "lock_pattern"
+                label: "Pattern"
+                depends_on: "lock_type=pattern"
+              
+              - type: "slider"
+                id: "lock_delay"
+                label: "Lock after screen turns off"
+                min: 0
+                max: 30
+                default: 5
+                unit: "min"
+                special_value:
+                  value: 0
+                  label: "Immediately"
+                depends_on: "lock_type!=none"
+          
+          # Automatic Updates
+          automatic_updates:
+            type: "toggle_with_options"
+            label: "Automatic Updates"
+            description: "Keep your system up-to-date automatically"
+            default: true
+            
+            # Options
+            options:
+              update_type:
+                type: "radio"
+                label: "Update Type"
+                default: "security"
+                options:
+                  - id: "security"
+                    name: "Security updates only"
+                  
+                  - id: "all"
+                    name: "All updates"
+              
+              schedule:
+                type: "radio"
+                label: "Schedule"
+                default: "daily"
+                options:
+                  - id: "daily"
+                    name: "Check daily"
+                  
+                  - id: "weekly"
+                    name: "Check weekly"
+          
+          # Firewall
+          firewall:
+            type: "toggle_with_options"
+            label: "Firewall"
+            description: "Protect your system from unauthorized access"
+            default: true
+            
+            # Options
+            options:
+              protection_level:
+                type: "dropdown"
+                label: "Protection Level"
+                default: "standard"
+                options:
+                  - id: "standard"
+                    name: "Standard"
+                    description: "Block most incoming connections"
+                  
+                  - id: "strict"
+                    name: "Strict"
+                    description: "Block all unauthorized connections"
+                  
+                  - id: "custom"
+                    name: "Custom"
+                    description: "Manually configure firewall rules"
+              
+              advanced_button:
+                type: "action_button"
+                label: "Advanced Settings"
+                button_text: "Configure"
+                button_style: "secondary"
+      
+      # Disk Encryption
+      disk_encryption:
+        title: "Disk Encryption"
+        icon: "hdd"
+        description: "Protect your data with encryption"
+        
+        # Settings
+        settings:
+          # Encryption Status
+          encryption_status:
+            type: "info_panel"
+            label: "Encryption Status"
+            status_text: "{{status}}"
+            status_values:
+              - id: "encrypted"
+                text: "Your disk is encrypted"
+                icon: "lock"
+                color: "#2ECC71"
+              
+              - id: "partially_encrypted"
+                text: "Your disk is partially encrypted"
+                icon: "lock-open"
+                color: "#F39C12"
+              
+              - id: "not_encrypted"
+                text: "Your disk is not encrypted"
+                icon: "unlock"
+                color: "#E74C3C"
+          
+          # Enable Encryption
+          enable_encryption:
+            type: "action_button"
+            label: "Encrypt your disk to protect your data"
+            button_text: "Enable Encryption"
+            button_style: "primary"
+            depends_on: "encryption_status!=encrypted"
+          
+          # Change Passphrase
+          change_passphrase:
+            type: "action_button"
+            label: "Change your encryption passphrase"
+            button_text: "Change Passphrase"
+            button_style: "secondary"
+            depends_on: "encryption_status=encrypted"
+  
+  # Accessibility
+  accessibility:
+    id: "accessibility"
+    title: "Accessibility"
+    icon: "universal-access"
+    description: "Make ShadowlyOS easier to use"
+    
+    # Subcategories
+    subcategories:
+      # Vision
+      vision:
+        title: "Vision"
+        icon: "eye"
+        description: "Settings to help with visual impairments"
+        
+        # Settings
+        settings:
+          # High Contrast
+          high_contrast:
+            type: "toggle"
+            label: "High Contrast"
+            description: "Increase the contrast between text and backgrounds"
+            default: false
+          
+          # Text Size
+          text_size:
+            type: "slider"
+            label: "Text Size"
+            description: "Adjust the size of text throughout the system"
+            min: 100
+            max: 200
+            default: 100
+            unit: "%"
+            step: 10
+          
+          # Cursor Size
+          cursor_size:
+            type: "slider"
+            label: "Cursor Size"
+            description: "Adjust the size of the mouse cursor"
+            min: 16
+            max: 64
+            default: 24
+            unit: "px"
+          
+          # Screen Reader
+          screen_reader:
+            type: "toggle_with_options"
+            label: "Screen Reader"
+            description: "Read on-screen text aloud"
+            default: false
+            
+            # Options
+            options:
+              voice:
+                type: "dropdown"
+                label: "Voice"
+                default: "default"
+                options:
+                  - id: "default"
+                    name: "Default"
+                  
+                  - id: "male"
+                    name: "Male"
+                  
+                  - id: "female"
+                    name: "Female"
+              
+              speech_rate:
+                type: "slider"
+                label: "Speech Rate"
+                min: 50
+                max: 200
+                default: 100
+                unit: "%"
+      
+      # Hearing
+      hearing:
+        title: "Hearing"
+        icon: "deaf"
+        description: "Settings to help with hearing impairments"
+        
+        # Settings
+        settings:
+          # Visual Alerts
+          visual_alerts:
+            type: "toggle"
+            label: "Visual Alerts"
+            description: "Flash the screen for alerts and notifications"
+            default: false
+          
+          # Mono Audio
+          mono_audio:
+            type: "toggle"
+            label: "Mono Audio"
+            description: "Combine left and right audio channels"
+            default: false
+          
+          # Sound Balance
+          sound_balance:
+            type: "balance_slider"
+            label: "Sound Balance"
+            description: "Adjust the left/right audio balance"
+            default: 0
+            min: -100
+            max: 100
+            left_label: "Left"
+            right_label: "Right"
+      
+      # Interaction
+      interaction:
+        title: "Interaction"
+        icon: "hand-pointer"
+        description: "Settings to help with physical and motor impairments"
+        
+        # Settings
+        settings:
+          # Sticky Keys
+          sticky_keys:
+            type: "toggle"
+            label: "Sticky Keys"
+            description: "Press keyboard modifier keys one at a time"
+            default: false
+          
+          # Slow Keys
+          slow_keys:
+            type: "toggle_with_options"
+            label: "Slow Keys"
+            description: "Add a delay between when a key is pressed and when it is accepted"
+            default: false
+            
+            # Options
+            options:
+              delay:
+                type: "slider"
+                label: "Delay"
+                min: 100
+                max: 1000
+                default: 300
+                unit: "ms"
+                step: 50
+          
+          # Mouse Keys
+          mouse_keys:
+            type: "toggle"
+            label: "Mouse Keys"
+            description: "Control the mouse cursor with the numeric keypad"
+            default: false
+          
+          # Click Assist
+          click_assist:
+            type: "toggle_with_options"
+            label: "Click Assist"
+            description: "Make clicking easier"
+            default: false
+            
+            # Options
+            options:
+              hover_click:
+                type: "toggle"
+                label: "Hover Click"
+                description: "Click by hovering the mouse"
+                default: false
+              
+              hover_time:
+                type: "slider"
+                label: "Hover Time"
+                description: "Time to hover before clicking"
+                min: 500
+                max: 3000
+                default: 1000
+                unit: "ms"
+                step: 100
+                depends_on: "hover_click=true"
+              
+              double_click_interval:
+                type: "slider"
+                label: "Double-click Interval"
+                description: "Time allowed between clicks of a double-click"
+                min: 200
+                max: 1000
+                default: 400
+                unit: "ms"
+                step: 50
+
+# Interactive Elements
+interactive_elements:
+  # Toggle Switch
+  toggle:
+    height: "24px"
+    width: "44px"
+    border_radius: "12px"
+    thumb_size: "20px"
+    thumb_border_radius: "10px"
+    
+    # States
+    states:
+      off:
+        track_color: "#BDC3C7"
+        thumb_color: "#FFFFFF"
+        shadow: "0 1px 3px rgba(0, 0, 0, 0.2)"
+      
+      on:
+        track_color: "#3498DB"
+        thumb_color: "#FFFFFF"
+        shadow: "0 1px 3px rgba(0, 0, 0, 0.2)"
+      
+      disabled_off:
+        track_color: "#DDDDDD"
+        thumb_color: "#EEEEEE"
+        opacity: 0.5
+      
+      disabled_on:
+        track_color: "#A1CBF1"
+        thumb_color: "#EEEEEE"
+        opacity: 0.5
+    
+    # Animation
+    animation:
+      duration: "0.2s"
+      timing_function: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+  
+  # Slider
+  slider:
+    track_height: "4px"
+    track_border_radius: "2px"
+    thumb_size: "18px"
+    thumb_border_radius: "9px"
+    
+    # States
+    states:
+      normal:
+        track_color: "#BDC3C7"
+        track_fill_color: "#3498DB"
+        thumb_color: "#FFFFFF"
+        thumb_border: "none"
+        thumb_shadow: "0 1px 3px rgba(0, 0, 0, 0.2)"
+      
+      hover:
+        thumb_shadow: "0 1px 5px rgba(0, 0, 0, 0.3)"
+      
+      active:
+        thumb_color: "#3498DB"
+        thumb_shadow: "0 1px 4px rgba(52, 152, 219, 0.3)"
+      
+      disabled:
+        track_color: "#DDDDDD"
+        track_fill_color: "#A1CBF1"
+        thumb_color: "#EEEEEE"
+        opacity: 0.5
+    
+    # Animation
+    animation:
+      duration: "0.1s"
+      timing_function: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+  
+  # Dropdown
+  dropdown:
+    height: "40px"
+    background: "#FFFFFF"
+    border: "1px solid #BDC3C7"
+    border_radius: "4px"
+    padding: "0 12px"
+    
+    # Arrow
+    arrow:
+      size: "10px"
+      color: "#7F8C8D"
+    
+    # States
+    states:
+      hover:
+        border: "1px solid #3498DB"
+      
+      focus:
+        border: "1px solid #3498DB"
+        shadow: "0 0 0 2px rgba(52, 152, 219, 0.2)"
+      
+      disabled:
+        background: "#F8F9FA"
+        color: "#BDC3C7"
+        opacity: 0.7
+    
+    # Dropdown Menu
+    menu:
+      background: "#FFFFFF"
+      border: "1px solid #BDC3C7"
+      border_radius: "4px"
+      shadow: "0 2px 10px rgba(0, 0, 0, 0.1)"
+      max_height: "300px"
+      
+      # Item
+      item:
+        height: "40px"
+        padding: "0 12px"
+        
+        # States
+        states:
+          hover:
+            background: "#F8F9FA"
+          
+          selected:
+            background: "rgba(52, 152, 219, 0.1)"
+          
+          disabled:
+            color: "#BDC3C7"
+            opacity: 0.7
+    
+    # Animation
+    animation:
+      duration: "0.2s"
+      timing_function: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+  
+  # Color Picker
+  color_picker:
+    # Color Swatch
+    swatch:
+      size: "30px"
+      border_radius: "15px"
+      border: "1px solid rgba(0, 0, 0, 0.1)"
+      margin: "4px"
+      
+      # States
+      states:
+        hover:
+          transform: "scale(1.1)"
+          shadow: "0 2px 5px rgba(0, 0, 0, 0.2)"
+        
+        selected:
+          border: "2px solid #FFFFFF"
+          shadow: "0 0 0 2px #3498DB"
+    
+    # Custom Color Picker
+    custom:
+      width: "300px"
+      height: "auto"
+      background: "#FFFFFF"
+      border: "1px solid #BDC3C7"
+      border_radius: "4px"
+      shadow: "0 2px 10px rgba(0, 0, 0, 0.1)"
+      
+      # Color Area
+      color_area:
+        height: "150px"
+        border_radius: "4px"
+        margin_bottom: "12px"
+      
+      # Hue Slider
+      hue_slider:
+        height: "20px"
+        border_radius: "4px"
+        margin_bottom: "12px"
+      
+      # Input Fields
+      inputs:
+        height: "36px"
+        margin_top: "12px"
+        
+        # Tabs
+        tabs:
+          height: "30px"
+          background: "#F8F9FA"
+          border_radius: "4px"
+          margin_bottom: "12px"
+    
+    # Animation
+    animation:
+      duration: "0.2s"
+      timing_function: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+  
+  # Profile Selector
+  profile_selector:
+    # Profile Card
+    card:
+      width: "120px"
+      height: "120px"
+      background: "#FFFFFF"
+      border: "1px solid #ECF0F1"
+      border_radius: "8px"
+      padding: "16px"
+      margin: "8px"
+      display: "flex"
+      flex_direction: "column"
+      align_items: "center"
+      justify_content: "center"
+      
+      # Icon
+      icon:
+        size: "32px"
+        color: "#3498DB"
+        margin_bottom: "12px"
+      
+      # Name
+      name:
+        color: "#2C3E50"
+        font_size: 14
+        font_weight: "medium"
+        text_align: "center"
+        margin_bottom: "4px"
+      
+      # Description
+      description:
+        color: "#7F8C8D"
+        font_size: 12
+        text_align: "center"
+        max_lines: 2
+        overflow: "ellipsis"
+      
+      # States
+      states:
+        hover:
+          border: "1px solid #BDC3C7"
+          background: "#F8F9FA"
+          transform: "translateY(-2px)"
+          shadow: "0 2px 8px rgba(0, 0, 0, 0.05)"
+        
+        selected:
+          border: "2px solid #3498DB"
+          shadow: "0 0 0 2px rgba(52, 152, 219, 0.2)"
+        
+        disabled:
+          opacity: 0.5
+    
+    # Animation
+    animation:
+      duration: "0.2s"
+      timing_function: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+
+# Responsive Design Settings
+responsive:
+  breakpoints:
+    small: "600px"
+    medium: "900px"
+    large: "1200px"
+  
+  adaptations:
+    small:
+      layout:
+        type: "unified"
+        sidebar_width: "100%"
+        padding: "16px"
+      
+      sidebar:
+        # Change to horizontal tab bar
+        display: "flex"
+        flex_wrap: "nowrap"
+        overflow_x: "auto"
+        padding: "0"
+        border_right: "none"
+        border_bottom: "1px solid rgba(0, 0, 0, 0.08)"
+        
+        # Category Item
+        categories:
+          item:
+            height: "auto"
+            width: "auto"
+            padding: "12px 16px"
+            flex: "0 0 auto"
+            
+            # States
+            states:
+              active:
+                background: "transparent"
+                border_left: "none"
+                border_bottom: "2px solid #3498DB"
+                padding_left: "16px"
+            
+            # Icon
+            icon:
+              margin_right: "8px"
+        
+        # Quick Settings
+        quick_settings:
+          display: "none"
+      
+      header:
+        padding: "0 16px"
+        
+        # Search
+        search:
+          width: "100%"
+      
+      interactive_elements:
+        # Profile Selector
+        profile_selector:
+          card:
+            width: "100%"
+            height: "auto"
+            flex_direction: "row"
+            padding: "12px"
+            
+            # Icon
+            icon:
+              margin_bottom: "0"
+              margin_right: "12px"
+

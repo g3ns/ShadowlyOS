@@ -1,0 +1,1227 @@
+# ShadowlyOS Welcome Screen Theme Configuration
+# This file defines the appearance and behavior of the first-boot welcome wizard
+
+---
+# Global Settings
+global:
+  # Brand Colors
+  colors:
+    primary: "#2C3E50"      # Dark blue/gray for primary elements
+    secondary: "#3498DB"    # Blue for accents and highlights
+    tertiary: "#ECF0F1"     # Light gray/white for backgrounds
+    success: "#2ECC71"      # Green for success messages
+    warning: "#F39C12"      # Orange for warnings
+    error: "#E74C3C"        # Red for errors
+    background: "#FFFFFF"   # White for main background
+    text_primary: "#2C3E50" # Dark blue/gray for text
+    text_secondary: "#7F8C8D" # Secondary text color
+    text_on_dark: "#FFFFFF" # White text for dark backgrounds
+  
+  # Typography
+  typography:
+    primary_font: "Roboto"
+    light_font: "Roboto Light"
+    bold_font: "Roboto Bold"
+    base_size: 14
+    title_size: 28
+    subtitle_size: 18
+    body_size: 14
+    caption_size: 12
+  
+  # Element Styling
+  elements:
+    button:
+      primary:
+        background: "#3498DB"
+        text: "#FFFFFF"
+        border_radius: 4
+        padding: "10px 20px"
+        hover:
+          background: "#2980B9"
+        active:
+          background: "#1F6EA1"
+        disabled:
+          background: "#BDC3C7"
+          text: "#7F8C8D"
+      
+      secondary:
+        background: "transparent"
+        text: "#3498DB"
+        border: "1px solid #3498DB"
+        border_radius: 4
+        padding: "10px 20px"
+        hover:
+          background: "rgba(52, 152, 219, 0.1)"
+        active:
+          background: "rgba(52, 152, 219, 0.2)"
+        disabled:
+          border: "#BDC3C7"
+          text: "#BDC3C7"
+    
+    input:
+      background: "#FFFFFF"
+      text: "#2C3E50"
+      border: "#BDC3C7"
+      border_radius: 4
+      padding: "10px 14px"
+      placeholder_color: "#7F8C8D"
+      focus:
+        border: "#3498DB"
+        shadow: "0 0 8px rgba(52, 152, 219, 0.3)"
+    
+    checkbox:
+      size: "20px"
+      border: "#BDC3C7"
+      border_radius: 3
+      checked_background: "#3498DB"
+      checked_icon_color: "#FFFFFF"
+    
+    radio:
+      size: "20px"
+      border: "#BDC3C7"
+      checked_color: "#3498DB"
+      checked_dot_color: "#FFFFFF"
+    
+    card:
+      background: "#FFFFFF"
+      border: "#ECF0F1"
+      border_radius: 8
+      shadow: "0 4px 15px rgba(0, 0, 0, 0.1)"
+    
+    tooltip:
+      background: "#2C3E50"
+      text: "#FFFFFF"
+      border_radius: 4
+      arrow_size: "6px"
+  
+  # Animation Settings
+  animations:
+    duration_short: "0.2s"
+    duration_medium: "0.3s"
+    duration_long: "0.5s"
+    timing_function: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+    transitions:
+      - "opacity"
+      - "transform"
+      - "background-color"
+      - "border-color"
+      - "box-shadow"
+
+# Main Layout Configuration
+layout:
+  # Window Settings
+  window:
+    width: "900px"
+    height: "600px"
+    min_width: "800px"
+    min_height: "550px"
+    position: "center"
+    background: "#FFFFFF"
+    border_radius: 8
+    shadow: "0 10px 30px rgba(0, 0, 0, 0.2)"
+    padding: 0
+  
+  # Main Container
+  main_container:
+    display: "flex"
+    direction: "row"
+  
+  # Sidebar
+  sidebar:
+    width: "280px"
+    background: "#2C3E50"
+    padding: "30px 0"
+    
+    # Logo Section
+    logo:
+      display: true
+      size: "100px"
+      margin_bottom: "30px"
+      align: "center"
+    
+    # Steps Navigation
+    steps_navigation:
+      padding: "0 20px"
+      
+      # Step Item
+      step_item:
+        height: "60px"
+        margin_bottom: "10px"
+        padding: "0 15px"
+        border_radius: 6
+        display: "flex"
+        align_items: "center"
+        
+        # Number Circle
+        number:
+          size: "28px"
+          border_radius: "50%"
+          background: "rgba(255, 255, 255, 0.1)"
+          color: "#FFFFFF"
+          font_size: 14
+          font_weight: "bold"
+          margin_right: "15px"
+          display: "flex"
+          align_items: "center"
+          justify_content: "center"
+        
+        # Step Text
+        text:
+          color: "#FFFFFF"
+          font_size: 14
+          opacity: 0.8
+        
+        # States
+        active:
+          background: "rgba(52, 152, 219, 0.2)"
+          
+          number:
+            background: "#3498DB"
+        
+        completed:
+          number:
+            background: "#2ECC71"
+            icon: "check"
+        
+        disabled:
+          opacity: 0.5
+        
+        hover:
+          background: "rgba(255, 255, 255, 0.05)"
+  
+  # Content Area
+  content:
+    flex: 1
+    padding: "40px"
+    
+    # Header
+    header:
+      margin_bottom: "30px"
+      
+      title:
+        color: "#2C3E50"
+        font_size: 28
+        font_weight: "light"
+        margin_bottom: "10px"
+      
+      subtitle:
+        color: "#7F8C8D"
+        font_size: 16
+        font_weight: "normal"
+        margin_bottom: "20px"
+    
+    # Main Content
+    main:
+      min_height: "340px"
+    
+    # Footer
+    footer:
+      display: "flex"
+      justify_content: "space-between"
+      margin_top: "40px"
+      
+      back_button:
+        width: "auto"
+      
+      next_button:
+        width: "auto"
+      
+      finish_button:
+        width: "auto"
+        display: "none" # Only shown on last step
+
+# Welcome Wizard Steps
+steps:
+  # Welcome Step
+  welcome:
+    id: "welcome"
+    title: "Welcome to ShadowlyOS"
+    subtitle: "Thank you for choosing ShadowlyOS! Let's set up your system."
+    
+    content:
+      type: "intro"
+      
+      # Welcome Image
+      image:
+        src: "/usr/share/shadowly/welcome/welcome-image.svg"
+        width: "320px"
+        height: "240px"
+        margin_bottom: "30px"
+      
+      # Welcome Message
+      message:
+        text: "ShadowlyOS is a modern, secure Linux distribution designed with simplicity and performance in mind. This wizard will help you set up your system and explore its features."
+        font_size: 16
+        color: "#2C3E50"
+        margin_bottom: "30px"
+      
+      # Key Features
+      features:
+        title: "Key Features"
+        font_size: 18
+        margin_bottom: "20px"
+        
+        items:
+          - icon: "shield-alt"
+            icon_color: "#3498DB"
+            title: "Enhanced Security"
+            description: "Advanced security features to keep your data safe"
+          
+          - icon: "tachometer-alt"
+            icon_color: "#2ECC71"
+            title: "High Performance"
+            description: "Optimized for speed and efficiency"
+          
+          - icon: "user-shield"
+            icon_color: "#F39C12"
+            title: "Privacy Focused"
+            description: "Strong privacy controls and protections"
+    
+    # Navigation
+    navigation:
+      back_button:
+        visible: false
+      
+      next_button:
+        text: "Let's Get Started"
+        icon: "arrow-right"
+  
+  # Language Selection
+  language:
+    id: "language"
+    title: "Choose Your Language"
+    subtitle: "Select your preferred language for ShadowlyOS"
+    
+    content:
+      type: "language_selection"
+      
+      # Search Field
+      search:
+        placeholder: "Search languages..."
+        margin_bottom: "20px"
+      
+      # Language Grid
+      language_grid:
+        columns: 2
+        gap: "15px"
+        
+        # Language Item
+        language_item:
+          height: "60px"
+          padding: "15px"
+          border: "1px solid #ECF0F1"
+          border_radius: 6
+          display: "flex"
+          align_items: "center"
+          
+          # Flag Icon
+          flag:
+            width: "24px"
+            height: "24px"
+            margin_right: "15px"
+          
+          # Language Name
+          name:
+            color: "#2C3E50"
+            font_size: 14
+          
+          # States
+          selected:
+            border: "2px solid #3498DB"
+            background: "rgba(52, 152, 219, 0.05)"
+          
+          hover:
+            border: "1px solid #BDC3C7"
+            background: "rgba(236, 240, 241, 0.5)"
+      
+      # Popular Languages
+      popular_languages:
+        - code: "en_US"
+          name: "English (US)"
+          flag: "us"
+        
+        - code: "es_ES"
+          name: "Español"
+          flag: "es"
+        
+        - code: "fr_FR"
+          name: "Français"
+          flag: "fr"
+        
+        - code: "de_DE"
+          name: "Deutsch"
+          flag: "de"
+        
+        - code: "it_IT"
+          name: "Italiano"
+          flag: "it"
+        
+        - code: "pt_BR"
+          name: "Português (Brasil)"
+          flag: "br"
+        
+        - code: "ru_RU"
+          name: "Русский"
+          flag: "ru"
+        
+        - code: "zh_CN"
+          name: "中文 (简体)"
+          flag: "cn"
+        
+        - code: "ja_JP"
+          name: "日本語"
+          flag: "jp"
+        
+        - code: "ko_KR"
+          name: "한국어"
+          flag: "kr"
+  
+  # Privacy Settings
+  privacy:
+    id: "privacy"
+    title: "Privacy Settings"
+    subtitle: "Configure your privacy preferences"
+    
+    content:
+      type: "privacy_settings"
+      
+      # Privacy Image
+      image:
+        src: "/usr/share/shadowly/welcome/privacy-image.svg"
+        width: "200px"
+        height: "150px"
+        margin_bottom: "30px"
+      
+      # Settings Group
+      settings_group:
+        margin_bottom: "30px"
+        
+        # Privacy Options
+        options:
+          # Location Services
+          - id: "location"
+            type: "toggle"
+            icon: "map-marker-alt"
+            icon_color: "#E74C3C"
+            title: "Location Services"
+            description: "Allow apps to request your location"
+            default: false
+            
+            details:
+              text: "When enabled, applications can request your geographical location. You can always change this later in System Settings."
+          
+          # Usage Statistics
+          - id: "usage_stats"
+            type: "toggle"
+            icon: "chart-bar"
+            icon_color: "#3498DB"
+            title: "Usage Statistics"
+            description: "Help improve ShadowlyOS by sending anonymous usage data"
+            default: false
+            
+            details:
+              text: "Anonymous system information and usage statistics help us improve ShadowlyOS. No personal data is collected."
+          
+          # Automatic Updates
+          - id: "auto_updates"
+            type: "toggle"
+            icon: "sync"
+            icon_color: "#2ECC71"
+            title: "Automatic Updates"
+            description: "Keep your system up-to-date automatically"
+            default: true
+            
+            details:
+              text: "Automatically check for and install important security updates. You can configure update behavior in System Settings."
+          
+          # Error Reporting
+          - id: "error_reports"
+            type: "toggle"
+            icon: "bug"
+            icon_color: "#F39C12"
+            title: "Error Reporting"
+            description: "Automatically send error reports to help fix issues"
+            default: true
+            
+            details:
+              text: "Error reports help developers identify and fix problems. Reports are anonymized and do not contain personal information."
+      
+      # Privacy Policy
+      privacy_policy:
+        text: "By using ShadowlyOS, you agree to our"
+        link:
+          text: "Privacy Policy"
+          url: "https://shadowlyos.org/privacy"
+        align: "center"
+        margin_top: "20px"
+  
+  # System Integration
+  system_integration:
+    id: "integration"
+    title: "System Integration"
+    subtitle: "Configure how ShadowlyOS integrates with your hardware"
+    
+    content:
+      type: "system_integration"
+      
+      # Settings Groups
+      settings_groups:
+        # Hardware Integration
+        - title: "Hardware Integration"
+          icon: "microchip"
+          margin_bottom: "30px"
+          
+          options:
+            # Graphics Drivers
+            - id: "graphics_drivers"
+              type: "select"
+              label: "Graphics Drivers"
+              description: "Choose graphics driver configuration"
+              default: "auto"
+              
+              choices:
+                - id: "auto"
+                  label: "Automatic (Recommended)"
+                  description: "Let ShadowlyOS choose the best drivers"
+                
+                - id: "open_source"
+                  label: "Open Source Drivers"
+                  description: "Use only open source graphics drivers"
+                
+                - id: "proprietary"
+                  label: "Proprietary Drivers"
+                  description: "Use proprietary drivers when available"
+            
+            # Power Management
+            - id: "power_management"
+              type: "select"
+              label: "Power Management"
+              description: "Configure power saving features"
+              default: "balanced"
+              
+              choices:
+                - id: "balanced"
+                  label: "Balanced (Recommended)"
+                  description: "Optimize for both performance and battery life"
+                
+                - id: "performance"
+                  label: "Performance"
+                  description: "Maximize system performance"
+                
+                - id: "power_save"
+                  label: "Power Saving"
+                  description: "Maximize battery life"
+        
+        # Online Accounts
+        - title: "Online Accounts"
+          icon: "cloud"
+          margin_bottom: "30px"
+          
+          options:
+            # Cloud Integration
+            - id: "cloud_integration"
+              type: "toggle"
+              label: "Enable Cloud Integration"
+              description: "Connect to online services"
+              default: true
+            
+            # Calendar Sync
+            - id: "calendar_sync"
+              type: "toggle"
+              label: "Sync Calendar"
+              description: "Synchronize calendar with online accounts"
+              default: true
+              depends_on: "cloud_integration"
+            
+            # Contact Sync
+            - id: "contacts_sync"
+              type: "toggle"
+              label: "Sync Contacts"
+              description: "Synchronize contacts with online accounts"
+              default: true
+              depends_on: "cloud_integration"
+  
+  # Software Selection
+  software:
+    id: "software"
+    title: "Software Selection"
+    subtitle: "Choose the software you want to install"
+    
+    content:
+      type: "software_selection"
+      
+      # Category Tabs
+      category_tabs:
+        - id: "productivity"
+          label: "Productivity"
+          icon: "briefcase"
+          active: true
+        
+        - id: "creativity"
+          label: "Creativity"
+          icon: "paint-brush"
+        
+        - id: "development"
+          label: "Development"
+          icon: "code"
+        
+        - id: "entertainment"
+          label: "Entertainment"
+          icon: "film"
+      
+      # Software Categories
+      categories:
+        # Productivity Software
+        productivity:
+          title: "Productivity Software"
+          description: "Applications for work and organization"
+          
+          applications:
+            - id: "libreoffice"
+              name: "LibreOffice"
+              description: "Complete office suite"
+              icon: "libreoffice"
+              size: "250 MB"
+              default: true
+            
+            - id: "firefox"
+              name: "Firefox"
+              description: "Web browser"
+              icon: "firefox"
+              size: "80 MB"
+              default: true
+            
+            - id: "thunderbird"
+              name: "Thunderbird"
+              description: "Email client"
+              icon: "thunderbird"
+              size: "60 MB"
+              default: false
+            
+            - id: "evolution"
+              name: "Evolution"
+              description: "Email and calendar"
+              icon: "evolution"
+              size: "75 MB"
+              default: false
+            
+            - id: "gnome_calendar"
+              name: "GNOME Calendar"
+              description: "Desktop calendar application"
+              icon: "gnome-calendar"
+              size: "15 MB"
+              default: true
+        
+        # Creativity Software
+        creativity:
+          title: "Creativity Software"
+          description: "Applications for creative work"
+          
+          applications:
+            - id: "gimp"
+              name: "GIMP"
+              description: "Image editor"
+              icon: "gimp"
+              size: "120 MB"
+              default: false
+            
+            - id: "inkscape"
+              name: "Inkscape"
+              description: "Vector graphics editor"
+              icon: "inkscape"
+              size: "100 MB"
+              default: false
+            
+            - id: "krita"
+              name: "Krita"
+              description: "Digital painting"
+              icon: "krita"
+              size: "150 MB"
+              default: false
+            
+            - id: "blender"
+              name: "Blender"
+              description: "3D creation suite"
+              icon: "blender"
+              size: "200 MB"
+              default: false
+            
+            - id: "audacity"
+              name: "Audacity"
+              description: "Audio editor"
+              icon: "audacity"
+              size: "40 MB"
+              default: false
+        
+        # Development Software
+        development:
+          title: "Development Software"
+          description: "Applications for programming"
+          
+          applications:
+            - id: "vscode"
+              name: "Visual Studio Code"
+              description: "Code editor"
+              icon: "vscode"
+              size: "160 MB"
+              default: false
+            
+            - id: "git"
+              name: "Git"
+              description: "Version control system"
+              icon: "git"
+              size: "20 MB"
+              default: false
+            
+            - id: "python"
+              name: "Python Development"
+              description: "Python with development tools"
+              icon: "python"
+              size: "100 MB"
+              default: false
+            
+            - id: "nodejs"
+              name: "Node.js"
+              description: "JavaScript runtime"
+              icon: "nodejs"
+              size: "50 MB"
+              default: false
+        
+        # Entertainment Software
+        entertainment:
+          title: "Entertainment Software"
+          description: "Applications for media and games"
+          
+          applications:
+            - id: "vlc"
+              name: "VLC Media Player"
+              description: "Multimedia player"
+              icon: "vlc"
+              size: "40 MB"
+              default: true
+            
+            - id: "spotify"
+              name: "Spotify"
+              description: "Music streaming service"
+              icon: "spotify"
+              size: "100 MB"
+              default: false
+            
+            - id: "steam"
+              name: "Steam"
+              description: "Game distribution platform"
+              icon: "steam"
+              size: "250 MB"
+              default: false
+      
+      # Disk Space Indicator
+      disk_space:
+        show: true
+        margin_top: "20px"
+        
+        labels:
+          required: "Required:"
+          available: "Available:"
+        
+        colors:
+          sufficient: "#2ECC71"
+          warning: "#F39C12"
+          insufficient: "#E74C3C"
+  
+  # Theme Selection
+  theme:
+    id: "theme"
+    title: "Choose Your Theme"
+    subtitle: "Select the appearance for ShadowlyOS"
+    
+    content:
+      type: "theme_selection"
+      
+      # Theme Preview
+      preview:
+        width: "100%"
+        height: "250px"
+        margin_bottom: "30px"
+        border_radius: 8
+        shadow: "0 5px 15px rgba(0, 0, 0, 0.1)"
+      
+      # Theme Options
+      options:
+        # Light Theme
+        - id: "light"
+          name: "Light"
+          description: "Clean, bright interface"
+          preview_image: "/usr/share/shadowly/welcome/theme-light.png"
+          default: true
+          
+          colors:
+            primary: "#FFFFFF"
+            accent: "#3498DB"
+            text: "#2C3E50"
+        
+        # Dark Theme
+        - id: "dark"
+          name: "Dark"
+          description: "Elegant dark interface"
+          preview_image: "/usr/share/shadowly/welcome/theme-dark.png"
+          
+          colors:
+            primary: "#232729"
+            accent: "#3498DB"
+            text: "#FFFFFF"
+        
+        # Auto Theme
+        - id: "auto"
+          name: "Auto"
+          description: "Automatically switch between light and dark based on time of day"
+          preview_image: "/usr/share/shadowly/welcome/theme-auto.png"
+          
+          colors:
+            primary: "gradient"
+            accent: "#3498DB"
+            text: "dynamic"
+      
+      # Accent Color Selection
+      accent_colors:
+        title: "Accent Color"
+        margin_top: "30px"
+        
+        colors:
+          - id: "blue"
+            color: "#3498DB"
+            name: "Blue"
+            default: true
+          
+          - id: "green"
+            color: "#2ECC71"
+            name: "Green"
+          
+          - id: "purple"
+            color: "#9B59B6"
+            name: "Purple"
+          
+          - id: "orange"
+            color: "#F39C12"
+            name: "Orange"
+          
+          - id: "red"
+            color: "#E74C3C"
+            name: "Red"
+          
+          - id: "teal"
+            color: "#1ABC9C"
+            name: "Teal"
+      
+      # Font Selection
+      fonts:
+        title: "Font"
+        margin_top: "20px"
+        
+        options:
+          - id: "default"
+            name: "Default (Roboto)"
+            preview: "AaBbCcDd 123"
+            default: true
+          
+          - id: "open_sans"
+            name: "Open Sans"
+            preview: "AaBbCcDd 123"
+          
+          - id: "noto_sans"
+            name: "Noto Sans"
+            preview: "AaBbCcDd 123"
+  
+  # Features Showcase
+  features:
+    id: "features"
+    title: "Key Features"
+    subtitle: "Discover what makes ShadowlyOS special"
+    
+    content:
+      type: "feature_showcase"
+      
+      # Feature Carousel
+      carousel:
+        height: "350px"
+        margin_bottom: "30px"
+        
+        # Navigation
+        navigation:
+          dots: true
+          arrows: true
+          autoplay: true
+          autoplay_interval: 5000
+        
+        # Features
+        features:
+          # Secure by Design
+          - id: "security"
+            title: "Secure by Design"
+            description: "ShadowlyOS includes advanced security features like disk encryption, firewall, secure boot, and automatic security updates."
+            image: "/usr/share/shadowly/welcome/feature-security.svg"
+            background: "linear-gradient(135deg, #3498DB, #2C3E50)"
+            text_color: "#FFFFFF"
+          
+          # Privacy Focused
+          - id: "privacy"
+            title: "Privacy Focused"
+            description: "Take control of your data with built-in privacy tools and settings that put you in charge of what information is shared."
+            image: "/usr/share/shadowly/welcome/feature-privacy.svg"
+            background: "linear-gradient(135deg, #2ECC71, #1ABC9C)"
+            text_color: "#FFFFFF"
+          
+          # Performance Optimized
+          - id: "performance"
+            title: "Performance Optimized"
+            description: "Enjoy a responsive experience with ShadowlyOS's performance optimizations and efficient resource management."
+            image: "/usr/share/shadowly/welcome/feature-performance.svg"
+            background: "linear-gradient(135deg, #F39C12, #E67E22)"
+            text_color: "#FFFFFF"
+          
+          # Software Center
+          - id: "software"
+            title: "Rich Software Ecosystem"
+            description: "Access thousands of free and open-source applications through the integrated software center."
+            image: "/usr/share/shadowly/welcome/feature-software.svg"
+            background: "linear-gradient(135deg, #9B59B6, #8E44AD)"
+            text_color: "#FFFFFF"
+      
+      # Feature Grid
+      grid:
+        columns: 3
+        gap: "20px"
+        
+        # Quick Feature Items
+        items:
+          - icon: "shield-alt"
+            icon_color: "#3498DB"
+            title: "Security Updates"
+            description: "Automatic security updates keep your system protected"
+          
+          - icon: "tachometer-alt"
+            icon_color: "#2ECC71"
+            title: "Fast Boot"
+            description: "Quick startup and responsive performance"
+          
+          - icon: "battery-full"
+            icon_color: "#F39C12"
+            title: "Energy Efficient"
+            description: "Optimized for longer battery life"
+          
+          - icon: "sync"
+            icon_color: "#9B59B6"
+            title: "Cloud Sync"
+            description: "Seamless integration with cloud services"
+          
+          - icon: "user-friends"
+            icon_color: "#E74C3C"
+            title: "Multi-User Support"
+            description: "Create accounts for everyone in your household"
+          
+          - icon: "cogs"
+            icon_color: "#1ABC9C"
+            title: "Customizable"
+            description: "Personalize your desktop experience"
+  
+  # Finish Step
+  finish:
+    id: "finish"
+    title: "Setup Complete!"
+    subtitle: "You're ready to start using ShadowlyOS"
+    
+    content:
+      type: "finish"
+      
+      # Success Image
+      image:
+        src: "/usr/share/shadowly/welcome/setup-complete.svg"
+        width: "250px"
+        height: "200px"
+        margin_bottom: "30px"
+      
+      # Completion Message
+      message:
+        text: "ShadowlyOS has been configured according to your preferences. You can change any of these settings later through the System Settings application."
+        font_size: 16
+        margin_bottom: "30px"
+      
+      # Getting Started
+      getting_started:
+        title: "Getting Started"
+        margin_bottom: "30px"
+        
+        items:
+          - icon: "book"
+            icon_color: "#3498DB"
+            title: "Documentation"
+            description: "Learn more about ShadowlyOS features"
+            link: "https://docs.shadowlyos.org"
+          
+          - icon: "users"
+            icon_color: "#2ECC71"
+            title: "Community"
+            description: "Get help and connect with other users"
+            link: "https://community.shadowlyos.org"
+          
+          - icon: "hands-helping"
+            icon_color: "#F39C12"
+            title: "Contribute"
+            description: "Help improve ShadowlyOS"
+            link: "https://contribute.shadowlyos.org"
+      
+      # Show on Startup
+      show_on_startup:
+        type: "checkbox"
+        label: "Show this welcome screen on startup"
+        default: false
+        margin_top: "20px"
+    
+    # Navigation
+    navigation:
+      back_button:
+        visible: true
+        text: "Back"
+      
+      finish_button:
+        visible: true
+        text: "Start Using ShadowlyOS"
+        icon: "check"
+
+# Accessibility Features
+accessibility:
+  # High Contrast Theme
+  high_contrast:
+    global:
+      colors:
+        primary: "#000000"
+        secondary: "#0066CC"
+        tertiary: "#FFFFFF"
+        background: "#FFFFFF"
+        text_primary: "#000000"
+        text_secondary: "#333333"
+        text_on_dark: "#FFFFFF"
+      
+      elements:
+        button:
+          primary:
+            background: "#0066CC"
+            text: "#FFFFFF"
+            border: "2px solid #000000"
+          
+          secondary:
+            background: "#FFFFFF"
+            text: "#0066CC"
+            border: "2px solid #0066CC"
+        
+        input:
+          background: "#FFFFFF"
+          text: "#000000"
+          border: "2px solid #000000"
+          focus:
+            border: "#0066CC"
+            shadow: "0 0 0 2px #0066CC"
+        
+        checkbox:
+          border: "2px solid #000000"
+          checked_background: "#0066CC"
+        
+        card:
+          border: "2px solid #000000"
+          shadow: "none"
+    
+    layout:
+      sidebar:
+        background: "#000000"
+        
+        step_item:
+          active:
+            background: "#0066CC"
+          
+          number:
+            background: "#FFFFFF"
+            color: "#000000"
+          
+          text:
+            opacity: 1
+      
+      content:
+        header:
+          title:
+            color: "#000000"
+          
+          subtitle:
+            color: "#333333"
+  
+  # Screen Reader Support
+  screen_reader:
+    aria_labels:
+      enabled: true
+      
+      # Navigation Labels
+      navigation:
+        back_button: "Go back to previous step"
+        next_button: "Continue to next step"
+        finish_button: "Complete setup and start using ShadowlyOS"
+      
+      # Steps Navigation
+      steps:
+        welcome: "Welcome introduction"
+        language: "Language selection"
+        privacy: "Privacy settings"
+        integration: "System integration options"
+        software: "Software selection"
+        theme: "Theme selection"
+        features: "Feature showcase"
+        finish: "Complete setup"
+  
+  # Keyboard Navigation
+  keyboard_navigation:
+    enabled: true
+    tab_order: "logical"
+    focus_indicators:
+      style: "outline"
+      color: "#3498DB"
+      width: "2px"
+      radius: "4px"
+    
+    shortcuts:
+      next_step: "Alt+Right"
+      previous_step: "Alt+Left"
+      finish: "Alt+Enter"
+
+# Animation Definitions
+animations:
+  # Page Transitions
+  page_enter:
+    keyframes:
+      "0%": { opacity: 0, transform: "translateX(20px)" }
+      "100%": { opacity: 1, transform: "translateX(0)" }
+    duration: "0.3s"
+    timing: "ease-out"
+  
+  page_exit:
+    keyframes:
+      "0%": { opacity: 1, transform: "translateX(0)" }
+      "100%": { opacity: 0, transform: "translateX(-20px)" }
+    duration: "0.3s"
+    timing: "ease-in"
+  
+  # Component Animations
+  fade_in:
+    keyframes:
+      "0%": { opacity: 0 }
+      "100%": { opacity: 1 }
+    duration: "0.3s"
+    timing: "ease"
+  
+  slide_in_up:
+    keyframes:
+      "0%": { opacity: 0, transform: "translateY(20px)" }
+      "100%": { opacity: 1, transform: "translateY(0)" }
+    duration: "0.3s"
+    timing: "ease-out"
+  
+  scale_in:
+    keyframes:
+      "0%": { opacity: 0, transform: "scale(0.9)" }
+      "100%": { opacity: 1, transform: "scale(1)" }
+    duration: "0.3s"
+    timing: "cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+  
+  pulse:
+    keyframes:
+      "0%": { transform: "scale(1)" }
+      "50%": { transform: "scale(1.05)" }
+      "100%": { transform: "scale(1)" }
+    duration: "0.5s"
+    timing: "ease-in-out"
+
+# Responsive Design Settings
+responsive:
+  breakpoints:
+    small: "600px"
+    medium: "900px"
+    large: "1200px"
+  
+  adaptations:
+    small:
+      layout:
+        window:
+          width: "100%"
+          height: "100%"
+          min_width: "320px"
+          min_height: "480px"
+        
+        main_container:
+          direction: "column"
+        
+        sidebar:
+          width: "100%"
+          height: "auto"
+          padding: "20px 0"
+          
+          logo:
+            size: "80px"
+            margin_bottom: "20px"
+          
+          steps_navigation:
+            display: "flex"
+            flex_wrap: "nowrap"
+            overflow_x: "auto"
+            padding: "0 10px"
+            
+            step_item:
+              width: "auto"
+              flex: "0 0 auto"
+              margin_right: "10px"
+              margin_bottom: "0"
+              padding: "0 10px"
+              
+              number:
+                margin_right: "5px"
+              
+              text:
+                display: "none"
+        
+        content:
+          padding: "20px"
+          
+          header:
+            margin_bottom: "20px"
+            
+            title:
+              font_size: 22
+            
+            subtitle:
+              font_size: 14
+      
+      steps:
+        software:
+          content:
+            category_tabs:
+              flex_wrap: "nowrap"
+              overflow_x: "auto"
+        
+        theme:
+          content:
+            preview:
+              height: "180px"
+      
+      navigation:
+        footer:
+          flex_direction: "column"
+          align_items: "stretch"
+          gap: "10px"
+          
+          back_button:
+            order: 2
+          
+          next_button:
+            order: 1
+    
+    medium:
+      layout:
+        window:
+          width: "90%"
+          max_width: "900px"
+

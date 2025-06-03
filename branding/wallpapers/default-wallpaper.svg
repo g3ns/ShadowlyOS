@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="3840px" height="2160px" viewBox="0 0 3840 2160" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+  <title>ShadowlyOS Default Wallpaper</title>
+  <defs>
+    <!-- Common gradient definitions -->
+    <linearGradient id="lightBackground" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ECF0F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BDC3C7;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="darkBackground" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2C3E50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1A2530;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradientLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:0.7" />
+    </linearGradient>
+    
+    <linearGradient id="lightAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ECF0F1;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#ECF0F1;stop-opacity:0.2" />
+    </linearGradient>
+    
+    <linearGradient id="darkAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2C3E50;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#2C3E50;stop-opacity:0.2" />
+    </linearGradient>
+    
+    <!-- Pattern definitions -->
+    <pattern id="geometricPattern" patternUnits="userSpaceOnUse" width="400" height="400" patternTransform="rotate(15)">
+      <rect width="400" height="400" fill="none"/>
+      <path d="M50,0 L350,0 L400,50 L400,350 L350,400 L50,400 L0,350 L0,50 Z" 
+            fill="none" stroke="#3498DB" stroke-width="2" stroke-opacity="0.15" />
+      <path d="M100,50 L300,50 L350,100 L350,300 L300,350 L100,350 L50,300 L50,100 Z" 
+            fill="none" stroke="#3498DB" stroke-width="2" stroke-opacity="0.15" />
+      <path d="M150,100 L250,100 L300,150 L300,250 L250,300 L150,300 L100,250 L100,150 Z" 
+            fill="none" stroke="#3498DB" stroke-width="2" stroke-opacity="0.15" />
+    </pattern>
+    
+    <pattern id="geometricPatternDark" patternUnits="userSpaceOnUse" width="400" height="400" patternTransform="rotate(15)">
+      <rect width="400" height="400" fill="none"/>
+      <path d="M50,0 L350,0 L400,50 L400,350 L350,400 L50,400 L0,350 L0,50 Z" 
+            fill="none" stroke="#ECF0F1" stroke-width="2" stroke-opacity="0.15" />
+      <path d="M100,50 L300,50 L350,100 L350,300 L300,350 L100,350 L50,300 L50,100 Z" 
+            fill="none" stroke="#ECF0F1" stroke-width="2" stroke-opacity="0.15" />
+      <path d="M150,100 L250,100 L300,150 L300,250 L250,300 L150,300 L100,250 L100,150 Z" 
+            fill="none" stroke="#ECF0F1" stroke-width="2" stroke-opacity="0.15" />
+    </pattern>
+    
+    <filter id="shadowBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="30" />
+    </filter>
+  </defs>
+  
+  <!-- Light Theme (Day Variant) -->
+  <g id="lightTheme">
+    <!-- Background -->
+    <rect width="3840" height="2160" fill="url(#lightBackground)" />
+    
+    <!-- Geometric Pattern Background -->
+    <rect width="3840" height="2160" fill="url(#geometricPattern)" />
+    
+    <!-- Main Geometric Elements -->
+    <g transform="translate(1920, 1080) scale(3)">
+      <!-- Shadow Base -->
+      <path d="M-200,-200 L200,-200 L300,-100 L300,100 L200,200 L-200,200 L-300,100 L-300,-100 Z" 
+            fill="url(#darkAccent)" transform="translate(10, 10)" filter="url(#shadowBlur)" />
+            
+      <!-- Main Shape -->
+      <path d="M-200,-200 L200,-200 L300,-100 L300,100 L200,200 L-200,200 L-300,100 L-300,-100 Z" 
+            fill="#ECF0F1" fill-opacity="0.6" />
+      
+      <!-- Inner Shape -->
+      <path d="M-150,-150 L150,-150 L250,-50 L250,50 L150,150 L-150,150 L-250,50 L-250,-50 Z" 
+            fill="url(#accentGradientLight)" fill-opacity="0.4" />
+      
+      <!-- Center Accent -->
+      <circle cx="0" cy="0" r="80" fill="url(#accentGradient)" fill-opacity="0.6" />
+    </g>
+    
+    <!-- Additional Geometric Elements -->
+    <g transform="translate(600, 600) scale(1.5)">
+      <path d="M50,0 L200,0 L250,50 L250,200 L200,250 L50,250 L0,200 L0,50 Z" 
+            fill="url(#accentGradientLight)" fill-opacity="0.3" />
+    </g>
+    
+    <g transform="translate(3000, 500) scale(1.5)">
+      <path d="M50,0 L200,0 L250,50 L250,200 L200,250 L50,250 L0,200 L0,50 Z" 
+            fill="url(#accentGradientLight)" fill-opacity="0.3" />
+    </g>
+    
+    <g transform="translate(800, 1800) scale(1.5)">
+      <path d="M50,0 L200,0 L250,50 L250,200 L200,250 L50,250 L0,200 L0,50 Z" 
+            fill="url(#accentGradientLight)" fill-opacity="0.3" />
+    </g>
+    
+    <g transform="translate(3200, 1600) scale(1.5)">
+      <path d="M50,0 L200,0 L250,50 L250,200 L200,250 L50,250 L0,200 L0,50 Z" 
+            fill="url(#accentGradientLight)" fill-opacity="0.3" />
+    </g>
+  </g>
+  
+  <!-- Dark Theme (Night Variant) - Hidden by default -->
+  <g id="darkTheme" style="display:none">
+    <!-- Background -->
+    <rect width="3840" height="2160" fill="url(#darkBackground)" />
+    
+    <!-- Geometric Pattern Background -->
+    <rect width="3840" height="2160" fill="url(#geometricPatternDark)" />
+    
+    <!-- Main Geometric Elements -->
+    <g transform="translate(1920, 1080) scale(3)">
+      <!-- Shadow Base -->
+      <path d="M-200,-200 L200,-200 L300,-100 L300,100 L200,200 L-200,200 L-300,100 L-300,-100 Z" 
+            fill="#000" transform="translate(10, 10)" filter="url(#shadowBlur)" opacity="0.5" />
+            
+      <!-- Main Shape -->
+      <path d="M-200,-200 L200,-200 L300,-100 L300,100 L200,200 L-200,200 L-300,100 L-300,-100 Z" 
+            fill="#2C3E50" fill-opacity="0.6" />
+      
+      <!-- Inner Shape -->
+      <path d="M-150,-150 L150,-150 L250,-50 L250,50 L150,150 L-150,150 L-250,50 L-250,-50 Z" 
+            fill="url(#accentGradientLight)" fill-opacity="0.4" />
+      
+      <!-- Center Accent -->
+      <circle cx="0" cy="0" r="80" fill="url(#accentGradient)" fill-opacity="0.8" />
+    </g>
+    
+    <!-- Additional Geometric Elements -->
+    <g transform="translate(600, 600) scale(1.5)">
+      <path d="M50,0 L200,0 L250,50 L250,200 L200,250 L50,250 L0,200 L0,50 Z" 
+            fill="url(#accentGradientLight)" fill-opacity="0.3" />
+    </g>
+    
+    <g transform="translate(3000, 500) scale(1.5)">
+      <path d="M50,0 L200,0 L250,50 L250,200 L200,250 L50,250 L0,200 L0,50 Z" 
+            fill="url(#accentGradientLight)" fill-opacity="0.3" />
+    </g>
+    
+    <g transform="translate(800, 1800) scale(1.5)">
+      <path d="M50,0 L200,0 L250,50 L250,200 L200,250 L50,250 L0,200 L0,50 Z" 
+            fill="url(#accentGradientLight)" fill-opacity="0.3" />
+    </g>
+    
+    <g transform="translate(3200, 1600) scale(1.5)">
+      <path d="M50,0 L200,0 L250,50 L250,200 L200,250 L50,250 L0,200 L0,50 Z" 
+            fill="url(#accentGradientLight)" fill-opacity="0.3" />
+    </g>
+  </g>
+  
+  <!-- Minimal Variant (for lower-end systems) - Hidden by default -->
+  <g id="minimalTheme" style="display:none">
+    <!-- Light Background -->
+    <rect width="3840" height="2160" fill="url(#lightBackground)" />
+    
+    <!-- Single Central Element -->
+    <g transform="translate(1920, 1080)">
+      <!-- Simple Shadow -->
+      <path d="M-150,-150 L150,-150 L200,-100 L200,100 L150,150 L-150,150 L-200,100 L-200,-100 Z" 
+            fill="#2C3E50" transform="translate(8, 8)" opacity="0.2" />
+            
+      <!-- Main Shape -->
+      <path d="M-150,-150 L150,-150 L200,-100 L200,100 L150,150 L-150,150 L-200,100 L-200,-100 Z" 
+            fill="#ECF0F1" fill-opacity="0.7" />
+      
+      <!-- Accent -->
+      <path d="M-100,-100 L100,-100 L150,-50 L150,50 L100,100 L-100,100 L-150,50 L-150,-50 Z" 
+            fill="none" stroke="#3498DB" stroke-width="2" />
+      
+      <!-- Center Accent -->
+      <circle cx="0" cy="0" r="50" fill="#3498DB" fill-opacity="0.5" />
+    </g>
+  </g>
+  
+  <!-- Dark Minimal Variant - Hidden by default -->
+  <g id="darkMinimalTheme" style="display:none">
+    <!-- Dark Background -->
+    <rect width="3840" height="2160" fill="url(#darkBackground)" />
+    
+    <!-- Single Central Element -->
+    <g transform="translate(1920, 1080)">
+      <!-- Simple Shadow -->
+      <path d="M-150,-150 L150,-150 L200,-100 L200,100 L150,150 L-150,150 L-200,100 L-200,-100 Z" 
+            fill="#000" transform="translate(8, 8)" opacity="0.3" />
+            
+      <!-- Main Shape -->
+      <path d="M-150,-150 L150,-150 L200,-100 L200,100 L150,150 L-150,150 L-200,100 L-200,-100 Z" 
+            fill="#2C3E50" fill-opacity="0.7" />
+      
+      <!-- Accent -->
+      <path d="M-100,-100 L100,-100 L150,-50 L150,50 L100,100 L-100,100 L-150,50 L-150,-50 Z" 
+            fill="none" stroke="#3498DB" stroke-width="2" />
+      
+      <!-- Center Accent -->
+      <circle cx="0" cy="0" r="50" fill="#3498DB" fill-opacity="0.5" />
+    </g>
+  </g>
+  
+  <!-- SVG metadata for resolution info -->
+  <metadata>
+    <!--
+    Resolution specifications:
+    
+    Primary resolution: 3840x2160 (4K/UHD)
+    
+    Scaling variants:
+    - 2560x1440 (QHD): Scale factor 0.6667
+    - 1920x1080 (FHD): Scale factor 0.5
+    - 1366x768 (HD): Scale factor 0.3556
+    - 1280x720 (HD): Scale factor 0.3333
+    
+    Ensure proper rendering by using vector-based elements and
+    proportional scaling. This SVG will scale appropriately
+    for all standard desktop resolutions.
+    
+    Usage instructions:
+    1. For desktop background: Use as SVG directly for highest quality
+    2. For export to PNG: Render at target resolution
+    3. To activate different themes: Set desired theme to display="inline"
+       and others to display="none"
+    -->
+  </metadata>
+</svg>
+

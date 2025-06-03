@@ -1,0 +1,220 @@
+# ShadowlyOS Base Packages Configuration
+# This file defines essential packages for system development and design
+
+---
+# Core System Utilities
+core_system:
+  description: "Essential system utilities required for basic operation"
+  packages:
+    - name: base
+      description: "Minimal package set to define a basic Arch Linux installation"
+      dependencies: []
+    
+    - name: base-devel
+      description: "Development tools group including compilers and build tools"
+      dependencies: []
+    
+    - name: linux
+      description: "The Linux kernel and modules"
+      dependencies: []
+    
+    - name: linux-firmware
+      description: "Firmware files for Linux"
+      dependencies: []
+    
+    - name: systemd
+      description: "System and service manager"
+      dependencies: []
+    
+    - name: systemd-sysvcompat
+      description: "Compatibility layer for SysV init scripts"
+      dependencies: ["systemd"]
+    
+    - name: e2fsprogs
+      description: "Ext2/3/4 filesystem utilities"
+      dependencies: []
+    
+    - name: sudo
+      description: "Privilege elevation utility"
+      dependencies: []
+    
+    - name: nano
+      description: "Simple text editor"
+      dependencies: []
+    
+    - name: vim
+      description: "Highly configurable text editor"
+      dependencies: []
+    
+    - name: man-db
+      description: "Manual page database utility"
+      dependencies: []
+    
+    - name: man-pages
+      description: "Linux man pages"
+      dependencies: []
+
+# Networking Utilities
+networking:
+  description: "Tools for network connectivity and management"
+  packages:
+    - name: networkmanager
+      description: "Network connection manager"
+      dependencies: ["systemd"]
+    
+    - name: network-manager-applet
+      description: "GUI frontend for NetworkManager"
+      dependencies: ["networkmanager"]
+    
+    - name: dhcpcd
+      description: "DHCP client daemon"
+      dependencies: []
+    
+    - name: iproute2
+      description: "IP routing utilities"
+      dependencies: []
+    
+    - name: iputils
+      description: "Network diagnostic utilities (ping, traceroute, etc.)"
+      dependencies: []
+    
+    - name: openssh
+      description: "SSH client and server"
+      dependencies: []
+
+# Design Tools
+design_tools:
+  description: "Graphics and design applications"
+  packages:
+    - name: gimp
+      description: "GNU Image Manipulation Program for raster graphics editing"
+      dependencies: ["gtk3"]
+    
+    - name: inkscape
+      description: "Vector graphics editor"
+      dependencies: ["gtk3"]
+    
+    - name: blender
+      description: "3D creation suite"
+      dependencies: ["python"]
+    
+    - name: krita
+      description: "Digital painting application"
+      dependencies: ["qt5"]
+    
+    - name: darktable
+      description: "Photography workflow application and raw developer"
+      dependencies: ["gtk3"]
+    
+    - name: fontforge
+      description: "Font editor"
+      dependencies: ["gtk3"]
+
+# Development Tools
+development_tools:
+  description: "Programming and development utilities"
+  packages:
+    - name: git
+      description: "Distributed version control system"
+      dependencies: []
+    
+    - name: gcc
+      description: "GNU Compiler Collection"
+      dependencies: []
+    
+    - name: make
+      description: "GNU make utility"
+      dependencies: []
+    
+    - name: cmake
+      description: "Cross-platform open-source make system"
+      dependencies: []
+    
+    - name: python
+      description: "Python programming language interpreter"
+      dependencies: []
+    
+    - name: python-pip
+      description: "Python package installer"
+      dependencies: ["python"]
+    
+    - name: rust
+      description: "Systems programming language focused on safety and performance"
+      dependencies: []
+    
+    - name: go
+      description: "Core compiler tools for the Go programming language"
+      dependencies: []
+    
+    - name: nodejs
+      description: "JavaScript runtime environment"
+      dependencies: []
+    
+    - name: npm
+      description: "Node.js package manager"
+      dependencies: ["nodejs"]
+    
+    - name: vscode
+      description: "Code editing with IntelliSense, debugging, and Git commands"
+      dependencies: ["gtk3"]
+
+# Build System Requirements
+build_system:
+  description: "Tools required for building and packaging the OS"
+  packages:
+    - name: archiso
+      description: "Tools for creating Arch Linux live and install media"
+      dependencies: ["arch-install-scripts"]
+    
+    - name: arch-install-scripts
+      description: "Scripts for installing Arch Linux"
+      dependencies: []
+    
+    - name: squashfs-tools
+      description: "Tools for creating and manipulating squashfs filesystems"
+      dependencies: []
+    
+    - name: pacman
+      description: "Package manager utility"
+      dependencies: []
+    
+    - name: devtools
+      description: "Tools for Arch Linux package maintainers"
+      dependencies: []
+    
+    - name: packer
+      description: "Automated machine image building tool"
+      dependencies: []
+    
+    - name: qemu
+      description: "Generic machine emulator and virtualizer"
+      dependencies: []
+    
+    - name: docker
+      description: "Container platform"
+      dependencies: []
+
+# Security Tools
+security_tools:
+  description: "Essential security utilities"
+  packages:
+    - name: gnupg
+      description: "GNU Privacy Guard - a PGP implementation"
+      dependencies: []
+    
+    - name: cryptsetup
+      description: "Disk encryption setup tool"
+      dependencies: []
+    
+    - name: ufw
+      description: "Uncomplicated Firewall"
+      dependencies: []
+    
+    - name: fail2ban
+      description: "Ban hosts that cause multiple authentication errors"
+      dependencies: ["python"]
+    
+    - name: clamav
+      description: "Anti-virus toolkit"
+      dependencies: []
+

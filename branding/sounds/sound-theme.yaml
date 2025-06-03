@@ -1,0 +1,625 @@
+# ShadowlyOS Sound Theme Configuration
+# This file defines the audio elements and behaviors of the ShadowlyOS sound system
+
+---
+# Global Settings
+global:
+  # Volume Levels (0.0 to 1.0)
+  volume:
+    master: 0.8        # Overall system volume
+    system: 0.9        # System events volume
+    interface: 0.7     # Interface feedback volume
+    notification: 0.8  # Notification alerts volume
+    
+    # Volume Scaling
+    scaling:
+      enabled: true
+      method: "logarithmic"  # logarithmic, linear
+      min_threshold: 0.05    # Minimum audible volume
+  
+  # Audio Quality
+  quality:
+    sample_rate: 48000     # Hz
+    bit_depth: 16          # bits
+    channels: 2            # mono (1) or stereo (2)
+    format: "ogg"          # ogg, wav, mp3
+    fallback_format: "wav" # Format to use if primary not supported
+  
+  # Sound Directories
+  directories:
+    base: "/usr/share/sounds/shadowly"
+    system: "/usr/share/sounds/shadowly/system"
+    interface: "/usr/share/sounds/shadowly/interface"
+    notification: "/usr/share/sounds/shadowly/notification"
+    fallback: "/usr/share/sounds/freedesktop/stereo"
+  
+  # Playback Settings
+  playback:
+    max_concurrent: 3        # Maximum number of sounds playing simultaneously
+    priority_override: true  # Higher priority sounds interrupt lower priority
+    throttle_identical: true # Prevent same sound from overlapping itself
+    throttle_timeout: 50     # Milliseconds between identical sounds
+
+# System Sounds
+system:
+  # Startup & Shutdown
+  startup:
+    file: "startup.ogg"
+    fallback: "service-login.oga"
+    volume: 1.0
+    priority: "critical"
+    description: "A gentle rising tone with a subtle chord progression, conveying a sense of awakening"
+  
+  shutdown:
+    file: "shutdown.ogg"
+    fallback: "service-logout.oga"
+    volume: 1.0
+    priority: "critical"
+    description: "A gentle descending tone that mirrors the startup sound in reverse"
+  
+  # User Session
+  login:
+    file: "login.ogg"
+    fallback: "service-login.oga"
+    volume: 0.9
+    priority: "high"
+    description: "A welcoming, brief chord with a slight upward inflection"
+  
+  logout:
+    file: "logout.ogg"
+    fallback: "service-logout.oga"
+    volume: 0.9
+    priority: "high"
+    description: "A gentle goodbye sound with a slight downward inflection"
+  
+  lock:
+    file: "lock.ogg"
+    fallback: "screen-capture.oga"
+    volume: 0.8
+    priority: "normal"
+    description: "A subtle 'click' with a soft reverb, suggesting security"
+  
+  unlock:
+    file: "unlock.ogg"
+    fallback: "screen-capture.oga"
+    volume: 0.8
+    priority: "normal"
+    description: "A bright, quick sound suggesting release"
+  
+  # Alerts
+  critical_alert:
+    file: "critical-alert.ogg"
+    fallback: "dialog-error.oga"
+    volume: 1.0
+    priority: "critical"
+    repeat: 3
+    repeat_interval: 5000  # milliseconds
+    description: "An urgent, attention-demanding sound that cannot be ignored"
+  
+  warning:
+    file: "warning.ogg"
+    fallback: "dialog-warning.oga"
+    volume: 0.9
+    priority: "high"
+    description: "A cautionary tone that alerts without alarming"
+  
+  error:
+    file: "error.ogg"
+    fallback: "dialog-error.oga"
+    volume: 0.9
+    priority: "high"
+    description: "A distinctive tone indicating something has gone wrong"
+  
+  success:
+    file: "success.ogg"
+    fallback: "complete.oga"
+    volume: 0.8
+    priority: "normal"
+    description: "A pleasant, uplifting sound signifying completion or success"
+  
+  # Power Management
+  low_battery:
+    file: "low-battery.ogg"
+    fallback: "battery-low.oga"
+    volume: 0.9
+    priority: "high"
+    repeat: 2
+    repeat_interval: 30000  # milliseconds
+    description: "A gentle warning tone that suggests energy depletion"
+  
+  plugged_in:
+    file: "power-plug.ogg"
+    fallback: "device-added.oga"
+    volume: 0.7
+    priority: "normal"
+    description: "A subtle rising tone indicating connection to power"
+  
+  unplugged:
+    file: "power-unplug.ogg"
+    fallback: "device-removed.oga"
+    volume: 0.7
+    priority: "normal"
+    description: "A subtle falling tone indicating disconnection from power"
+
+# Interface Sounds
+interface:
+  # Button Interactions
+  button_click:
+    file: "button-click.ogg"
+    fallback: "button-pressed.oga"
+    volume: 0.5
+    priority: "low"
+    description: "A soft, subtle click feedback"
+  
+  button_hover:
+    file: "button-hover.ogg"
+    fallback: "button-toggle-on.oga"
+    volume: 0.3
+    priority: "minimal"
+    enabled: false  # Disabled by default to reduce audio clutter
+    description: "An extremely subtle tone for mouse hover events"
+  
+  toggle_on:
+    file: "toggle-on.ogg"
+    fallback: "button-toggle-on.oga"
+    volume: 0.6
+    priority: "low"
+    description: "A positive click with slight upward pitch"
+  
+  toggle_off:
+    file: "toggle-off.ogg"
+    fallback: "button-toggle-off.oga"
+    volume: 0.6
+    priority: "low"
+    description: "A neutral click with slight downward pitch"
+  
+  # Menu Interactions
+  menu_open:
+    file: "menu-open.ogg"
+    fallback: "window-attention.oga"
+    volume: 0.5
+    priority: "low"
+    description: "A brief expanding sound"
+  
+  menu_close:
+    file: "menu-close.ogg"
+    fallback: "window-attention.oga"
+    volume: 0.5
+    priority: "low"
+    description: "A brief collapsing sound"
+  
+  menu_select:
+    file: "menu-select.ogg"
+    fallback: "button-pressed.oga"
+    volume: 0.5
+    priority: "low"
+    description: "A soft confirmation click"
+  
+  menu_hover:
+    file: "menu-hover.ogg"
+    fallback: "button-toggle-on.oga"
+    volume: 0.3
+    priority: "minimal"
+    enabled: false  # Disabled by default
+    description: "A very subtle tick for menu navigation"
+  
+  # Window Actions
+  window_open:
+    file: "window-open.ogg"
+    fallback: "window-attention.oga"
+    volume: 0.6
+    priority: "normal"
+    description: "A brief expanding whoosh"
+  
+  window_close:
+    file: "window-close.ogg"
+    fallback: "window-attention.oga"
+    volume: 0.6
+    priority: "normal"
+    description: "A brief collapsing whoosh"
+  
+  window_maximize:
+    file: "window-maximize.ogg"
+    fallback: "window-attention.oga"
+    volume: 0.6
+    priority: "low"
+    description: "A quick expansion sound"
+  
+  window_minimize:
+    file: "window-minimize.ogg"
+    fallback: "window-attention.oga"
+    volume: 0.6
+    priority: "low"
+    description: "A quick reduction sound"
+  
+  window_snap:
+    file: "window-snap.ogg"
+    fallback: "window-attention.oga"
+    volume: 0.6
+    priority: "low"
+    description: "A satisfying click suggesting window docking"
+  
+  window_drag:
+    file: "window-drag.ogg"
+    fallback: "window-attention.oga"
+    volume: 0.3
+    priority: "minimal"
+    enabled: false  # Disabled by default
+    description: "A subtle continuous sound while dragging windows"
+  
+  window_attention:
+    file: "window-attention.ogg"
+    fallback: "window-attention.oga"
+    volume: 0.7
+    priority: "normal"
+    description: "A gentle alert that a window needs attention"
+  
+  # Dialog Interactions
+  dialog_open:
+    file: "dialog-open.ogg"
+    fallback: "dialog-information.oga"
+    volume: 0.7
+    priority: "normal"
+    description: "A brief attention-getting sound"
+  
+  dialog_close:
+    file: "dialog-close.ogg"
+    fallback: "dialog-information.oga"
+    volume: 0.6
+    priority: "low"
+    description: "A brief dismissal sound"
+  
+  # Form Interactions
+  form_error:
+    file: "form-error.ogg"
+    fallback: "dialog-error.oga"
+    volume: 0.7
+    priority: "normal"
+    description: "A gentle error indicator for form validation issues"
+  
+  form_complete:
+    file: "form-complete.ogg"
+    fallback: "complete.oga"
+    volume: 0.6
+    priority: "normal"
+    description: "A positive confirmation for completed forms"
+  
+  # Scrolling and Navigation
+  scroll_limit:
+    file: "scroll-limit.ogg"
+    fallback: "dialog-warning.oga"
+    volume: 0.4
+    priority: "minimal"
+    enabled: false  # Disabled by default
+    description: "A subtle bump sound when reaching the end of scrollable content"
+  
+  page_change:
+    file: "page-change.ogg"
+    fallback: "window-attention.oga"
+    volume: 0.5
+    priority: "low"
+    description: "A soft swish for page transitions"
+
+# Notification Sounds
+notification:
+  # Priority Levels
+  critical:
+    file: "notification-critical.ogg"
+    fallback: "dialog-error.oga"
+    volume: 1.0
+    priority: "critical"
+    repeat: 2
+    repeat_interval: 3000  # milliseconds
+    description: "An urgent, attention-demanding sound"
+  
+  high:
+    file: "notification-high.ogg"
+    fallback: "dialog-warning.oga"
+    volume: 0.9
+    priority: "high"
+    description: "An important but not urgent notification sound"
+  
+  normal:
+    file: "notification-normal.ogg"
+    fallback: "message-new-instant.oga"
+    volume: 0.8
+    priority: "normal"
+    description: "A standard notification sound, pleasant but noticeable"
+  
+  low:
+    file: "notification-low.ogg"
+    fallback: "message.oga"
+    volume: 0.7
+    priority: "low"
+    description: "A subtle notification sound for non-critical information"
+  
+  # Message Types
+  message:
+    file: "message.ogg"
+    fallback: "message-new-instant.oga"
+    volume: 0.8
+    priority: "normal"
+    description: "A friendly notification sound for incoming messages"
+  
+  message_send:
+    file: "message-send.ogg"
+    fallback: "message-sent-instant.oga"
+    volume: 0.6
+    priority: "low"
+    description: "A subtle confirmation sound for sent messages"
+  
+  email:
+    file: "email.ogg"
+    fallback: "message-new-email.oga"
+    volume: 0.8
+    priority: "normal"
+    description: "A distinctive notification sound for email"
+  
+  calendar:
+    file: "calendar.ogg"
+    fallback: "message-new-instant.oga"
+    volume: 0.8
+    priority: "normal"
+    description: "A gentle reminder sound for calendar events"
+  
+  call:
+    file: "call.ogg"
+    fallback: "phone-incoming-call.oga"
+    volume: 1.0
+    priority: "critical"
+    repeat: true
+    repeat_interval: 2000  # milliseconds
+    description: "A ringtone for incoming calls"
+  
+  # Progress Operations
+  process_complete:
+    file: "process-complete.ogg"
+    fallback: "complete.oga"
+    volume: 0.8
+    priority: "normal"
+    description: "A satisfying sound indicating task completion"
+  
+  download_complete:
+    file: "download-complete.ogg"
+    fallback: "complete.oga"
+    volume: 0.8
+    priority: "normal"
+    description: "A positive notification for completed downloads"
+  
+  upload_complete:
+    file: "upload-complete.ogg"
+    fallback: "complete.oga"
+    volume: 0.8
+    priority: "normal"
+    description: "A positive notification for completed uploads"
+  
+  update_available:
+    file: "update-available.ogg"
+    fallback: "dialog-information.oga"
+    volume: 0.8
+    priority: "normal"
+    description: "An informative sound indicating available updates"
+  
+  update_complete:
+    file: "update-complete.ogg"
+    fallback: "complete.oga"
+    volume: 0.8
+    priority: "normal"
+    description: "A positive notification for completed updates"
+  
+  screenshot:
+    file: "screenshot.ogg"
+    fallback: "screen-capture.oga"
+    volume: 0.8
+    priority: "normal"
+    description: "A camera shutter-like sound for screenshots"
+
+# Accessibility Settings
+accessibility:
+  # Screen Reader Integration
+  screen_reader:
+    enabled: true
+    sound_indicators: true  # Play sounds alongside screen reader announcements
+    sound_volume_reduction: 0.3  # Reduce other sounds when screen reader is speaking
+  
+  # Hearing Assistance
+  hearing_assistance:
+    visual_indicators: true  # Show visual cues with sounds
+    flash_screen: false      # Flash screen for critical alerts
+    haptic_feedback: true    # Use vibration for tactile feedback
+    
+    # Volume Boost
+    volume_boost:
+      enabled: false
+      boost_factor: 1.5  # Multiply standard volumes by this factor
+  
+  # Mono Audio
+  mono_audio:
+    enabled: false  # Combine left and right channels for hearing impaired users
+  
+  # Sound Duration
+  sound_duration:
+    extend_sounds: false  # Make sounds play longer for better recognition
+    extension_factor: 1.2  # Multiply standard duration by this factor
+
+# Sound Profiles
+profiles:
+  # Normal Profile (Default)
+  normal:
+    description: "Balanced sound profile with all feedback enabled"
+    global:
+      volume:
+        master: 0.8
+        system: 0.9
+        interface: 0.7
+        notification: 0.8
+    interface:
+      button_hover:
+        enabled: false
+      menu_hover:
+        enabled: false
+      window_drag:
+        enabled: false
+      scroll_limit:
+        enabled: false
+  
+  # Quiet Profile
+  quiet:
+    description: "Reduced sounds for quiet environments"
+    global:
+      volume:
+        master: 0.5
+        system: 0.6
+        interface: 0.4
+        notification: 0.6
+    interface:
+      button_click:
+        enabled: true
+        volume: 0.3
+      button_hover:
+        enabled: false
+      menu_hover:
+        enabled: false
+      menu_select:
+        enabled: true
+        volume: 0.3
+      window_drag:
+        enabled: false
+      scroll_limit:
+        enabled: false
+  
+  # Silent Profile
+  silent:
+    description: "Critical sounds only"
+    global:
+      volume:
+        master: 0.7
+        system: 0.7
+        interface: 0.0
+        notification: 0.0
+    system:
+      critical_alert:
+        enabled: true
+      warning:
+        enabled: true
+      error:
+        enabled: true
+      low_battery:
+        enabled: true
+    interface:
+      # All interface sounds disabled
+      button_click:
+        enabled: false
+      button_hover:
+        enabled: false
+      toggle_on:
+        enabled: false
+      toggle_off:
+        enabled: false
+      menu_open:
+        enabled: false
+      menu_close:
+        enabled: false
+      menu_select:
+        enabled: false
+      menu_hover:
+        enabled: false
+      window_open:
+        enabled: false
+      window_close:
+        enabled: false
+      window_maximize:
+        enabled: false
+      window_minimize:
+        enabled: false
+      window_snap:
+        enabled: false
+      window_drag:
+        enabled: false
+      scroll_limit:
+        enabled: false
+    notification:
+      critical:
+        enabled: true
+      high:
+        enabled: false
+      normal:
+        enabled: false
+      low:
+        enabled: false
+  
+  # Meeting Profile
+  meeting:
+    description: "Do not disturb mode for meetings"
+    global:
+      volume:
+        master: 0.0  # Mute all sounds
+    system:
+      critical_alert:
+        enabled: false
+  
+  # Accessibility Profile
+  accessibility:
+    description: "Enhanced sounds for accessibility needs"
+    global:
+      volume:
+        master: 1.0
+        system: 1.0
+        interface: 0.9
+        notification: 1.0
+    accessibility:
+      mono_audio:
+        enabled: true
+      sound_duration:
+        extend_sounds: true
+        extension_factor: 1.5
+    interface:
+      button_click:
+        volume: 0.8
+      toggle_on:
+        volume: 0.9
+      toggle_off:
+        volume: 0.9
+
+# Sound Scheduler
+scheduler:
+  # Time-based Profiles
+  time_based:
+    enabled: true
+    
+    # Day Profile (8:00 AM - 10:00 PM)
+    day:
+      profile: "normal"
+      start_time: "08:00"
+      end_time: "22:00"
+    
+    # Night Profile (10:00 PM - 8:00 AM)
+    night:
+      profile: "quiet"
+      start_time: "22:00"
+      end_time: "08:00"
+  
+  # Context-based Profiles
+  context_based:
+    # Meeting Detection
+    meeting:
+      profile: "meeting"
+      triggers:
+        - calendar_event_active
+        - microphone_in_use
+        - camera_in_use
+    
+    # Battery Saving
+    battery_saving:
+      profile: "quiet"
+      triggers:
+        - battery_below_20_percent
+        - power_saver_mode_active
+    
+    # Focused Work
+    focused_work:
+      profile: "silent"
+      triggers:
+        - do_not_disturb_active
+        - fullscreen_application_running
+

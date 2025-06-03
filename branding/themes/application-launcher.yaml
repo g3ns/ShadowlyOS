@@ -1,0 +1,690 @@
+# ShadowlyOS Application Launcher Theme Configuration
+# This file defines the appearance and behavior of the application launcher
+
+---
+# Global Settings
+global:
+  # Brand Colors
+  colors:
+    primary: "#2C3E50"      # Dark blue/gray for primary elements
+    secondary: "#3498DB"    # Blue for accents and highlights
+    tertiary: "#ECF0F1"     # Light gray/white for backgrounds
+    success: "#2ECC71"      # Green for success messages
+    warning: "#F39C12"      # Orange for warnings
+    error: "#E74C3C"        # Red for errors
+    background: "#FFFFFF"   # White for main background
+    surface: "#F8F9FA"      # Light gray for cards and surfaces
+    text_primary: "#2C3E50" # Dark blue/gray for text
+    text_secondary: "#7F8C8D" # Secondary text color
+  
+  # Typography
+  typography:
+    primary_font: "Roboto"
+    light_font: "Roboto Light"
+    bold_font: "Roboto Bold"
+    monospace_font: "Roboto Mono"
+    base_size: 14
+    title_size: 24
+    category_title_size: 16
+    app_name_size: 13
+    description_size: 12
+  
+  # Animation Settings
+  animations:
+    duration_short: "0.15s"
+    duration_medium: "0.25s"
+    duration_long: "0.4s"
+    timing_function: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+    transitions:
+      - "opacity"
+      - "transform"
+      - "background-color"
+      - "border-color"
+      - "box-shadow"
+  
+  # Spacing and Layout
+  spacing:
+    tiny: "4px"
+    small: "8px"
+    medium: "16px"
+    large: "24px"
+    xlarge: "32px"
+    xxlarge: "48px"
+  
+  # Element Styling
+  elements:
+    card:
+      background: "#FFFFFF"
+      border_radius: 8
+      shadow: "0 2px 8px rgba(0, 0, 0, 0.1)"
+      padding: "16px"
+      margin_bottom: "16px"
+    
+    divider:
+      color: "rgba(0, 0, 0, 0.08)"
+      thickness: "1px"
+      margin: "16px 0"
+
+# Main Interface
+main_interface:
+  # Window Settings
+  window:
+    min_width: "800px"
+    min_height: "600px"
+    default_width: "900px"
+    default_height: "650px"
+    background: "rgba(0, 0, 0, 0.6)"  # Semi-transparent background
+    backdrop_filter: "blur(10px)"      # Blur effect for background
+    padding: "24px"
+    border_radius: "12px"
+    animation:
+      entry:
+        type: "fade-in-scale"
+        duration: "0.3s"
+        initial_scale: "0.95"
+        final_scale: "1"
+      exit:
+        type: "fade-out-scale"
+        duration: "0.2s"
+        initial_scale: "1"
+        final_scale: "0.95"
+  
+  # Layout
+  layout:
+    type: "vertical"  # Vertical layout
+    spacing: "24px"
+    padding: "24px"
+    max_width: "1200px"
+    margin: "0 auto"
+  
+  # Header
+  header:
+    height: "64px"
+    margin_bottom: "24px"
+    
+    # Title
+    title:
+      text: "Applications"
+      color: "#FFFFFF"
+      font_size: 24
+      font_weight: "light"
+      margin_bottom: "16px"
+    
+    # Search Bar
+    search:
+      width: "100%"
+      height: "48px"
+      background: "rgba(255, 255, 255, 0.15)"
+      border: "none"
+      border_radius: 24
+      padding: "0 16px 0 48px"
+      placeholder: "Search applications..."
+      placeholder_color: "rgba(255, 255, 255, 0.7)"
+      text_color: "#FFFFFF"
+      icon: "search"
+      icon_color: "rgba(255, 255, 255, 0.7)"
+      icon_size: 20
+      icon_position: "left"
+      icon_padding: "14px"
+      focus:
+        background: "rgba(255, 255, 255, 0.2)"
+        shadow: "0 0 0 2px rgba(52, 152, 219, 0.5)"
+      animation:
+        focus_in:
+          type: "expand"
+          duration: "0.2s"
+          property: "background-color"
+        keystroke:
+          type: "pulse"
+          duration: "0.15s"
+          property: "box-shadow"
+  
+  # Category Navigation
+  category_navigation:
+    height: "48px"
+    margin_bottom: "24px"
+    display: "flex"
+    overflow_x: "auto"
+    scrollbar:
+      height: "2px"
+      thumb_color: "rgba(255, 255, 255, 0.3)"
+      track_color: "transparent"
+    
+    # Category Item
+    item:
+      padding: "0 16px"
+      height: "48px"
+      border_radius: "24px"
+      margin_right: "12px"
+      white_space: "nowrap"
+      
+      # Icon
+      icon:
+        size: "20px"
+        margin_right: "8px"
+        color: "rgba(255, 255, 255, 0.7)"
+      
+      # Label
+      label:
+        color: "rgba(255, 255, 255, 0.7)"
+        font_size: 14
+        font_weight: "medium"
+      
+      # States
+      states:
+        active:
+          background: "rgba(255, 255, 255, 0.15)"
+          icon:
+            color: "#FFFFFF"
+          label:
+            color: "#FFFFFF"
+        
+        hover:
+          background: "rgba(255, 255, 255, 0.1)"
+      
+      # Animation
+      animation:
+        hover:
+          type: "fade"
+          duration: "0.15s"
+        active:
+          type: "scale"
+          duration: "0.15s"
+          scale: "1.05"
+  
+  # Recent and Favorites
+  recent_favorites:
+    title:
+      text: "Recent & Favorites"
+      color: "#FFFFFF"
+      font_size: 16
+      font_weight: "medium"
+      margin_bottom: "16px"
+    
+    display: "grid"
+    grid_template_columns: "repeat(auto-fill, minmax(80px, 1fr))"
+    gap: "16px"
+    margin_bottom: "32px"
+    max_height: "120px"
+    
+    # App Item
+    app_item:
+      width: "80px"
+      display: "flex"
+      flex_direction: "column"
+      align_items: "center"
+      
+      # Icon
+      icon:
+        size: "48px"
+        background: "rgba(255, 255, 255, 0.1)"
+        border_radius: "12px"
+        padding: "8px"
+      
+      # Label
+      label:
+        color: "#FFFFFF"
+        font_size: 12
+        font_weight: "normal"
+        text_align: "center"
+        margin_top: "8px"
+        max_lines: 2
+        line_height: "16px"
+        overflow: "ellipsis"
+      
+      # Indicator
+      favorite_indicator:
+        size: "16px"
+        color: "#F39C12"
+        position: "top-right"
+        offset: "-4px"
+        icon: "star"
+      
+      # States
+      states:
+        hover:
+          transform: "translateY(-4px)"
+          icon:
+            background: "rgba(255, 255, 255, 0.15)"
+            shadow: "0 4px 8px rgba(0, 0, 0, 0.2)"
+        
+        active:
+          transform: "scale(0.95)"
+      
+      # Animation
+      animation:
+        hover:
+          type: "transform"
+          duration: "0.2s"
+        active:
+          type: "transform"
+          duration: "0.1s"
+  
+  # App Grid
+  app_grid:
+    display: "grid"
+    grid_template_columns: "repeat(auto-fill, minmax(80px, 1fr))"
+    gap: "24px"
+    overflow_y: "auto"
+    max_height: "calc(100vh - 320px)"
+    padding_right: "16px"
+    scrollbar:
+      width: "4px"
+      thumb_color: "rgba(255, 255, 255, 0.3)"
+      track_color: "transparent"
+      hover:
+        thumb_color: "rgba(255, 255, 255, 0.5)"
+    
+    # Section Header
+    section_header:
+      margin_top: "32px"
+      margin_bottom: "16px"
+      
+      # Title
+      title:
+        color: "#FFFFFF"
+        font_size: 16
+        font_weight: "medium"
+        margin_bottom: "8px"
+        display: "flex"
+        align_items: "center"
+      
+      # Icon
+      icon:
+        size: "20px"
+        color: "#3498DB"
+        margin_right: "8px"
+    
+    # App Item
+    app_item:
+      width: "80px"
+      display: "flex"
+      flex_direction: "column"
+      align_items: "center"
+      
+      # Icon
+      icon:
+        size: "48px"
+        background: "rgba(255, 255, 255, 0.1)"
+        border_radius: "12px"
+        padding: "8px"
+      
+      # Label
+      label:
+        color: "#FFFFFF"
+        font_size: 12
+        font_weight: "normal"
+        text_align: "center"
+        margin_top: "8px"
+        max_lines: 2
+        line_height: "16px"
+        overflow: "ellipsis"
+      
+      # States
+      states:
+        hover:
+          transform: "translateY(-4px)"
+          icon:
+            background: "rgba(255, 255, 255, 0.15)"
+            shadow: "0 4px 8px rgba(0, 0, 0, 0.2)"
+        
+        active:
+          transform: "scale(0.95)"
+      
+      # Animation
+      animation:
+        hover:
+          type: "transform"
+          duration: "0.2s"
+        active:
+          type: "transform"
+          duration: "0.1s"
+        appear:
+          type: "fade-in-up"
+          duration: "0.3s"
+          delay: "calc(var(--index) * 0.03s)"
+  
+  # Context Menu
+  context_menu:
+    background: "rgba(44, 62, 80, 0.95)"
+    border_radius: "8px"
+    shadow: "0 4px 12px rgba(0, 0, 0, 0.3)"
+    padding: "8px 0"
+    min_width: "200px"
+    backdrop_filter: "blur(10px)"
+    
+    # Menu Item
+    item:
+      height: "40px"
+      padding: "0 16px"
+      display: "flex"
+      align_items: "center"
+      
+      # Icon
+      icon:
+        size: "16px"
+        color: "rgba(255, 255, 255, 0.7)"
+        margin_right: "12px"
+      
+      # Label
+      label:
+        color: "#FFFFFF"
+        font_size: 14
+      
+      # States
+      states:
+        hover:
+          background: "rgba(52, 152, 219, 0.3)"
+        
+        disabled:
+          opacity: 0.5
+      
+      # Animation
+      animation:
+        appear:
+          type: "fade-in"
+          duration: "0.1s"
+    
+    # Divider
+    divider:
+      height: "1px"
+      background: "rgba(255, 255, 255, 0.1)"
+      margin: "4px 0"
+
+# Categories Configuration
+categories:
+  # Favorites
+  favorites:
+    id: "favorites"
+    title: "Favorites"
+    icon: "star"
+    system: true
+    max_items: 12
+  
+  # Recent
+  recent:
+    id: "recent"
+    title: "Recent"
+    icon: "history"
+    system: true
+    max_items: 12
+  
+  # All Apps
+  all:
+    id: "all"
+    title: "All Apps"
+    icon: "th"
+    system: true
+    default: true
+  
+  # Productivity
+  productivity:
+    id: "productivity"
+    title: "Productivity"
+    icon: "briefcase"
+    description: "Work and productivity applications"
+  
+  # Internet
+  internet:
+    id: "internet"
+    title: "Internet"
+    icon: "globe"
+    description: "Web browsers and internet tools"
+  
+  # Media
+  media:
+    id: "media"
+    title: "Media"
+    icon: "play-circle"
+    description: "Music, video, and media applications"
+  
+  # Graphics
+  graphics:
+    id: "graphics"
+    title: "Graphics"
+    icon: "image"
+    description: "Design and graphics applications"
+  
+  # Games
+  games:
+    id: "games"
+    title: "Games"
+    icon: "gamepad"
+    description: "Games and entertainment"
+  
+  # Development
+  development:
+    id: "development"
+    title: "Development"
+    icon: "code"
+    description: "Programming and development tools"
+  
+  # System
+  system:
+    id: "system"
+    title: "System"
+    icon: "cog"
+    description: "System tools and utilities"
+
+# Context Menu Items
+context_menu_items:
+  # Open
+  open:
+    id: "open"
+    label: "Open"
+    icon: "external-link-alt"
+    default: true
+  
+  # Add to Favorites
+  add_to_favorites:
+    id: "add_to_favorites"
+    label: "Add to Favorites"
+    icon: "star"
+    condition: "!isFavorite"
+  
+  # Remove from Favorites
+  remove_from_favorites:
+    id: "remove_from_favorites"
+    label: "Remove from Favorites"
+    icon: "star"
+    condition: "isFavorite"
+  
+  # Pin to Taskbar
+  pin_to_taskbar:
+    id: "pin_to_taskbar"
+    label: "Pin to Taskbar"
+    icon: "thumbtack"
+    condition: "!isPinned"
+  
+  # Unpin from Taskbar
+  unpin_from_taskbar:
+    id: "unpin_from_taskbar"
+    label: "Unpin from Taskbar"
+    icon: "thumbtack"
+    condition: "isPinned"
+  
+  # Create Desktop Shortcut
+  create_shortcut:
+    id: "create_shortcut"
+    label: "Create Desktop Shortcut"
+    icon: "file"
+  
+  # Application Info
+  app_info:
+    id: "app_info"
+    label: "App Info"
+    icon: "info-circle"
+  
+  # Uninstall
+  uninstall:
+    id: "uninstall"
+    label: "Uninstall"
+    icon: "trash-alt"
+    condition: "isUninstallable"
+    style: "danger"
+
+# Search Features
+search:
+  # Instant Results
+  instant_results:
+    enabled: true
+    max_items: 5
+    highlight_matches: true
+    search_in:
+      - "name"
+      - "description"
+      - "keywords"
+  
+  # Search Filters
+  filters:
+    enabled: true
+    types:
+      - id: "category"
+        label: "Category"
+        icon: "folder"
+      
+      - id: "recently_used"
+        label: "Recently Used"
+        icon: "clock"
+      
+      - id: "installed_date"
+        label: "Date Installed"
+        icon: "calendar-alt"
+  
+  # Voice Search
+  voice_search:
+    enabled: true
+    activation_icon: "microphone"
+    activation_hotkey: "Ctrl+Shift+Space"
+    listening_animation:
+      type: "pulse"
+      color: "#3498DB"
+      duration: "2s"
+      iterations: "infinite"
+  
+  # Search History
+  history:
+    enabled: true
+    max_items: 10
+    save_duration_days: 30
+
+# Keyboard Navigation
+keyboard_navigation:
+  enabled: true
+  
+  # Hotkeys
+  hotkeys:
+    show_launcher: "Super"
+    search_focus: "/"
+    close_launcher: "Escape"
+    navigate_up: "Up"
+    navigate_down: "Down"
+    navigate_left: "Left"
+    navigate_right: "Right"
+    select_item: "Enter"
+    context_menu: "Menu"
+    category_next: "Tab"
+    category_previous: "Shift+Tab"
+    filter_results: "Ctrl+F"
+    voice_search: "Ctrl+Shift+Space"
+  
+  # Focus Indicator
+  focus_indicator:
+    color: "#3498DB"
+    border_width: "2px"
+    border_radius: "14px"
+    padding: "2px"
+    animation:
+      type: "pulse"
+      duration: "1.5s"
+      iterations: "infinite"
+
+# Animations
+animations:
+  # Application Launch
+  app_launch:
+    type: "zoom-out"
+    duration: "0.3s"
+    scale_start: "1.0"
+    scale_end: "0.8"
+    opacity_start: "1"
+    opacity_end: "0"
+  
+  # Category Transition
+  category_transition:
+    type: "crossfade"
+    duration: "0.25s"
+  
+  # Grid Layout
+  grid_layout:
+    reflow:
+      type: "move"
+      duration: "0.35s"
+      easing: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+    
+    filter:
+      in_type: "fade-in-up"
+      out_type: "fade-out-down"
+      duration: "0.25s"
+      stagger: "0.02s"
+  
+  # Search Results
+  search_results:
+    appear:
+      type: "fade-in-down"
+      duration: "0.2s"
+      stagger: "0.03s"
+    
+    disappear:
+      type: "fade-out-up"
+      duration: "0.15s"
+      stagger: "0.02s"
+
+# Responsive Design Settings
+responsive:
+  breakpoints:
+    small: "600px"
+    medium: "900px"
+    large: "1200px"
+  
+  adaptations:
+    small:
+      layout:
+        padding: "16px"
+      
+      app_grid:
+        grid_template_columns: "repeat(auto-fill, minmax(64px, 1fr))"
+        gap: "16px"
+      
+      recent_favorites:
+        grid_template_columns: "repeat(auto-fill, minmax(64px, 1fr))"
+        gap: "12px"
+      
+      app_item:
+        width: "64px"
+        
+        icon:
+          size: "40px"
+        
+        label:
+          font_size: 11
+      
+      header:
+        search:
+          height: "40px"
+          padding: "0 12px 0 40px"
+      
+      category_navigation:
+        height: "40px"
+        
+        item:
+          height: "40px"
+          padding: "0 12px"
+    
+    medium:
+      app_grid:
+        grid_template_columns: "repeat(auto-fill, minmax(72px, 1fr))"
+      
+      recent_favorites:
+        grid_template_columns: "repeat(auto-fill, minmax(72px, 1fr))"
+

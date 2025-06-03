@@ -5,7 +5,7 @@
 set -e
 
 # Configuration
-WORK_DIR="/tmp/shadowlyos-build"
+WORK_DIR="/home/yoshi/shadowlyos-build"
 ISO_NAME="shadowlyos"
 ISO_LABEL="ShadowlyOS"
 ISO_VERSION=$(date +%Y.%m.%d)
@@ -42,7 +42,7 @@ fi
 
 # Check dependencies
 print_status "Checking build dependencies..."
-for cmd in archiso mkarchiso; do
+for cmd in mkarchiso; do
     if ! command -v $cmd &> /dev/null; then
         print_error "$cmd is required but not installed. Please install archiso package."
     fi

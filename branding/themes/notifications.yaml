@@ -1,0 +1,831 @@
+# ShadowlyOS Notifications Theme Configuration
+# This file defines the appearance and behavior of system notifications
+
+---
+# Global Settings
+global:
+  # Brand Colors
+  colors:
+    primary: "#2C3E50"      # Dark blue/gray for primary elements
+    secondary: "#3498DB"    # Blue for accents and highlights
+    tertiary: "#ECF0F1"     # Light gray/white for backgrounds
+    success: "#2ECC71"      # Green for success messages
+    warning: "#F39C12"      # Orange for warnings
+    error: "#E74C3C"        # Red for errors
+    information: "#3498DB"  # Blue for information messages
+    background: "#FFFFFF"   # White for notification backgrounds
+    text_primary: "#2C3E50" # Dark blue/gray for text
+    text_secondary: "#7F8C8D" # Secondary text color
+    text_on_dark: "#FFFFFF" # White text for dark backgrounds
+  
+  # Typography
+  typography:
+    primary_font: "Roboto"
+    light_font: "Roboto Light"
+    bold_font: "Roboto Bold"
+    base_size: 13
+    title_size: 14
+    subtitle_size: 12
+    button_size: 12
+  
+  # Animation Settings
+  animations:
+    duration_short: "0.2s"
+    duration_medium: "0.3s"
+    duration_long: "0.5s"
+    timing_function: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+    transitions:
+      - "opacity"
+      - "transform"
+      - "background-color"
+      - "border-color"
+      - "box-shadow"
+
+# Notification Types Configuration
+notification_types:
+  # System Notifications
+  system:
+    icon: "cog"
+    color: "#3498DB"
+    priority: "high"
+    default_timeout: 6000  # milliseconds
+    sound: "system-notification"
+    haptic: "light"
+    grouping: true
+    
+    # System Notification Subtypes
+    subtypes:
+      # Updates Available
+      updates:
+        icon: "arrow-circle-up"
+        color: "#3498DB"
+        priority: "normal"
+        default_timeout: 8000
+        sound: "system-notification"
+        actions:
+          - id: "view"
+            label: "View"
+            primary: true
+          - id: "later"
+            label: "Later"
+            primary: false
+      
+      # Security Alerts
+      security:
+        icon: "shield-alt"
+        color: "#E74C3C"
+        priority: "critical"
+        default_timeout: 0  # No timeout, requires user action
+        sound: "security-alert"
+        haptic: "strong"
+        actions:
+          - id: "view"
+            label: "View"
+            primary: true
+          - id: "dismiss"
+            label: "Dismiss"
+            primary: false
+      
+      # Power Management
+      power:
+        icon: "battery-quarter"
+        color: "#F39C12"
+        priority: "high"
+        default_timeout: 10000
+        sound: "power-alert"
+        haptic: "medium"
+        actions:
+          - id: "power_settings"
+            label: "Settings"
+            primary: true
+          - id: "dismiss"
+            label: "Dismiss"
+            primary: false
+      
+      # Hardware Events
+      hardware:
+        icon: "usb"
+        color: "#3498DB"
+        priority: "normal"
+        default_timeout: 5000
+        sound: "device-connected"
+        actions:
+          - id: "open"
+            label: "Open"
+            primary: true
+          - id: "dismiss"
+            label: "Dismiss"
+            primary: false
+  
+  # Application Notifications
+  application:
+    icon: "bell"
+    color: "#3498DB"
+    priority: "normal"
+    default_timeout: 5000
+    sound: "notification"
+    haptic: "light"
+    grouping: true
+    
+    # Application Notification Subtypes
+    subtypes:
+      # Messages
+      message:
+        icon: "comment"
+        color: "#3498DB"
+        priority: "normal"
+        default_timeout: 5000
+        sound: "message"
+        actions:
+          - id: "reply"
+            label: "Reply"
+            primary: true
+          - id: "mark_read"
+            label: "Mark as Read"
+            primary: false
+          - id: "dismiss"
+            label: "Dismiss"
+            primary: false
+      
+      # Alerts
+      alert:
+        icon: "exclamation-circle"
+        color: "#F39C12"
+        priority: "high"
+        default_timeout: 8000
+        sound: "alert"
+        haptic: "medium"
+        actions:
+          - id: "view"
+            label: "View"
+            primary: true
+          - id: "dismiss"
+            label: "Dismiss"
+            primary: false
+      
+      # Calendar Events
+      calendar:
+        icon: "calendar"
+        color: "#2ECC71"
+        priority: "normal"
+        default_timeout: 7000
+        sound: "calendar"
+        actions:
+          - id: "view"
+            label: "View"
+            primary: true
+          - id: "snooze"
+            label: "Snooze"
+            primary: false
+          - id: "dismiss"
+            label: "Dismiss"
+            primary: false
+      
+      # Background Tasks
+      background:
+        icon: "tasks"
+        color: "#3498DB"
+        priority: "low"
+        default_timeout: 4000
+        sound: null
+        actions:
+          - id: "view"
+            label: "View"
+            primary: true
+          - id: "dismiss"
+            label: "Dismiss"
+            primary: false
+  
+  # Progress Notifications
+  progress:
+    icon: "sync"
+    color: "#3498DB"
+    priority: "normal"
+    default_timeout: 0  # No timeout, updates until completion
+    sound: null
+    grouping: false
+    
+    # Progress Notification Subtypes
+    subtypes:
+      # File Operations
+      file:
+        icon: "file"
+        color: "#3498DB"
+        priority: "normal"
+        default_timeout: 0
+        sound: "complete"
+        sound_on_complete: true
+        actions:
+          - id: "show_in_folder"
+            label: "Show"
+            primary: true
+          - id: "cancel"
+            label: "Cancel"
+            primary: false
+      
+      # Downloads
+      download:
+        icon: "download"
+        color: "#3498DB"
+        priority: "normal"
+        default_timeout: 0
+        sound: "complete"
+        sound_on_complete: true
+        actions:
+          - id: "open"
+            label: "Open"
+            primary: true
+          - id: "show_in_folder"
+            label: "Show"
+            primary: false
+          - id: "cancel"
+            label: "Cancel"
+            primary: false
+      
+      # Updates
+      update:
+        icon: "sync"
+        color: "#3498DB"
+        priority: "normal"
+        default_timeout: 0
+        sound: "complete"
+        sound_on_complete: true
+        actions:
+          - id: "restart"
+            label: "Restart"
+            primary: true
+          - id: "details"
+            label: "Details"
+            primary: false
+          - id: "cancel"
+            label: "Cancel"
+            primary: false
+      
+      # Installations
+      installation:
+        icon: "box"
+        color: "#3498DB"
+        priority: "normal"
+        default_timeout: 0
+        sound: "complete"
+        sound_on_complete: true
+        actions:
+          - id: "launch"
+            label: "Launch"
+            primary: true
+          - id: "cancel"
+            label: "Cancel"
+            primary: false
+
+# Visual Design Configuration
+visual:
+  # Card-based Notification
+  card:
+    width: "360px"
+    max_width: "90vw"
+    min_height: "64px"
+    padding: "16px"
+    margin: "8px"
+    background: "#FFFFFF"
+    border: "none"
+    border_radius: 8
+    shadow: "0 2px 10px rgba(0, 0, 0, 0.1)"
+    
+    # Card Header
+    header:
+      height: "24px"
+      margin_bottom: "8px"
+      
+      # App Icon
+      app_icon:
+        size: "20px"
+        margin_right: "8px"
+        border_radius: 4
+      
+      # Title
+      title:
+        color: "#2C3E50"
+        font_size: 14
+        font_weight: "bold"
+        max_lines: 1
+        truncate: "ellipsis"
+      
+      # Timestamp
+      timestamp:
+        color: "#7F8C8D"
+        font_size: 12
+        margin_left: "auto"
+    
+    # Card Content
+    content:
+      margin: "4px 0 8px 0"
+      
+      # Message Text
+      message:
+        color: "#2C3E50"
+        font_size: 13
+        line_height: 1.4
+        max_lines: 3
+        truncate: "ellipsis"
+      
+      # Thumbnail Image
+      thumbnail:
+        max_width: "100%"
+        max_height: "180px"
+        border_radius: 4
+        margin_top: "8px"
+    
+    # Card Actions
+    actions:
+      margin_top: "8px"
+      
+      # Action Button
+      button:
+        height: "32px"
+        min_width: "64px"
+        padding: "0 12px"
+        margin_right: "8px"
+        font_size: 12
+        border_radius: 4
+        
+        # Primary Button
+        primary:
+          background: "#3498DB"
+          color: "#FFFFFF"
+          hover:
+            background: "#2980B9"
+        
+        # Secondary Button
+        secondary:
+          background: "transparent"
+          color: "#3498DB"
+          hover:
+            background: "rgba(52, 152, 219, 0.1)"
+    
+    # Progress Indicator
+    progress:
+      height: "4px"
+      margin: "8px 0"
+      background: "#ECF0F1"
+      fill: "#3498DB"
+      border_radius: 2
+  
+  # Toast Notification
+  toast:
+    width: "320px"
+    max_width: "90vw"
+    height: "48px"
+    padding: "0 16px"
+    margin: "8px"
+    background: "rgba(44, 62, 80, 0.9)"
+    border: "none"
+    border_radius: 24
+    shadow: "0 2px 8px rgba(0, 0, 0, 0.2)"
+    
+    # Toast Icon
+    icon:
+      size: "20px"
+      color: "#FFFFFF"
+      margin_right: "12px"
+    
+    # Toast Message
+    message:
+      color: "#FFFFFF"
+      font_size: 13
+      max_lines: 1
+      truncate: "ellipsis"
+    
+    # Toast Action
+    action:
+      color: "#3498DB"
+      font_size: 13
+      font_weight: "bold"
+      margin_left: "12px"
+      hover:
+        opacity: 0.8
+  
+  # Notification Center
+  notification_center:
+    width: "380px"
+    max_height: "80vh"
+    background: "#FFFFFF"
+    border: "none"
+    border_radius: "0 0 0 8px"
+    shadow: "0 4px 20px rgba(0, 0, 0, 0.2)"
+    
+    # Header
+    header:
+      height: "56px"
+      padding: "0 16px"
+      background: "#2C3E50"
+      border_bottom: "1px solid rgba(255, 255, 255, 0.1)"
+      
+      # Title
+      title:
+        color: "#FFFFFF"
+        font_size: 16
+        font_weight: "bold"
+      
+      # Clear Button
+      clear_button:
+        color: "#FFFFFF"
+        font_size: 14
+        opacity: 0.8
+        hover:
+          opacity: 1
+    
+    # Content Area
+    content:
+      padding: "8px"
+      
+      # Section Header
+      section_header:
+        padding: "8px 16px"
+        color: "#7F8C8D"
+        font_size: 12
+        font_weight: "bold"
+        text_transform: "uppercase"
+      
+      # Empty State
+      empty_state:
+        padding: "40px 16px"
+        align: "center"
+        
+        icon:
+          size: "48px"
+          color: "#BDC3C7"
+          margin_bottom: "16px"
+        
+        text:
+          color: "#7F8C8D"
+          font_size: 14
+  
+  # Priority Visual Indicators
+  priority_indicators:
+    # Critical
+    critical:
+      border_left: "4px solid #E74C3C"
+      background: "linear-gradient(to right, rgba(231, 76, 60, 0.05), transparent 20%)"
+    
+    # High
+    high:
+      border_left: "4px solid #F39C12"
+      background: "linear-gradient(to right, rgba(243, 156, 18, 0.05), transparent 20%)"
+    
+    # Normal
+    normal:
+      border_left: "none"
+    
+    # Low
+    low:
+      opacity: 0.9
+  
+  # Type-specific Visual Styling
+  type_styling:
+    # System
+    system:
+      background: "linear-gradient(to right, rgba(52, 152, 219, 0.05), transparent 20%)"
+    
+    # Success
+    success:
+      background: "linear-gradient(to right, rgba(46, 204, 113, 0.05), transparent 20%)"
+    
+    # Warning
+    warning:
+      background: "linear-gradient(to right, rgba(243, 156, 18, 0.05), transparent 20%)"
+    
+    # Error
+    error:
+      background: "linear-gradient(to right, rgba(231, 76, 60, 0.05), transparent 20%)"
+
+# Animation Effects Configuration
+animations:
+  # Entry Animations
+  entry:
+    # Default
+    default:
+      name: "slide_in_right"
+      duration: "0.3s"
+      timing: "cubic-bezier(0.0, 0.0, 0.2, 1)"
+    
+    # Slide In Right
+    slide_in_right:
+      keyframes:
+        "0%": { opacity: 0, transform: "translateX(30px)" }
+        "100%": { opacity: 1, transform: "translateX(0)" }
+      duration: "0.3s"
+      timing: "cubic-bezier(0.0, 0.0, 0.2, 1)"
+    
+    # Slide In Top
+    slide_in_top:
+      keyframes:
+        "0%": { opacity: 0, transform: "translateY(-30px)" }
+        "100%": { opacity: 1, transform: "translateY(0)" }
+      duration: "0.3s"
+      timing: "cubic-bezier(0.0, 0.0, 0.2, 1)"
+    
+    # Fade In
+    fade_in:
+      keyframes:
+        "0%": { opacity: 0 }
+        "100%": { opacity: 1 }
+      duration: "0.2s"
+      timing: "ease-out"
+    
+    # Scale In
+    scale_in:
+      keyframes:
+        "0%": { opacity: 0, transform: "scale(0.9)" }
+        "100%": { opacity: 1, transform: "scale(1)" }
+      duration: "0.2s"
+      timing: "cubic-bezier(0.0, 0.0, 0.2, 1)"
+  
+  # Exit Animations
+  exit:
+    # Default
+    default:
+      name: "slide_out_right"
+      duration: "0.25s"
+      timing: "cubic-bezier(0.4, 0.0, 1, 1)"
+    
+    # Slide Out Right
+    slide_out_right:
+      keyframes:
+        "0%": { opacity: 1, transform: "translateX(0)" }
+        "100%": { opacity: 0, transform: "translateX(30px)" }
+      duration: "0.25s"
+      timing: "cubic-bezier(0.4, 0.0, 1, 1)"
+    
+    # Slide Out Top
+    slide_out_top:
+      keyframes:
+        "0%": { opacity: 1, transform: "translateY(0)" }
+        "100%": { opacity: 0, transform: "translateY(-30px)" }
+      duration: "0.25s"
+      timing: "cubic-bezier(0.4, 0.0, 1, 1)"
+    
+    # Fade Out
+    fade_out:
+      keyframes:
+        "0%": { opacity: 1 }
+        "100%": { opacity: 0 }
+      duration: "0.2s"
+      timing: "ease-in"
+    
+    # Scale Out
+    scale_out:
+      keyframes:
+        "0%": { opacity: 1, transform: "scale(1)" }
+        "100%": { opacity: 0, transform: "scale(0.9)" }
+      duration: "0.2s"
+      timing: "cubic-bezier(0.4, 0.0, 1, 1)"
+  
+  # Progress Animations
+  progress:
+    # Indeterminate Progress
+    indeterminate:
+      keyframes:
+        "0%": { transform: "translateX(-100%)" }
+        "50%": { transform: "translateX(0%)" }
+        "100%": { transform: "translateX(100%)" }
+      duration: "1.5s"
+      timing: "cubic-bezier(0.65, 0.05, 0.36, 1)"
+      iteration: "infinite"
+    
+    # Determinate Progress
+    determinate:
+      keyframes:
+        "0%": { width: "0%" }
+        "100%": { width: "var(--progress-width)" }
+      duration: "0.3s"
+      timing: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+  
+  # Interactive Feedback Animations
+  feedback:
+    # Button Hover
+    button_hover:
+      keyframes:
+        "0%": { transform: "scale(1)" }
+        "100%": { transform: "scale(1.05)" }
+      duration: "0.2s"
+      timing: "cubic-bezier(0.0, 0.0, 0.2, 1)"
+    
+    # Button Active
+    button_active:
+      keyframes:
+        "0%": { transform: "scale(1.05)" }
+        "100%": { transform: "scale(0.95)" }
+      duration: "0.1s"
+      timing: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+    
+    # Toggle Switch
+    toggle_switch:
+      keyframes:
+        "0%": { transform: "translateX(0)" }
+        "100%": { transform: "translateX(16px)" }
+      duration: "0.15s"
+      timing: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+
+# Behavior Settings
+behavior:
+  # Display Settings
+  display:
+    position: "top_right"  # top_right, top_left, bottom_right, bottom_left
+    max_visible: 5
+    stack_direction: "down"  # up, down
+    spacing: "8px"
+    
+    # Multiple Notification Handling
+    multi_notification:
+      group_threshold: 3
+      group_by_app: true
+      collapse_behavior: "accordion"  # accordion, stack, replace
+    
+    # Screen Positioning
+    screen:
+      margin_top: "8px"
+      margin_right: "8px"
+      margin_bottom: "8px"
+      margin_left: "8px"
+      
+      # Multi-monitor Behavior
+      multi_monitor:
+        behavior: "primary"  # primary, active, all
+  
+  # Interaction Settings
+  interaction:
+    # Click Actions
+    click:
+      default_action: "open"  # open, dismiss, none
+      right_click_action: "dismiss"  # open, dismiss, none
+      middle_click_action: "none"  # open, dismiss, none
+    
+    # Hover Actions
+    hover:
+      pause_timeout: true
+      show_actions: true
+      expand_content: true
+      
+      # Action Reveal Animation
+      action_reveal:
+        keyframes:
+          "0%": { opacity: 0, transform: "translateY(5px)" }
+          "100%": { opacity: 1, transform: "translateY(0)" }
+        duration: "0.2s"
+        timing: "cubic-bezier(0.0, 0.0, 0.2, 1)"
+    
+    # Gesture Support
+    gestures:
+      swipe_right_action: "dismiss"  # open, dismiss, none
+      swipe_left_action: "dismiss"  # open, dismiss, none
+      swipe_up_action: "none"  # open, dismiss, none
+      swipe_down_action: "expand"  # open, dismiss, expand, none
+  
+  # Focus Handling
+  focus:
+    do_not_disturb_mode: true
+    critical_override_dnd: true
+    fullscreen_behavior: "minimize"  # show, minimize, postpone
+    presentation_behavior: "minimize"  # show, minimize, postpone
+    
+    # Quiet Hours
+    quiet_hours:
+      enabled: true
+      start_time: "22:00"
+      end_time: "07:00"
+      allow_critical: true
+      weekend_offset: "+1h"
+
+# Accessibility Settings
+accessibility:
+  # Screen Reader Support
+  screen_reader:
+    announce_notifications: true
+    announce_priority: "high_and_above"  # all, high_and_above, critical_only
+    
+    # ARIA Labels
+    aria_labels:
+      notification: "Notification from {app}: {title}"
+      dismiss: "Dismiss notification"
+      action_button: "{action} for notification from {app}"
+      progress: "{app} progress: {percent}% complete"
+  
+  # High Contrast Mode
+  high_contrast:
+    enabled: true
+    
+    # Colors
+    colors:
+      background: "#FFFFFF"
+      text: "#000000"
+      primary: "#0066CC"
+      success: "#006600"
+      warning: "#CC6600"
+      error: "#CC0000"
+    
+    # Visual Elements
+    visual:
+      border_width: "2px"
+      outline_focus: true
+      outline_color: "#0066CC"
+      outline_width: "2px"
+  
+  # Motion Sensitivity
+  motion:
+    reduce_animations: true
+    disable_parallax: true
+    disable_blur: true
+    
+    # Reduced Animation Settings
+    reduced_animation:
+      duration_multiplier: 0.5
+      disable_non_essential: true
+
+# Dark Theme Variation
+dark_theme:
+  # Colors
+  colors:
+    primary: "#2C3E50"
+    secondary: "#3498DB"
+    tertiary: "#ECF0F1"
+    background: "#1A1A1A"
+    card_background: "#2C3E50"
+    text_primary: "#FFFFFF"
+    text_secondary: "#BBBBBB"
+  
+  # Visual Elements
+  visual:
+    card:
+      background: "#2C3E50"
+      shadow: "0 2px 10px rgba(0, 0, 0, 0.3)"
+      
+      header:
+        title:
+          color: "#FFFFFF"
+        
+        timestamp:
+          color: "#BBBBBB"
+      
+      content:
+        message:
+          color: "#FFFFFF"
+    
+    toast:
+      background: "rgba(52, 152, 219, 0.9)"
+      
+      message:
+        color: "#FFFFFF"
+    
+    notification_center:
+      background: "#1A1A1A"
+      
+      header:
+        background: "#2C3E50"
+      
+      content:
+        section_header:
+          color: "#BBBBBB"
+        
+        empty_state:
+          icon:
+            color: "#444444"
+          
+          text:
+            color: "#BBBBBB"
+  
+  # Priority Visual Indicators
+  priority_indicators:
+    critical:
+      background: "linear-gradient(to right, rgba(231, 76, 60, 0.15), transparent 20%)"
+    
+    high:
+      background: "linear-gradient(to right, rgba(243, 156, 18, 0.15), transparent 20%)"
+
+# Responsive Design Settings
+responsive:
+  breakpoints:
+    small: "600px"
+    medium: "900px"
+    large: "1200px"
+  
+  adaptations:
+    small:
+      visual:
+        card:
+          width: "100vw"
+          margin: "4px 0"
+          border_radius: 0
+        
+        toast:
+          width: "90vw"
+        
+        notification_center:
+          width: "100vw"
+          border_radius: 0
+      
+      behavior:
+        display:
+          position: "top"
+          stack_direction: "down"
+          max_visible: 3
+

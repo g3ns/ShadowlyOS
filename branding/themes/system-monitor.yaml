@@ -1,0 +1,1554 @@
+# ShadowlyOS System Monitor Theme Configuration
+# This file defines the appearance and behavior of the system monitoring application
+
+---
+# Global Settings
+global:
+  # Brand Colors
+  colors:
+    primary: "#2C3E50"      # Dark blue/gray for primary elements
+    secondary: "#3498DB"    # Blue for accents and highlights
+    tertiary: "#ECF0F1"     # Light gray/white for backgrounds
+    success: "#2ECC71"      # Green for success/normal states
+    warning: "#F39C12"      # Orange for warnings/medium load
+    error: "#E74C3C"        # Red for errors/high load
+    background: "#FFFFFF"   # White for main background
+    surface: "#F8F9FA"      # Light gray for cards and surfaces
+    text_primary: "#2C3E50" # Dark blue/gray for text
+    text_secondary: "#7F8C8D" # Secondary text color
+    chart_grid: "#E6E9ED"    # Light gray for chart grid lines
+    cpu_color: "#3498DB"     # Blue for CPU metrics
+    memory_color: "#9B59B6"  # Purple for memory metrics
+    disk_color: "#16A085"    # Teal for disk metrics
+    network_color: "#F39C12" # Orange for network metrics
+    temperature_color: "#E74C3C" # Red for temperature metrics
+  
+  # Typography
+  typography:
+    primary_font: "Roboto"
+    light_font: "Roboto Light"
+    bold_font: "Roboto Bold"
+    monospace_font: "Roboto Mono"
+    base_size: 14
+    title_size: 20
+    section_title_size: 16
+    metric_value_size: 24
+    metric_label_size: 13
+    table_header_size: 13
+    table_data_size: 14
+    chart_label_size: 12
+  
+  # Animation Settings
+  animations:
+    duration_short: "0.15s"
+    duration_medium: "0.25s"
+    duration_long: "0.4s"
+    timing_function: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+    transitions:
+      - "opacity"
+      - "transform"
+      - "background-color"
+      - "border-color"
+      - "box-shadow"
+    chart_animation_duration: "0.5s"
+    refresh_transition: "0.3s"
+  
+  # Spacing and Layout
+  spacing:
+    tiny: "4px"
+    small: "8px"
+    medium: "16px"
+    large: "24px"
+    xlarge: "32px"
+    xxlarge: "48px"
+  
+  # Element Styling
+  elements:
+    card:
+      background: "#FFFFFF"
+      border_radius: 8
+      shadow: "0 2px 8px rgba(0, 0, 0, 0.1)"
+      padding: "16px"
+      margin_bottom: "16px"
+    
+    divider:
+      color: "rgba(0, 0, 0, 0.08)"
+      thickness: "1px"
+      margin: "16px 0"
+    
+    metric_card:
+      background: "#FFFFFF"
+      border_radius: 8
+      shadow: "0 2px 8px rgba(0, 0, 0, 0.1)"
+      padding: "16px"
+      height: "120px"
+      display: "flex"
+      flex_direction: "column"
+      justify_content: "space-between"
+    
+    chart_container:
+      background: "#FFFFFF"
+      border_radius: 8
+      shadow: "0 2px 8px rgba(0, 0, 0, 0.1)"
+      padding: "16px"
+      height: "280px"
+
+# Main Interface
+main_interface:
+  # Window Settings
+  window:
+    min_width: "900px"
+    min_height: "600px"
+    default_width: "1200px"
+    default_height: "800px"
+    background: "#F8F9FA"
+    padding: "0"
+  
+  # Layout
+  layout:
+    type: "grid"  # Grid-based layout for the monitor
+    columns: "12"
+    row_height: "auto"
+    gap: "16px"
+    padding: "24px"
+  
+  # Header
+  header:
+    height: "64px"
+    background: "#FFFFFF"
+    shadow: "0 2px 4px rgba(0, 0, 0, 0.05)"
+    padding: "0 24px"
+    
+    # Title
+    title:
+      text: "System Monitor"
+      color: "#2C3E50"
+      font_size: 20
+      font_weight: "medium"
+    
+    # System Status
+    system_status:
+      width: "auto"
+      height: "24px"
+      margin_left: "16px"
+      border_radius: "12px"
+      padding: "0 12px"
+      font_size: 12
+      font_weight: "medium"
+      
+      # States
+      states:
+        normal:
+          text: "System Normal"
+          background: "rgba(46, 204, 113, 0.15)"
+          color: "#2ECC71"
+        
+        warning:
+          text: "High Resource Usage"
+          background: "rgba(243, 156, 18, 0.15)"
+          color: "#F39C12"
+        
+        critical:
+          text: "Critical Resource Usage"
+          background: "rgba(231, 76, 60, 0.15)"
+          color: "#E74C3C"
+    
+    # Refresh Rate
+    refresh_rate:
+      width: "140px"
+      height: "36px"
+      background: "#F8F9FA"
+      border: "1px solid rgba(0, 0, 0, 0.08)"
+      border_radius: "18px"
+      padding: "0 12px"
+      font_size: 13
+      display: "flex"
+      align_items: "center"
+      justify_content: "space-between"
+      
+      # Icon
+      icon:
+        name: "sync"
+        size: "16px"
+        color: "#7F8C8D"
+      
+      # Dropdown
+      dropdown:
+        width: "80px"
+        options:
+          - value: "1"
+            label: "1 sec"
+          
+          - value: "2"
+            label: "2 sec"
+          
+          - value: "5"
+            label: "5 sec"
+          
+          - value: "10"
+            label: "10 sec"
+          
+          - value: "30"
+            label: "30 sec"
+          
+          - value: "60"
+            label: "1 min"
+    
+    # Actions
+    actions:
+      margin_left: "auto"
+      
+      # Export Button
+      export_button:
+        type: "button"
+        icon: "download"
+        label: "Export"
+        variant: "outline"
+        height: "36px"
+        padding: "0 16px"
+        margin_right: "12px"
+      
+      # Settings Button
+      settings_button:
+        type: "icon_button"
+        icon: "cog"
+        size: "36px"
+        border_radius: "18px"
+        tooltip: "Settings"
+
+# Dashboard Layout
+dashboard:
+  # System Overview
+  system_overview:
+    title: "System Overview"
+    layout:
+      grid_column: "span 12"
+      grid_row: "auto"
+      display: "grid"
+      grid_template_columns: "repeat(4, 1fr)"
+      gap: "16px"
+    
+    # Metric Cards
+    metrics:
+      # CPU Usage
+      cpu_usage:
+        type: "metric_card"
+        title: "CPU Usage"
+        icon: "microchip"
+        primary_value:
+          format: "percentage"
+          threshold:
+            normal: 60
+            warning: 80
+            critical: 90
+        secondary_value:
+          label: "Core Count"
+          format: "numeric"
+        background_chart:
+          type: "area"
+          color: "#3498DB"
+          opacity: "0.1"
+          points: 30
+      
+      # Memory Usage
+      memory_usage:
+        type: "metric_card"
+        title: "Memory Usage"
+        icon: "memory"
+        primary_value:
+          format: "percentage"
+          threshold:
+            normal: 70
+            warning: 85
+            critical: 95
+        secondary_value:
+          label: "Available"
+          format: "size_mb_gb"
+        background_chart:
+          type: "area"
+          color: "#9B59B6"
+          opacity: "0.1"
+          points: 30
+      
+      # Disk Usage
+      disk_usage:
+        type: "metric_card"
+        title: "Disk Usage"
+        icon: "hdd"
+        primary_value:
+          format: "percentage"
+          threshold:
+            normal: 70
+            warning: 85
+            critical: 95
+        secondary_value:
+          label: "Free Space"
+          format: "size_gb"
+        background_chart:
+          type: "area"
+          color: "#16A085"
+          opacity: "0.1"
+          points: 30
+      
+      # Network Activity
+      network_activity:
+        type: "metric_card"
+        title: "Network"
+        icon: "network-wired"
+        primary_value:
+          format: "speed_mb"
+          threshold:
+            normal: 50
+            warning: 80
+            critical: 95
+        secondary_value:
+          label: "Total"
+          format: "size_mb_gb"
+        background_chart:
+          type: "area"
+          color: "#F39C12"
+          opacity: "0.1"
+          points: 30
+  
+  # Resource Graphs
+  resource_graphs:
+    title: "Resource Usage"
+    layout:
+      grid_column: "span 8"
+      grid_row: "auto"
+      margin_top: "24px"
+    
+    # Tabs
+    tabs:
+      height: "48px"
+      tab_items:
+        - id: "cpu"
+          label: "CPU"
+          icon: "microchip"
+        
+        - id: "memory"
+          label: "Memory"
+          icon: "memory"
+        
+        - id: "disk"
+          label: "Disk"
+          icon: "hdd"
+        
+        - id: "network"
+          label: "Network"
+          icon: "network-wired"
+        
+        - id: "temperature"
+          label: "Temperature"
+          icon: "thermometer-half"
+    
+    # Time Range Selector
+    time_range:
+      margin_left: "auto"
+      width: "120px"
+      height: "36px"
+      options:
+        - value: "5min"
+          label: "5 min"
+        
+        - value: "15min"
+          label: "15 min"
+        
+        - value: "30min"
+          label: "30 min"
+        
+        - value: "1hour"
+          label: "1 hour"
+        
+        - value: "6hours"
+          label: "6 hours"
+        
+        - value: "24hours"
+          label: "24 hours"
+    
+    # Chart Container
+    chart:
+      height: "280px"
+      padding: "16px"
+      background: "#FFFFFF"
+      border_radius: "8px"
+      shadow: "0 2px 8px rgba(0, 0, 0, 0.05)"
+      margin_top: "16px"
+      
+      # Grid Lines
+      grid:
+        color: "#E6E9ED"
+        dash_array: "4,4"
+        line_width: 1
+      
+      # X-Axis
+      x_axis:
+        color: "#BDC3C7"
+        tick_color: "#7F8C8D"
+        label_color: "#7F8C8D"
+        label_font_size: 11
+      
+      # Y-Axis
+      y_axis:
+        color: "#BDC3C7"
+        tick_color: "#7F8C8D"
+        label_color: "#7F8C8D"
+        label_font_size: 11
+      
+      # Tooltip
+      tooltip:
+        background: "#2C3E50"
+        color: "#FFFFFF"
+        border_radius: "4px"
+        padding: "8px 12px"
+        font_size: 12
+        shadow: "0 2px 8px rgba(0, 0, 0, 0.2)"
+      
+      # CPU Chart
+      cpu_chart:
+        id: "cpu"
+        line_width: 2
+        line_color: "#3498DB"
+        area_fill: "rgba(52, 152, 219, 0.1)"
+        point_radius: 3
+        point_color: "#3498DB"
+        point_border_color: "#FFFFFF"
+        point_border_width: 2
+        
+        # Metrics
+        metrics:
+          - id: "cpu_total"
+            label: "Total CPU"
+            color: "#3498DB"
+          
+          - id: "cpu_user"
+            label: "User"
+            color: "#2980B9"
+          
+          - id: "cpu_system"
+            label: "System"
+            color: "#1ABC9C"
+          
+          - id: "cpu_nice"
+            label: "Nice"
+            color: "#16A085"
+          
+          - id: "cpu_iowait"
+            label: "I/O Wait"
+            color: "#F39C12"
+      
+      # Memory Chart
+      memory_chart:
+        id: "memory"
+        line_width: 2
+        line_color: "#9B59B6"
+        area_fill: "rgba(155, 89, 182, 0.1)"
+        point_radius: 3
+        point_color: "#9B59B6"
+        point_border_color: "#FFFFFF"
+        point_border_width: 2
+        
+        # Metrics
+        metrics:
+          - id: "memory_used"
+            label: "Used Memory"
+            color: "#9B59B6"
+          
+          - id: "memory_cached"
+            label: "Cached"
+            color: "#8E44AD"
+          
+          - id: "memory_buffers"
+            label: "Buffers"
+            color: "#D35400"
+          
+          - id: "memory_free"
+            label: "Free"
+            color: "#27AE60"
+      
+      # Disk Chart
+      disk_chart:
+        id: "disk"
+        line_width: 2
+        line_color: "#16A085"
+        area_fill: "rgba(22, 160, 133, 0.1)"
+        point_radius: 3
+        point_color: "#16A085"
+        point_border_color: "#FFFFFF"
+        point_border_width: 2
+        
+        # Metrics
+        metrics:
+          - id: "disk_read"
+            label: "Read"
+            color: "#16A085"
+          
+          - id: "disk_write"
+            label: "Write"
+            color: "#E74C3C"
+          
+          - id: "disk_iops"
+            label: "IOPS"
+            color: "#3498DB"
+      
+      # Network Chart
+      network_chart:
+        id: "network"
+        line_width: 2
+        line_color: "#F39C12"
+        area_fill: "rgba(243, 156, 18, 0.1)"
+        point_radius: 3
+        point_color: "#F39C12"
+        point_border_color: "#FFFFFF"
+        point_border_width: 2
+        
+        # Metrics
+        metrics:
+          - id: "network_download"
+            label: "Download"
+            color: "#F39C12"
+          
+          - id: "network_upload"
+            label: "Upload"
+            color: "#E67E22"
+          
+          - id: "network_packets"
+            label: "Packets"
+            color: "#D35400"
+      
+      # Temperature Chart
+      temperature_chart:
+        id: "temperature"
+        line_width: 2
+        line_color: "#E74C3C"
+        area_fill: "rgba(231, 76, 60, 0.1)"
+        point_radius: 3
+        point_color: "#E74C3C"
+        point_border_color: "#FFFFFF"
+        point_border_width: 2
+        
+        # Metrics
+        metrics:
+          - id: "temp_cpu"
+            label: "CPU"
+            color: "#E74C3C"
+          
+          - id: "temp_gpu"
+            label: "GPU"
+            color: "#C0392B"
+          
+          - id: "temp_motherboard"
+            label: "Motherboard"
+            color: "#9B59B6"
+          
+          - id: "temp_drives"
+            label: "Drives"
+            color: "#3498DB"
+  
+  # System Information
+  system_info:
+    title: "System Information"
+    layout:
+      grid_column: "span 4"
+      grid_row: "auto"
+      margin_top: "24px"
+    
+    # Info Card
+    card:
+      background: "#FFFFFF"
+      border_radius: "8px"
+      shadow: "0 2px 8px rgba(0, 0, 0, 0.05)"
+      padding: "16px"
+    
+    # Sections
+    sections:
+      # Hardware
+      hardware:
+        title: "Hardware"
+        icon: "server"
+        margin_bottom: "16px"
+        
+        # Items
+        items:
+          - label: "CPU"
+            value_id: "cpu_model"
+            icon: "microchip"
+          
+          - label: "Memory"
+            value_id: "memory_total"
+            icon: "memory"
+          
+          - label: "GPU"
+            value_id: "gpu_model"
+            icon: "vr-cardboard"
+          
+          - label: "Storage"
+            value_id: "storage_details"
+            icon: "hdd"
+      
+      # Operating System
+      os:
+        title: "Operating System"
+        icon: "desktop"
+        margin_bottom: "16px"
+        
+        # Items
+        items:
+          - label: "OS Name"
+            value_id: "os_name"
+            icon: "cog"
+          
+          - label: "Kernel"
+            value_id: "kernel_version"
+            icon: "code"
+          
+          - label: "Uptime"
+            value_id: "uptime"
+            icon: "clock"
+          
+          - label: "Packages"
+            value_id: "package_count"
+            icon: "archive"
+      
+      # Network
+      network:
+        title: "Network"
+        icon: "network-wired"
+        
+        # Items
+        items:
+          - label: "Hostname"
+            value_id: "hostname"
+            icon: "tag"
+          
+          - label: "IP Address"
+            value_id: "ip_address"
+            icon: "wifi"
+          
+          - label: "Interface"
+            value_id: "network_interface"
+            icon: "ethernet"
+          
+          - label: "MAC Address"
+            value_id: "mac_address"
+            icon: "fingerprint"
+  
+  # Process List
+  process_list:
+    title: "Processes"
+    layout:
+      grid_column: "span 12"
+      grid_row: "auto"
+      margin_top: "24px"
+    
+    # Toolbar
+    toolbar:
+      height: "48px"
+      padding: "0 16px"
+      background: "#FFFFFF"
+      border_radius: "8px 8px 0 0"
+      border_bottom: "1px solid rgba(0, 0, 0, 0.08)"
+      
+      # Search
+      search:
+        width: "280px"
+        height: "36px"
+        background: "#F8F9FA"
+        border: "none"
+        border_radius: "18px"
+        padding: "0 16px 0 40px"
+        placeholder: "Search processes..."
+        placeholder_color: "#7F8C8D"
+        icon: "search"
+        icon_color: "#7F8C8D"
+        icon_size: 16
+        icon_position: "left"
+        icon_padding: "12px"
+      
+      # Filters
+      filters:
+        margin_left: "16px"
+        
+        # Dropdown
+        filter_dropdown:
+          width: "140px"
+          height: "36px"
+          label: "Show"
+          options:
+            - value: "all"
+              label: "All Processes"
+            
+            - value: "user"
+              label: "User Processes"
+            
+            - value: "system"
+              label: "System Processes"
+      
+      # Actions
+      actions:
+        margin_left: "auto"
+        
+        # End Process Button
+        end_process:
+          type: "button"
+          icon: "times"
+          label: "End Process"
+          variant: "danger"
+          height: "36px"
+          padding: "0 16px"
+          disabled: true  # Enabled only when process selected
+    
+    # Table
+    table:
+      background: "#FFFFFF"
+      border_radius: "0 0 8px 8px"
+      
+      # Header
+      header:
+        height: "48px"
+        background: "#F8F9FA"
+        border_bottom: "1px solid rgba(0, 0, 0, 0.08)"
+        padding: "0 16px"
+        font_size: 13
+        font_weight: "medium"
+        color: "#7F8C8D"
+        
+        # Columns
+        columns:
+          - id: "name"
+            label: "Name"
+            width: "30%"
+            sortable: true
+          
+          - id: "pid"
+            label: "PID"
+            width: "10%"
+            sortable: true
+          
+          - id: "user"
+            label: "User"
+            width: "15%"
+            sortable: true
+          
+          - id: "cpu"
+            label: "CPU %"
+            width: "15%"
+            sortable: true
+            default_sort: "desc"
+          
+          - id: "memory"
+            label: "Memory"
+            width: "15%"
+            sortable: true
+          
+          - id: "time"
+            label: "Time"
+            width: "15%"
+            sortable: true
+      
+      # Row
+      row:
+        height: "40px"
+        padding: "0 16px"
+        border_bottom: "1px solid rgba(0, 0, 0, 0.05)"
+        color: "#2C3E50"
+        font_size: 13
+        
+        # States
+        states:
+          hover:
+            background: "rgba(0, 0, 0, 0.02)"
+          
+          selected:
+            background: "rgba(52, 152, 219, 0.08)"
+          
+          system:
+            color: "#7F8C8D"
+          
+          high_usage:
+            color: "#E74C3C"
+            font_weight: "medium"
+      
+      # Empty State
+      empty_state:
+        padding: "48px 0"
+        text: "No processes match your search"
+        text_color: "#7F8C8D"
+        icon: "tasks"
+        icon_color: "#BDC3C7"
+        icon_size: "48px"
+    
+    # Pagination
+    pagination:
+      height: "48px"
+      padding: "0 16px"
+      background: "#FFFFFF"
+      border_top: "1px solid rgba(0, 0, 0, 0.08)"
+      border_radius: "0 0 8px 8px"
+      
+      # Controls
+      controls:
+        # Page Size
+        page_size:
+          width: "120px"
+          height: "36px"
+          label: "Show:"
+          options:
+            - value: "10"
+              label: "10 items"
+            
+            - value: "25"
+              label: "25 items"
+            
+            - value: "50"
+              label: "50 items"
+            
+            - value: "100"
+              label: "100 items"
+        
+        # Page Controls
+        page_controls:
+          margin_left: "auto"
+          
+          # Previous Button
+          previous:
+            type: "icon_button"
+            icon: "chevron-left"
+            size: "36px"
+            border_radius: "18px"
+            disabled: true
+          
+          # Page Indicator
+          page_indicator:
+            margin: "0 16px"
+            color: "#7F8C8D"
+            font_size: 13
+          
+          # Next Button
+          next:
+            type: "icon_button"
+            icon: "chevron-right"
+            size: "36px"
+            border_radius: "18px"
+
+# Resource Alerts
+resource_alerts:
+  # Alert Thresholds
+  thresholds:
+    # CPU Usage
+    cpu_usage:
+      warning: 80
+      critical: 90
+      duration: "30s"  # Sustained for 30 seconds
+    
+    # Memory Usage
+    memory_usage:
+      warning: 85
+      critical: 95
+      duration: "1m"   # Sustained for 1 minute
+    
+    # Disk Usage
+    disk_usage:
+      warning: 85
+      critical: 95
+    
+    # Disk I/O
+    disk_io:
+      warning: 80
+      critical: 95
+      duration: "1m"
+    
+    # Network
+    network:
+      warning: 80
+      critical: 95
+      duration: "1m"
+    
+    # Temperature
+    temperature:
+      warning: 75
+      critical: 85
+  
+  # Alert Banner
+  alert_banner:
+    height: "auto"
+    min_height: "56px"
+    padding: "12px 16px"
+    margin_bottom: "16px"
+    border_radius: "8px"
+    display: "flex"
+    align_items: "center"
+    
+    # Icon
+    icon:
+      size: "24px"
+      margin_right: "16px"
+    
+    # Content
+    content:
+      flex: 1
+      
+      # Title
+      title:
+        font_size: 15
+        font_weight: "medium"
+        margin_bottom: "4px"
+      
+      # Message
+      message:
+        font_size: 13
+        margin_bottom: "0"
+    
+    # Close Button
+    close_button:
+      type: "icon_button"
+      icon: "times"
+      size: "24px"
+      margin_left: "16px"
+    
+    # States
+    states:
+      warning:
+        background: "rgba(243, 156, 18, 0.1)"
+        border_left: "4px solid #F39C12"
+        icon_color: "#F39C12"
+        title_color: "#D35400"
+        message_color: "#7F8C8D"
+      
+      critical:
+        background: "rgba(231, 76, 60, 0.1)"
+        border_left: "4px solid #E74C3C"
+        icon_color: "#E74C3C"
+        title_color: "#C0392B"
+        message_color: "#7F8C8D"
+  
+  # Alert Notification
+  alert_notification:
+    width: "320px"
+    padding: "16px"
+    background: "#FFFFFF"
+    border_radius: "8px"
+    shadow: "0 4px 12px rgba(0, 0, 0, 0.15)"
+    
+    # Icon
+    icon:
+      size: "24px"
+      margin_right: "16px"
+    
+    # Content
+    content:
+      # Title
+      title:
+        font_size: 15
+        font_weight: "medium"
+        margin_bottom: "4px"
+      
+      # Message
+      message:
+        font_size: 13
+        margin_bottom: "8px"
+    
+    # Actions
+    actions:
+      margin_top: "12px"
+      
+      # Primary Button
+      primary_button:
+        type: "button"
+        label: "View Details"
+        variant: "primary"
+        height: "32px"
+        padding: "0 12px"
+        margin_right: "8px"
+      
+      # Dismiss Button
+      dismiss_button:
+        type: "button"
+        label: "Dismiss"
+        variant: "text"
+        height: "32px"
+        padding: "0 12px"
+    
+    # States
+    states:
+      warning:
+        border_top: "4px solid #F39C12"
+        icon_color: "#F39C12"
+        title_color: "#D35400"
+      
+      critical:
+        border_top: "4px solid #E74C3C"
+        icon_color: "#E74C3C"
+        title_color: "#C0392B"
+
+# Process Details Modal
+process_details:
+  # Modal
+  modal:
+    width: "800px"
+    max_height: "80vh"
+    background: "#FFFFFF"
+    border_radius: "8px"
+    shadow: "0 4px 20px rgba(0, 0, 0, 0.2)"
+    
+    # Header
+    header:
+      height: "64px"
+      padding: "0 24px"
+      background: "#F8F9FA"
+      border_bottom: "1px solid rgba(0, 0, 0, 0.08)"
+      border_radius: "8px 8px 0 0"
+      
+      # Title
+      title:
+        font_size: 18
+        font_weight: "medium"
+        color: "#2C3E50"
+      
+      # Close Button
+      close_button:
+        type: "icon_button"
+        icon: "times"
+        size: "36px"
+        border_radius: "18px"
+        margin_left: "auto"
+    
+    # Content
+    content:
+      padding: "24px"
+      
+      # Tabs
+      tabs:
+        height: "48px"
+        margin_bottom: "24px"
+        
+        # Tab Items
+        tab_items:
+          - id: "overview"
+            label: "Overview"
+            icon: "chart-bar"
+          
+          - id: "resources"
+            label: "Resources"
+            icon: "tachometer-alt"
+          
+          - id: "files"
+            label: "Open Files"
+            icon: "file"
+          
+          - id: "connections"
+            label: "Connections"
+            icon: "network-wired"
+    
+    # Process Overview
+    overview:
+      # Basic Info
+      basic_info:
+        margin_bottom: "24px"
+        
+        # Grid
+        grid:
+          display: "grid"
+          grid_template_columns: "repeat(2, 1fr)"
+          gap: "16px"
+        
+        # Info Item
+        info_item:
+          margin_bottom: "12px"
+          
+          # Label
+          label:
+            font_size: 13
+            color: "#7F8C8D"
+            margin_bottom: "4px"
+          
+          # Value
+          value:
+            font_size: 15
+            color: "#2C3E50"
+            font_weight: "medium"
+      
+      # Command
+      command:
+        margin_bottom: "24px"
+        
+        # Label
+        label:
+          font_size: 13
+          color: "#7F8C8D"
+          margin_bottom: "4px"
+        
+        # Value
+        value:
+          font_family: "monospace"
+          font_size: 13
+          color: "#2C3E50"
+          background: "#F8F9FA"
+          padding: "8px 12px"
+          border_radius: "4px"
+          overflow: "auto"
+          max_height: "80px"
+    
+    # Resource Usage
+    resources:
+      # Graphs
+      graphs:
+        height: "200px"
+        margin_bottom: "24px"
+        
+        # CPU Graph
+        cpu_graph:
+          line_color: "#3498DB"
+          area_fill: "rgba(52, 152, 219, 0.1)"
+          margin_bottom: "16px"
+        
+        # Memory Graph
+        memory_graph:
+          line_color: "#9B59B6"
+          area_fill: "rgba(155, 89, 182, 0.1)"
+    
+    # Files
+    files:
+      # Table
+      table:
+        # Header
+        header:
+          height: "40px"
+          background: "#F8F9FA"
+          border_bottom: "1px solid rgba(0, 0, 0, 0.08)"
+          padding: "0 16px"
+          font_size: 13
+          font_weight: "medium"
+          color: "#7F8C8D"
+          
+          # Columns
+          columns:
+            - id: "path"
+              label: "Path"
+              width: "60%"
+            
+            - id: "type"
+              label: "Type"
+              width: "20%"
+            
+            - id: "fd"
+              label: "File Descriptor"
+              width: "20%"
+        
+        # Row
+        row:
+          height: "36px"
+          padding: "0 16px"
+          border_bottom: "1px solid rgba(0, 0, 0, 0.05)"
+          color: "#2C3E50"
+          font_size: 13
+    
+    # Connections
+    connections:
+      # Table
+      table:
+        # Header
+        header:
+          height: "40px"
+          background: "#F8F9FA"
+          border_bottom: "1px solid rgba(0, 0, 0, 0.08)"
+          padding: "0 16px"
+          font_size: 13
+          font_weight: "medium"
+          color: "#7F8C8D"
+          
+          # Columns
+          columns:
+            - id: "protocol"
+              label: "Protocol"
+              width: "15%"
+            
+            - id: "local_address"
+              label: "Local Address"
+              width: "30%"
+            
+            - id: "remote_address"
+              label: "Remote Address"
+              width: "30%"
+            
+            - id: "state"
+              label: "State"
+              width: "25%"
+        
+        # Row
+        row:
+          height: "36px"
+          padding: "0 16px"
+          border_bottom: "1px solid rgba(0, 0, 0, 0.05)"
+          color: "#2C3E50"
+          font_size: 13
+    
+    # Footer
+    footer:
+      height: "64px"
+      padding: "0 24px"
+      background: "#F8F9FA"
+      border_top: "1px solid rgba(0, 0, 0, 0.08)"
+      border_radius: "0 0 8px 8px"
+      
+      # Actions
+      actions:
+        display: "flex"
+        justify_content: "flex-end"
+        gap: "16px"
+        
+        # End Process Button
+        end_process:
+          type: "button"
+          label: "End Process"
+          variant: "danger"
+          height: "36px"
+          padding: "0 16px"
+        
+        # Close Button
+        close:
+          type: "button"
+          label: "Close"
+          variant: "secondary"
+          height: "36px"
+          padding: "0 16px"
+
+# Settings Panel
+settings_panel:
+  # Panel
+  panel:
+    width: "400px"
+    height: "100vh"
+    background: "#FFFFFF"
+    shadow: "-2px 0 10px rgba(0, 0, 0, 0.1)"
+    position: "right"
+    
+    # Header
+    header:
+      height: "64px"
+      padding: "0 24px"
+      background: "#F8F9FA"
+      border_bottom: "1px solid rgba(0, 0, 0, 0.08)"
+      
+      # Title
+      title:
+        text: "Settings"
+        font_size: 18
+        font_weight: "medium"
+        color: "#2C3E50"
+      
+      # Close Button
+      close_button:
+        type: "icon_button"
+        icon: "times"
+        size: "36px"
+        border_radius: "18px"
+        margin_left: "auto"
+    
+    # Content
+    content:
+      padding: "24px"
+      
+      # Settings Group
+      group:
+        margin_bottom: "32px"
+        
+        # Title
+        title:
+          font_size: 16
+          font_weight: "medium"
+          color: "#2C3E50"
+          margin_bottom: "16px"
+        
+        # Setting Item
+        setting:
+          margin_bottom: "16px"
+          
+          # Label
+          label:
+            font_size: 14
+            color: "#2C3E50"
+            margin_bottom: "8px"
+          
+          # Description
+          description:
+            font_size: 13
+            color: "#7F8C8D"
+            margin_bottom: "12px"
+      
+      # Display Settings
+      display:
+        title: "Display"
+        
+        # Settings
+        settings:
+          # Refresh Rate
+          refresh_rate:
+            type: "dropdown"
+            label: "Default Refresh Rate"
+            description: "How often the monitor data updates"
+            default: "2"
+            options:
+              - value: "1"
+                label: "1 second"
+              
+              - value: "2"
+                label: "2 seconds"
+              
+              - value: "5"
+                label: "5 seconds"
+              
+              - value: "10"
+                label: "10 seconds"
+              
+              - value: "30"
+                label: "30 seconds"
+              
+              - value: "60"
+                label: "1 minute"
+          
+          # Graph Time Range
+          graph_time_range:
+            type: "dropdown"
+            label: "Default Graph Time Range"
+            description: "Time period shown in resource graphs"
+            default: "15min"
+            options:
+              - value: "5min"
+                label: "5 minutes"
+              
+              - value: "15min"
+                label: "15 minutes"
+              
+              - value: "30min"
+                label: "30 minutes"
+              
+              - value: "1hour"
+                label: "1 hour"
+              
+              - value: "6hours"
+                label: "6 hours"
+              
+              - value: "24hours"
+                label: "24 hours"
+          
+          # Show Background Charts
+          show_background_charts:
+            type: "toggle"
+            label: "Show Mini Charts in Cards"
+            description: "Display small charts in system overview cards"
+            default: true
+          
+          # Process List Size
+          process_list_size:
+            type: "dropdown"
+            label: "Process List Size"
+            description: "Number of processes shown per page"
+            default: "25"
+            options:
+              - value: "10"
+                label: "10 items"
+              
+              - value: "25"
+                label: "25 items"
+              
+              - value: "50"
+                label: "50 items"
+              
+              - value: "100"
+                label: "100 items"
+      
+      # Alerts Settings
+      alerts:
+        title: "Alerts"
+        
+        # Settings
+        settings:
+          # Enable Alerts
+          enable_alerts:
+            type: "toggle"
+            label: "Enable Resource Alerts"
+            description: "Show notifications for resource usage issues"
+            default: true
+          
+          # Alert Thresholds
+          cpu_threshold:
+            type: "slider"
+            label: "CPU Alert Threshold"
+            description: "Alert when CPU usage exceeds this percentage"
+            depends_on: "enable_alerts=true"
+            min: 50
+            max: 100
+            default: 80
+            unit: "%"
+          
+          memory_threshold:
+            type: "slider"
+            label: "Memory Alert Threshold"
+            description: "Alert when memory usage exceeds this percentage"
+            depends_on: "enable_alerts=true"
+            min: 50
+            max: 100
+            default: 85
+            unit: "%"
+          
+          # Alert Sound
+          alert_sound:
+            type: "toggle"
+            label: "Play Alert Sound"
+            description: "Play a sound when alerts are triggered"
+            depends_on: "enable_alerts=true"
+            default: true
+      
+      # Advanced Settings
+      advanced:
+        title: "Advanced"
+        
+        # Settings
+        settings:
+          # Show System Processes
+          show_system_processes:
+            type: "toggle"
+            label: "Show System Processes"
+            description: "Display system processes in the process list"
+            default: true
+          
+          # Process Command
+          show_full_command:
+            type: "toggle"
+            label: "Show Full Command"
+            description: "Display the full command line for processes"
+            default: false
+          
+          # Resource Sampling
+          resource_sampling:
+            type: "dropdown"
+            label: "Resource Sampling Method"
+            description: "How system resources are measured"
+            default: "average"
+            options:
+              - value: "average"
+                label: "Average"
+                description: "Average values over the refresh interval"
+              
+              - value: "peak"
+                label: "Peak"
+                description: "Highest values during the refresh interval"
+              
+              - value: "current"
+                label: "Current"
+                description: "Instantaneous values at refresh time"
+          
+          # Data Retention
+          data_retention:
+            type: "dropdown"
+            label: "Data Retention Period"
+            description: "How long monitoring history is kept"
+            default: "6hours"
+            options:
+              - value: "1hour"
+                label: "1 hour"
+              
+              - value: "6hours"
+                label: "6 hours"
+              
+              - value: "24hours"
+                label: "24 hours"
+              
+              - value: "3days"
+                label: "3 days"
+              
+              - value: "7days"
+                label: "7 days"
+    
+    # Footer
+    footer:
+      height: "64px"
+      padding: "0 24px"
+      background: "#F8F9FA"
+      border_top: "1px solid rgba(0, 0, 0, 0.08)"
+      
+      # Actions
+      actions:
+        display: "flex"
+        justify_content: "space-between"
+        align_items: "center"
+        
+        # Reset Button
+        reset:
+          type: "button"
+          label: "Reset to Default"
+          variant: "text"
+          height: "36px"
+          padding: "0 16px"
+        
+        # Save Button
+        save:
+          type: "button"
+          label: "Save Settings"
+          variant: "primary"
+          height: "36px"
+          padding: "0 16px"
+
+# Responsive Design Settings
+responsive:
+  breakpoints:
+    small: "600px"
+    medium: "900px"
+    large: "1200px"
+  
+  adaptations:
+    small:
+      # Main Layout Changes
+      dashboard:
+        system_overview:
+          grid_template_columns: "repeat(1, 1fr)"
+        
+        resource_graphs:
+          grid_column: "span 12"
+        
+        system_info:
+          grid_column: "span 12"
+          margin_top: "16px"
+      
+      # Header Simplification
+      header:
+        height: "auto"
+        padding: "16px"
+        flex_direction: "column"
+        align_items: "flex-start"
+        
+        # Title Row
+        title_row:
+          width: "100%"
+          display: "flex"
+          justify_content: "space-between"
+          align_items: "center"
+          margin_bottom: "12px"
+        
+        # Refresh Rate
+        refresh_rate:
+          width: "100%"
+          margin_top: "12px"
+      
+      # Simplified Tabs
+      resource_graphs:
+        tabs:
+          overflow_x: "auto"
+          flex_wrap: "nowrap"
+          
+          tab_items:
+            padding: "0 12px"
+    
+    medium:
+      # Adjust Layout
+      dashboard:
+        system_overview:
+          grid_template_columns: "repeat(2, 1fr)"
+        
+        resource_graphs:
+          grid_column: "span 8"
+        
+        system_info:
+          grid_column: "span 4"
+

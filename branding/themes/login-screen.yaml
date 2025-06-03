@@ -1,0 +1,762 @@
+# ShadowlyOS Login Screen Theme Configuration
+# This file defines the appearance and behavior of the ShadowlyOS login screen
+
+---
+# Global Settings
+global:
+  # Brand Colors
+  colors:
+    primary: "#2C3E50"      # Dark blue/gray for primary elements
+    secondary: "#3498DB"    # Blue for accents and highlights
+    tertiary: "#ECF0F1"     # Light gray/white for backgrounds
+    success: "#2ECC71"      # Green for success messages
+    warning: "#F39C12"      # Orange for warnings
+    error: "#E74C3C"        # Red for errors
+    background_overlay: "rgba(0, 0, 0, 0.45)" # Translucent dark overlay
+    text: "#FFFFFF"         # White for text on dark backgrounds
+    text_secondary: "#D0D3D4" # Light gray for secondary text
+  
+  # Typography
+  typography:
+    primary_font: "Roboto"
+    light_font: "Roboto Light"
+    bold_font: "Roboto Bold"
+    base_size: 14
+    title_size: 24
+    subtitle_size: 16
+    input_size: 14
+    button_size: 14
+  
+  # Wallpaper Settings
+  wallpaper:
+    default_path: "/usr/share/backgrounds/shadowly/default-wallpaper.svg"
+    fallback_color: "#2C3E50"
+    blur:
+      enabled: true
+      radius: 20
+      opacity: 0.8
+    dim:
+      enabled: true
+      amount: 0.3
+  
+  # Element Styling
+  elements:
+    button:
+      background: "#3498DB"
+      text: "#FFFFFF"
+      border_radius: 4
+      padding: "10px 20px"
+      hover:
+        background: "#2980B9"
+      active:
+        background: "#1F6EA1"
+      disabled:
+        background: "#7F8C8D"
+        text: "#D0D3D4"
+    
+    input:
+      background: "rgba(255, 255, 255, 0.1)"
+      text: "#FFFFFF"
+      border: "rgba(255, 255, 255, 0.2)"
+      border_radius: 4
+      padding: "10px 14px"
+      placeholder_color: "rgba(255, 255, 255, 0.5)"
+      focus:
+        border: "#3498DB"
+        shadow: "0 0 8px rgba(52, 152, 219, 0.5)"
+    
+    dropdown:
+      background: "rgba(44, 62, 80, 0.9)"
+      text: "#FFFFFF"
+      border: "rgba(255, 255, 255, 0.1)"
+      border_radius: 4
+      item_hover:
+        background: "rgba(52, 152, 219, 0.3)"
+    
+    card:
+      background: "rgba(44, 62, 80, 0.7)"
+      border: "rgba(255, 255, 255, 0.1)"
+      border_radius: 8
+      shadow: "0 4px 20px rgba(0, 0, 0, 0.3)"
+  
+  # Animation Settings
+  animations:
+    duration_short: "0.2s"
+    duration_medium: "0.3s"
+    duration_long: "0.5s"
+    timing_function: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+    transitions:
+      - "opacity"
+      - "transform"
+      - "background-color"
+      - "border-color"
+      - "box-shadow"
+
+# Layout Configuration
+layout:
+  # Main Container
+  main_container:
+    width: "400px"
+    height: "auto"
+    position: "center"
+    margin_top: "0"
+    margin_bottom: "0"
+  
+  # Logo Section
+  logo:
+    display: true
+    size: "120px"
+    margin_bottom: "30px"
+    animation:
+      entry: "fade-in-down"
+      duration: "0.6s"
+  
+  # Header Section
+  header:
+    title:
+      text: "Welcome to ShadowlyOS"
+      color: "#FFFFFF"
+      size: 24
+      weight: "light"
+      margin_bottom: "10px"
+    
+    subtitle:
+      text: "Sign in to continue"
+      color: "rgba(255, 255, 255, 0.8)"
+      size: 16
+      weight: "light"
+      margin_bottom: "30px"
+  
+  # Form Container
+  form_container:
+    padding: "30px"
+    background: "rgba(44, 62, 80, 0.7)"
+    backdrop_filter: "blur(20px)"
+    border_radius: "8px"
+    border: "1px solid rgba(255, 255, 255, 0.1)"
+    shadow: "0 10px 30px rgba(0, 0, 0, 0.3)"
+    animation:
+      entry: "fade-in-up"
+      duration: "0.5s"
+      delay: "0.1s"
+
+# User Selection Configuration
+user_selection:
+  # User List
+  user_list:
+    layout: "grid"      # Options: grid, list
+    max_visible: 6
+    overflow: "scroll"
+    
+    # User Item
+    user_item:
+      width: "100px"
+      height: "110px"
+      margin: "10px"
+      padding: "10px"
+      background: "rgba(44, 62, 80, 0.6)"
+      border: "1px solid rgba(255, 255, 255, 0.1)"
+      border_radius: "6px"
+      
+      hover:
+        background: "rgba(52, 152, 219, 0.3)"
+        transform: "scale(1.05)"
+        shadow: "0 5px 15px rgba(0, 0, 0, 0.2)"
+      
+      selected:
+        background: "rgba(52, 152, 219, 0.4)"
+        border: "1px solid rgba(52, 152, 219, 0.8)"
+        shadow: "0 0 10px rgba(52, 152, 219, 0.5)"
+    
+    # User Avatar
+    avatar:
+      size: "64px"
+      border_radius: "8px"
+      border: "2px solid rgba(255, 255, 255, 0.1)"
+      background: "#34495E"
+      margin_bottom: "8px"
+      
+      # Geometric shape clip-path for avatar
+      clip_path:
+        enabled: true
+        type: "hexagon"  # Options: hexagon, octagon, diamond
+      
+      # Default avatar style (when no image is set)
+      default:
+        background: "#34495E"
+        icon: "user"
+        icon_color: "#3498DB"
+        icon_size: "30px"
+        use_initials: true
+        initials_color: "#FFFFFF"
+        initials_font_size: "24px"
+        initials_font_weight: "light"
+    
+    # Username display
+    username:
+      color: "#FFFFFF"
+      font_size: "14px"
+      font_weight: "normal"
+      max_length: 16
+      overflow: "ellipsis"
+      margin_top: "5px"
+  
+  # User Switcher
+  user_switcher:
+    position: "top"
+    button:
+      icon: "chevron-down"
+      size: "16px"
+      color: "#FFFFFF"
+      background: "transparent"
+      hover:
+        color: "#3498DB"
+    dropdown:
+      width: "300px"
+      max_height: "400px"
+      padding: "10px"
+    animations:
+      expand: "fade-in-down"
+      collapse: "fade-out-up"
+      duration: "0.3s"
+
+# Authentication Form
+authentication:
+  # Username Field (when manual entry is needed)
+  username_field:
+    label: "Username"
+    placeholder: "Enter your username"
+    icon: "user"
+    margin_bottom: "20px"
+    focus_animation:
+      border_color: "#3498DB"
+      shadow: "0 0 10px rgba(52, 152, 219, 0.3)"
+  
+  # Password Field
+  password_field:
+    label: "Password"
+    placeholder: "Enter your password"
+    icon: "lock"
+    toggle_visibility: true
+    margin_bottom: "20px"
+    focus_animation:
+      border_color: "#3498DB"
+      shadow: "0 0 10px rgba(52, 152, 219, 0.3)"
+  
+  # Authentication Error
+  error_message:
+    color: "#E74C3C"
+    background: "rgba(231, 76, 60, 0.1)"
+    border: "1px solid rgba(231, 76, 60, 0.3)"
+    border_radius: "4px"
+    padding: "10px"
+    margin_bottom: "20px"
+    icon: "exclamation-circle"
+    animation:
+      entry: "shake"
+      duration: "0.5s"
+  
+  # Submit Button
+  submit_button:
+    text: "Sign In"
+    width: "100%"
+    margin_top: "10px"
+    loading_indicator:
+      type: "spinner"
+      color: "#FFFFFF"
+    success_animation:
+      icon: "check"
+      background: "#2ECC71"
+      duration: "0.5s"
+    error_animation:
+      icon: "times"
+      background: "#E74C3C"
+      duration: "0.5s"
+
+# Session Selector
+session_selector:
+  position: "bottom_left"
+  label: "Desktop"
+  icon: "desktop"
+  margin: "20px"
+  
+  # Button Style
+  button:
+    background: "rgba(44, 62, 80, 0.6)"
+    text: "#FFFFFF"
+    border: "1px solid rgba(255, 255, 255, 0.1)"
+    border_radius: "4px"
+    padding: "8px 15px"
+    
+    hover:
+      background: "rgba(52, 152, 219, 0.3)"
+      border: "1px solid rgba(52, 152, 219, 0.5)"
+  
+  # Dropdown Style
+  dropdown:
+    width: "250px"
+    background: "rgba(44, 62, 80, 0.9)"
+    border: "1px solid rgba(255, 255, 255, 0.1)"
+    border_radius: "4px"
+    shadow: "0 5px 15px rgba(0, 0, 0, 0.3)"
+    
+    # Session Item
+    item:
+      height: "50px"
+      padding: "10px 15px"
+      border_bottom: "1px solid rgba(255, 255, 255, 0.05)"
+      
+      hover:
+        background: "rgba(52, 152, 219, 0.2)"
+      
+      selected:
+        background: "rgba(52, 152, 219, 0.3)"
+        border_left: "3px solid #3498DB"
+    
+    # Session Icon
+    icon:
+      size: "24px"
+      margin_right: "10px"
+      
+      # Custom icons for specific desktop environments
+      gnome: "gnome-logo"
+      kde: "kde-logo"
+      xfce: "xfce-logo"
+      cinnamon: "cinnamon-logo"
+      mate: "mate-logo"
+      fallback: "desktop"
+  
+  # Animation
+  animation:
+    dropdown_show: "fade-in-up"
+    dropdown_hide: "fade-out-down"
+    duration: "0.3s"
+
+# Power/System Options
+power_options:
+  position: "bottom_right"
+  margin: "20px"
+  
+  # Button Style
+  button:
+    icon: "power-off"
+    size: "18px"
+    color: "#FFFFFF"
+    background: "rgba(44, 62, 80, 0.6)"
+    border: "1px solid rgba(255, 255, 255, 0.1)"
+    border_radius: "4px"
+    padding: "8px 12px"
+    
+    hover:
+      background: "rgba(231, 76, 60, 0.3)"
+      border: "1px solid rgba(231, 76, 60, 0.5)"
+  
+  # Dropdown Style
+  dropdown:
+    width: "200px"
+    background: "rgba(44, 62, 80, 0.9)"
+    border: "1px solid rgba(255, 255, 255, 0.1)"
+    border_radius: "4px"
+    shadow: "0 5px 15px rgba(0, 0, 0, 0.3)"
+    
+    # Power Option Item
+    item:
+      height: "44px"
+      padding: "10px 15px"
+      border_bottom: "1px solid rgba(255, 255, 255, 0.05)"
+      
+      hover:
+        background: "rgba(52, 152, 219, 0.2)"
+      
+      # Custom colors for specific actions
+      restart:
+        icon_color: "#F39C12"
+        hover_color: "rgba(243, 156, 18, 0.2)"
+      shutdown:
+        icon_color: "#E74C3C"
+        hover_color: "rgba(231, 76, 60, 0.2)"
+      suspend:
+        icon_color: "#3498DB"
+        hover_color: "rgba(52, 152, 219, 0.2)"
+      hibernate:
+        icon_color: "#9B59B6"
+        hover_color: "rgba(155, 89, 182, 0.2)"
+    
+    # Power Option Icon
+    icon:
+      size: "18px"
+      margin_right: "10px"
+  
+  # Available Options
+  options:
+    - id: "restart"
+      label: "Restart"
+      icon: "sync"
+    - id: "shutdown"
+      label: "Shut Down"
+      icon: "power-off"
+    - id: "suspend"
+      label: "Suspend"
+      icon: "moon"
+    - id: "hibernate"
+      label: "Hibernate"
+      icon: "snowflake"
+  
+  # Animation
+  animation:
+    dropdown_show: "fade-in-up"
+    dropdown_hide: "fade-out-down"
+    duration: "0.3s"
+
+# Accessibility Options
+accessibility:
+  position: "bottom"
+  margin: "20px"
+  
+  # Button Style
+  button:
+    icon: "universal-access"
+    size: "18px"
+    color: "#FFFFFF"
+    background: "rgba(44, 62, 80, 0.6)"
+    border: "1px solid rgba(255, 255, 255, 0.1)"
+    border_radius: "4px"
+    padding: "8px 12px"
+    
+    hover:
+      background: "rgba(52, 152, 219, 0.3)"
+      border: "1px solid rgba(52, 152, 219, 0.5)"
+  
+  # Dropdown Style
+  dropdown:
+    width: "250px"
+    background: "rgba(44, 62, 80, 0.9)"
+    border: "1px solid rgba(255, 255, 255, 0.1)"
+    border_radius: "4px"
+    shadow: "0 5px 15px rgba(0, 0, 0, 0.3)"
+    
+    # Accessibility Option Item
+    item:
+      type: "toggle"
+      height: "44px"
+      padding: "10px 15px"
+      border_bottom: "1px solid rgba(255, 255, 255, 0.05)"
+      
+      hover:
+        background: "rgba(52, 152, 219, 0.2)"
+      
+      toggle:
+        width: "40px"
+        height: "20px"
+        background_off: "rgba(127, 140, 141, 0.6)"
+        background_on: "rgba(52, 152, 219, 1.0)"
+        circle_color: "#FFFFFF"
+  
+  # Available Options
+  options:
+    - id: "high_contrast"
+      label: "High Contrast"
+      icon: "adjust"
+    - id: "large_text"
+      label: "Large Text"
+      icon: "text-height"
+    - id: "screen_reader"
+      label: "Screen Reader"
+      icon: "audio-description"
+    - id: "on_screen_keyboard"
+      label: "On-Screen Keyboard"
+      icon: "keyboard"
+  
+  # Animation
+  animation:
+    dropdown_show: "fade-in-up"
+    dropdown_hide: "fade-out-down"
+    duration: "0.3s"
+
+# Keyboard Layout Selector
+keyboard_layout:
+  position: "bottom_center"
+  label: "Keyboard"
+  icon: "keyboard"
+  margin: "20px"
+  
+  # Button Style
+  button:
+    background: "rgba(44, 62, 80, 0.6)"
+    text: "#FFFFFF"
+    border: "1px solid rgba(255, 255, 255, 0.1)"
+    border_radius: "4px"
+    padding: "8px 15px"
+    
+    hover:
+      background: "rgba(52, 152, 219, 0.3)"
+      border: "1px solid rgba(52, 152, 219, 0.5)"
+  
+  # Dropdown Style
+  dropdown:
+    width: "250px"
+    max_height: "300px"
+    background: "rgba(44, 62, 80, 0.9)"
+    border: "1px solid rgba(255, 255, 255, 0.1)"
+    border_radius: "4px"
+    shadow: "0 5px 15px rgba(0, 0, 0, 0.3)"
+    overflow: "auto"
+    
+    # Keyboard Layout Item
+    item:
+      height: "44px"
+      padding: "10px 15px"
+      border_bottom: "1px solid rgba(255, 255, 255, 0.05)"
+      
+      hover:
+        background: "rgba(52, 152, 219, 0.2)"
+      
+      selected:
+        background: "rgba(52, 152, 219, 0.3)"
+        border_left: "3px solid #3498DB"
+  
+  # Search Field
+  search_field:
+    enabled: true
+    placeholder: "Search layouts..."
+    background: "rgba(255, 255, 255, 0.1)"
+    text: "#FFFFFF"
+    border: "none"
+    border_radius: "4px"
+    padding: "8px 12px"
+    margin: "10px"
+  
+  # Animation
+  animation:
+    dropdown_show: "fade-in-up"
+    dropdown_hide: "fade-out-down"
+    duration: "0.3s"
+
+# Animation Definitions
+animations:
+  # Fade Animations
+  fade_in:
+    keyframes:
+      "0%": { opacity: 0 }
+      "100%": { opacity: 1 }
+  
+  fade_out:
+    keyframes:
+      "0%": { opacity: 1 }
+      "100%": { opacity: 0 }
+  
+  # Directional Fade Animations
+  fade_in_up:
+    keyframes:
+      "0%": { opacity: 0, transform: "translateY(20px)" }
+      "100%": { opacity: 1, transform: "translateY(0)" }
+  
+  fade_in_down:
+    keyframes:
+      "0%": { opacity: 0, transform: "translateY(-20px)" }
+      "100%": { opacity: 1, transform: "translateY(0)" }
+  
+  fade_out_up:
+    keyframes:
+      "0%": { opacity: 1, transform: "translateY(0)" }
+      "100%": { opacity: 0, transform: "translateY(-20px)" }
+  
+  fade_out_down:
+    keyframes:
+      "0%": { opacity: 1, transform: "translateY(0)" }
+      "100%": { opacity: 0, transform: "translateY(20px)" }
+  
+  # Scale Animations
+  scale_in:
+    keyframes:
+      "0%": { opacity: 0, transform: "scale(0.9)" }
+      "100%": { opacity: 1, transform: "scale(1)" }
+  
+  scale_out:
+    keyframes:
+      "0%": { opacity: 1, transform: "scale(1)" }
+      "100%": { opacity: 0, transform: "scale(0.9)" }
+  
+  # Bounce Animation
+  bounce:
+    keyframes:
+      "0%": { transform: "scale(1)" }
+      "50%": { transform: "scale(1.05)" }
+      "100%": { transform: "scale(1)" }
+  
+  # Shake Animation (for errors)
+  shake:
+    keyframes:
+      "0%": { transform: "translateX(0)" }
+      "10%": { transform: "translateX(-5px)" }
+      "30%": { transform: "translateX(5px)" }
+      "50%": { transform: "translateX(-5px)" }
+      "70%": { transform: "translateX(5px)" }
+      "90%": { transform: "translateX(-5px)" }
+      "100%": { transform: "translateX(0)" }
+
+# Responsive Design Settings
+responsive:
+  breakpoints:
+    small: "576px"
+    medium: "768px"
+    large: "992px"
+    extra_large: "1200px"
+  
+  adaptations:
+    small:
+      layout:
+        main_container:
+          width: "90%"
+          max_width: "350px"
+      
+      user_selection:
+        user_list:
+          layout: "list"
+      
+      user_selection:
+        user_item:
+          width: "auto"
+          height: "60px"
+          margin: "5px 0"
+          padding: "5px 10px"
+        
+        avatar:
+          size: "40px"
+          margin_right: "10px"
+          margin_bottom: "0"
+    
+    medium:
+      layout:
+        main_container:
+          width: "400px"
+
+# Theme Variations
+theme_variations:
+  # Light Theme
+  light:
+    global:
+      colors:
+        primary: "#2C3E50"
+        secondary: "#3498DB"
+        tertiary: "#ECF0F1"
+        background_overlay: "rgba(255, 255, 255, 0.6)"
+        text: "#2C3E50"
+        text_secondary: "#7F8C8D"
+      
+      elements:
+        input:
+          background: "rgba(255, 255, 255, 0.8)"
+          text: "#2C3E50"
+          border: "rgba(0, 0, 0, 0.1)"
+          placeholder_color: "rgba(44, 62, 80, 0.5)"
+        
+        card:
+          background: "rgba(255, 255, 255, 0.8)"
+          border: "rgba(0, 0, 0, 0.1)"
+    
+    layout:
+      form_container:
+        background: "rgba(255, 255, 255, 0.8)"
+    
+    authentication:
+      error_message:
+        color: "#E74C3C"
+        background: "rgba(231, 76, 60, 0.1)"
+    
+    user_selection:
+      user_item:
+        background: "rgba(255, 255, 255, 0.8)"
+        border: "1px solid rgba(0, 0, 0, 0.1)"
+        
+        hover:
+          background: "rgba(52, 152, 219, 0.1)"
+        
+        selected:
+          background: "rgba(52, 152, 219, 0.2)"
+          border: "1px solid rgba(52, 152, 219, 0.6)"
+  
+  # High Contrast Theme (Accessibility)
+  high_contrast:
+    global:
+      colors:
+        primary: "#000000"
+        secondary: "#0066CC"
+        tertiary: "#FFFFFF"
+        background_overlay: "rgba(0, 0, 0, 0.8)"
+        text: "#FFFFFF"
+        text_secondary: "#FFFFFF"
+      
+      elements:
+        button:
+          background: "#0066CC"
+          text: "#FFFFFF"
+          border: "#FFFFFF"
+          border_width: "2px"
+        
+        input:
+          background: "#000000"
+          text: "#FFFFFF"
+          border: "#FFFFFF"
+          border_width: "2px"
+          placeholder_color: "#CCCCCC"
+        
+        card:
+          background: "#000000"
+          border: "#FFFFFF"
+          border_width: "2px"
+    
+    layout:
+      form_container:
+        background: "#000000"
+        border: "2px solid #FFFFFF"
+    
+    user_selection:
+      user_item:
+        background: "#000000"
+        border: "2px solid #FFFFFF"
+        
+        hover:
+          background: "#0066CC"
+        
+        selected:
+          background: "#0066CC"
+          border: "2px solid #FFFFFF"
+      
+      avatar:
+        border: "2px solid #FFFFFF"
+    
+    session_selector:
+      button:
+        background: "#000000"
+        text: "#FFFFFF"
+        border: "2px solid #FFFFFF"
+      
+      dropdown:
+        background: "#000000"
+        border: "2px solid #FFFFFF"
+        
+        item:
+          border_bottom: "1px solid #FFFFFF"
+          
+          hover:
+            background: "#0066CC"
+          
+          selected:
+            background: "#0066CC"
+    
+    power_options:
+      button:
+        background: "#000000"
+        border: "2px solid #FFFFFF"
+      
+      dropdown:
+        background: "#000000"
+        border: "2px solid #FFFFFF"
+        
+        item:
+          border_bottom: "1px solid #FFFFFF"
+          
+          hover:
+            background: "#0066CC"
+

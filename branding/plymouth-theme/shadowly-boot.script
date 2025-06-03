@@ -1,0 +1,241 @@
+// ShadowlyOS Plymouth Boot Theme Script
+// Implements a smooth, modern boot animation using the ShadowlyOS brand identity
+
+// Define the Window resolution
+Window.SetBackgroundTopColor(0.17, 0.24, 0.31);    // #2C3E50 (dark blue/gray) - converted to RGB values
+Window.SetBackgroundBottomColor(0.10, 0.15, 0.19); // Darker variant for gradient effect
+Window.SetBackgroundColor(0.17, 0.24, 0.31);       // Same as top color for uniform look if gradient isn't possible
+
+// Brand colors as RGB
+// Primary: #2C3E50 (0.17, 0.24, 0.31)
+// Secondary: #3498DB (0.20, 0.60, 0.86)
+// Tertiary: #ECF0F1 (0.93, 0.94, 0.95)
+
+// Create the logo image and scale it
+logo.image = Image("logo.png");
+logo.width = logo.image.GetWidth();
+logo.height = logo.image.GetHeight();
+logo.x = Window.GetWidth() / 2 - logo.width / 2;
+logo.y = Window.GetHeight() / 2 - logo.height / 2 - 30; // Move slightly above center
+
+// Create geometric pattern for progress indication
+progress_pattern = [];
+pattern_count = 8;
+pattern_width = 50;
+pattern_height = 50;
+pattern_spacing = 10;
+pattern_total_width = pattern_count * (pattern_width + pattern_spacing) - pattern_spacing;
+pattern_start_x = Window.GetWidth() / 2 - pattern_total_width / 2;
+pattern_y = Window.GetHeight() / 2 + 120; // Below the logo
+
+// Create the geometric patterns
+for (i = 0; i < pattern_count; i++) {
+    // Create a hexagon shape for each progress element
+    progress_pattern[i] = Sprite();
+    progress_pattern[i].SetPosition(pattern_start_x + i * (pattern_width + pattern_spacing), pattern_y);
+    progress_pattern[i].SetOpacity(0);
+}
+
+// Create status message text
+status_message = Sprite();
+status_message.SetX(Window.GetWidth() / 2);
+status_message.SetY(Window.GetHeight() / 2 + 180);
+status_message.SetOpacity(0);
+
+// Animation variables
+anim_duration = 0.5;  // Duration of animations in seconds
+anim_fps = 30;        // Frames per second for animations
+time_step = 1 / anim_fps;
+frame_count = anim_duration * anim_fps;
+
+// Logo animation variables
+logo_sprite = Sprite(logo.image);
+logo_sprite.SetX(logo.x);
+logo_sprite.SetY(logo.y);
+logo_sprite.SetOpacity(0); // Start invisible for fade-in
+
+// Progress bar variables
+progress = 0;
+progress_animation_start = -1;
+progress_animation_end = -1;
+current_progress_index = 0;
+
+// Text message variables
+message_image = null;
+message_sprite = Sprite();
+message_sprite.SetX(Window.GetWidth() / 2);
+message_sprite.SetY(Window.GetHeight() / 2 + 180);
+message_sprite.SetOpacity(0);
+
+// Function to create the hexagon shape for progress indicators
+fun CreateHexagon(color_r, color_g, color_b, alpha) {
+    size = 20;
+    surface = new Surface(size * 2, size * 2);
+    
+    // Draw a hexagon
+    surface.PlotPolygon(size, size, // center
+                      [
+                        size + size * Math.Cos(Math.Pi * 0/3), size + size * Math.Sin(Math.Pi * 0/3),
+                        size + size * Math.Cos(Math.Pi * 1/3), size + size * Math.Sin(Math.Pi * 1/3),
+                        size + size * Math.Cos(Math.Pi * 2/3), size + size * Math.Sin(Math.Pi * 2/3),
+                        size + size * Math.Cos(Math.Pi * 3/3), size + size * Math.Sin(Math.Pi * 3/3),
+                        size + size * Math.Cos(Math.Pi * 4/3), size + size * Math.Sin(Math.Pi * 4/3),
+                        size + size * Math.Cos(Math.Pi * 5/3), size + size * Math.Sin(Math.Pi * 5/3)
+                      ], 
+                      color_r, color_g, color_b, alpha);
+    
+    return surface;
+}
+
+// Setup function called once at the start
+fun Setup() {
+    // Create the logo sprite with opacity animation
+    logo_sprite = Sprite(logo.image);
+    logo_sprite.SetX(logo.x);
+    logo_sprite.SetY(logo.y);
+    logo_sprite.SetOpacity(0);
+    
+    // Create the progress patterns
+    for (i = 0; i < pattern_count; i++) {
+        hex_shape = CreateHexagon(0.20, 0.60, 0.86, 1.0); // #3498DB
+        progress_pattern[i] = Sprite(hex_shape);
+        progress_pattern[i].SetPosition(pattern_start_x + i * (pattern_width + pattern_spacing), pattern_y);
+        progress_pattern[i].SetOpacity(0);
+    }
+    
+    // Start the animation sequence
+    logo_fade_in.Start();
+}
+
+// Logo fade-in animation
+logo_fade_in = Animation({
+    time = 0,
+    duration = anim_duration * 2, // Longer for logo fade-in
+    
+    fun update(progress) {
+        logo_sprite.SetOpacity(Math.Clamp(progress * 1.5, 0, 1));
+        
+        // Also scale logo from 90% to 100%
+        scale = 0.9 + progress * 0.1;
+        logo_sprite.SetScale(scale);
+        
+        time += time_step;
+        if (time >= duration) {
+            // When complete, start the progress indicator
+            global.progress_animation_enabled = true;
+        }
+    }
+});
+
+// Function to update the progress bar animation
+fun UpdateProgress() {
+    if (!global.progress_animation_enabled)
+        return;
+    
+    // Calculate how many elements should be visible based on progress
+    num_elements = Math.Int(progress * pattern_count);
+    
+    // If we need to show a new element
+    if (num_elements > current_progress_index && current_progress_index < pattern_count) {
+        // Start fade-in animation for this element
+        progress_pattern[current_progress_index].SetOpacity(1);
+        current_progress_index++;
+    }
+}
+
+// Function to update the message text
+fun UpdateMessageText(text) {
+    // Create the message text image
+    if (message_image) message_image = null;
+    message_image = Image.Text(text, 0.93, 0.94, 0.95, "Noto Sans", "Regular", 16); // #ECF0F1
+    
+    // Update the message sprite
+    message_sprite.SetImage(message_image);
+    message_sprite.SetX(Window.GetWidth() / 2 - message_image.GetWidth() / 2);
+    
+    // Animate the message opacity
+    message_sprite.SetOpacity(0);
+    message_fade.Start();
+}
+
+// Message fade-in animation
+message_fade = Animation({
+    time = 0,
+    duration = anim_duration,
+    
+    fun update(progress) {
+        message_sprite.SetOpacity(Math.Clamp(progress * 2, 0, 1));
+        time += time_step;
+    }
+});
+
+// Function called by Plymouth to set the boot progress
+fun plymouth_set_progress(value) {
+    progress = value;
+    UpdateProgress();
+}
+
+// Function called by Plymouth to display messages
+fun display_message(text) {
+    UpdateMessageText(text);
+}
+
+// Function called by Plymouth to display a password prompt
+fun display_password(prompt, bullets) {
+    // Create prompt text
+    prompt_image = Image.Text(prompt, 0.93, 0.94, 0.95, "Noto Sans", "Regular", 16); // #ECF0F1
+    
+    // Create password bullets
+    bullet_image = Image.Text("•", 0.93, 0.94, 0.95, "Noto Sans", "Regular", 16); // #ECF0F1
+    bullets_text = "";
+    for (i = 0; i < bullets; i++)
+        bullets_text += "• ";
+    
+    bullets_image = Image.Text(bullets_text, 0.93, 0.94, 0.95, "Noto Sans", "Regular", 16); // #ECF0F1
+    
+    // Update the message sprite
+    message_sprite.SetImage(prompt_image);
+    message_sprite.SetX(Window.GetWidth() / 2 - prompt_image.GetWidth() / 2);
+    message_sprite.SetOpacity(1);
+    
+    // Add bullets below prompt
+    bullets_sprite = Sprite(bullets_image);
+    bullets_sprite.SetX(Window.GetWidth() / 2 - bullets_image.GetWidth() / 2);
+    bullets_sprite.SetY(Window.GetHeight() / 2 + 210);
+    bullets_sprite.SetOpacity(1);
+}
+
+// Function called by Plymouth to display normal boot
+fun display_normal_callback() {
+    global.status = "normal";
+    if (global.progress_animation_start == -1) {
+        global.progress_animation_start = GetTime();
+        global.progress_animation_enabled = true;
+    }
+}
+
+// Function called by Plymouth to display an error during boot
+fun display_error_callback() {
+    global.status = "error";
+    UpdateMessageText("Boot error occurred");
+}
+
+// Main refresh function called on each frame
+fun refresh_callback() {
+    // Handle progress animation timing
+    if (global.progress_animation_enabled) {
+        // Update the progress animation
+        UpdateProgress();
+    }
+}
+
+// Initial setup
+Setup();
+
+// Register callbacks with Plymouth
+Plymouth.SetRefreshFunction(refresh_callback);
+Plymouth.SetDisplayNormalFunction(display_normal_callback);
+Plymouth.SetDisplayErrorFunction(display_error_callback);
+Plymouth.SetMessageFunction(display_message);
+Plymouth.SetPasswordFunction(display_password);
+

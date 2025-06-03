@@ -1,0 +1,722 @@
+# ShadowlyOS Installer Theme Configuration
+# This file defines the appearance and behavior of the ShadowlyOS installer interface
+
+---
+# Global Theme Settings
+global:
+  # Brand Colors
+  colors:
+    primary: "#2C3E50"      # Dark blue/gray for primary elements
+    secondary: "#3498DB"    # Blue for accents and highlights
+    tertiary: "#ECF0F1"     # Light gray/white for backgrounds
+    success: "#2ECC71"      # Green for success messages
+    warning: "#F39C12"      # Orange for warnings
+    error: "#E74C3C"        # Red for errors
+    background: "#FFFFFF"   # White for main background
+    text: "#2C3E50"         # Dark blue/gray for text
+    text_secondary: "#7F8C8D" # Secondary text color
+  
+  # Typography
+  typography:
+    primary_font: "Roboto"
+    secondary_font: "Roboto Condensed"
+    monospace_font: "Roboto Mono"
+    base_size: 16
+    heading_sizes:
+      h1: 32
+      h2: 24
+      h3: 20
+      h4: 18
+  
+  # Element Styling
+  elements:
+    button:
+      background: "#3498DB"
+      text: "#FFFFFF"
+      border_radius: 4
+      padding: "10px 20px"
+      hover:
+        background: "#2980B9"
+      disabled:
+        background: "#BDC3C7"
+        text: "#7F8C8D"
+    
+    input:
+      background: "#FFFFFF"
+      text: "#2C3E50"
+      border: "#BDC3C7"
+      border_radius: 4
+      padding: "8px 12px"
+      focus:
+        border: "#3498DB"
+    
+    dropdown:
+      background: "#FFFFFF"
+      text: "#2C3E50"
+      border: "#BDC3C7"
+      border_radius: 4
+      arrow_color: "#3498DB"
+    
+    checkbox:
+      border: "#BDC3C7"
+      checked_background: "#3498DB"
+      check_color: "#FFFFFF"
+    
+    radio:
+      border: "#BDC3C7"
+      selected_background: "#3498DB"
+      dot_color: "#FFFFFF"
+    
+    progress_bar:
+      background: "#ECF0F1"
+      fill: "#3498DB"
+      border_radius: 4
+    
+    card:
+      background: "#FFFFFF"
+      border: "#ECF0F1"
+      border_radius: 6
+      shadow: "0 2px 10px rgba(0, 0, 0, 0.1)"
+    
+    tooltip:
+      background: "#2C3E50"
+      text: "#FFFFFF"
+      border_radius: 4
+  
+  # Animation Settings
+  animations:
+    duration: "0.3s"
+    timing_function: "ease"
+    transitions:
+      - "background-color"
+      - "color"
+      - "border-color"
+      - "opacity"
+      - "transform"
+
+# Screen-Specific Themes
+screens:
+  # Welcome Screen
+  welcome:
+    layout: "centered"
+    background:
+      type: "gradient"
+      colors:
+        - "#FFFFFF"
+        - "#ECF0F1"
+      direction: "to bottom"
+    
+    logo:
+      position: "top center"
+      size: "200px"
+      margin_bottom: "30px"
+    
+    title:
+      text: "Welcome to ShadowlyOS"
+      color: "#2C3E50"
+      size: 32
+      weight: "bold"
+      margin_bottom: "15px"
+    
+    subtitle:
+      text: "A modern, secure Linux distribution"
+      color: "#7F8C8D"
+      size: 18
+      margin_bottom: "30px"
+    
+    language_selector:
+      label: "Select your language"
+      width: "300px"
+      margin_bottom: "20px"
+    
+    system_requirements:
+      title: "System Requirements"
+      status:
+        pass:
+          icon: "check-circle"
+          color: "#2ECC71"
+        warning:
+          icon: "exclamation-triangle"
+          color: "#F39C12"
+        fail:
+          icon: "times-circle"
+          color: "#E74C3C"
+      requirements:
+        - name: "Processor"
+          min: "64-bit, 2 cores"
+          recommended: "64-bit, 4 cores"
+        - name: "Memory"
+          min: "2 GB RAM"
+          recommended: "4 GB RAM"
+        - name: "Storage"
+          min: "20 GB available"
+          recommended: "40 GB available"
+        - name: "Graphics"
+          min: "Compatible with basic 2D acceleration"
+          recommended: "OpenGL 3.3 or better"
+    
+    continue_button:
+      text: "Continue"
+      width: "200px"
+      margin_top: "30px"
+  
+  # Disk Partitioning Screen
+  disk_partitioning:
+    layout: "full-width"
+    background:
+      type: "solid"
+      color: "#FFFFFF"
+    
+    title:
+      text: "Disk Partitioning"
+      color: "#2C3E50"
+      size: 24
+      weight: "bold"
+      margin_bottom: "20px"
+    
+    subtitle:
+      text: "Configure your disk layout"
+      color: "#7F8C8D"
+      size: 16
+      margin_bottom: "30px"
+    
+    partitioning_options:
+      - id: "auto"
+        name: "Automatic"
+        description: "Let ShadowlyOS configure disk partitions automatically"
+        icon: "magic"
+      - id: "replace"
+        name: "Replace Existing OS"
+        description: "Install ShadowlyOS and remove the existing operating system"
+        icon: "exchange-alt"
+      - id: "alongside"
+        name: "Install Alongside"
+        description: "Install ShadowlyOS alongside your existing operating system"
+        icon: "columns"
+      - id: "manual"
+        name: "Manual Partitioning"
+        description: "Configure disk partitions manually"
+        icon: "edit"
+    
+    encryption:
+      label: "Encrypt Installation"
+      description: "Secure your data with disk encryption"
+    
+    advanced_options:
+      toggle_label: "Show Advanced Options"
+      filesystem:
+        label: "Filesystem Type"
+        options:
+          - "ext4"
+          - "btrfs"
+          - "xfs"
+      swap:
+        label: "Swap Configuration"
+        options:
+          - "No Swap"
+          - "Swap Partition"
+          - "Swap File"
+    
+    disk_visualization:
+      selected_color: "#3498DB"
+      unselected_color: "#BDC3C7"
+      hover_color: "#2980B9"
+      label_color: "#2C3E50"
+      size_color: "#7F8C8D"
+    
+    navigation:
+      back_button:
+        text: "Back"
+        width: "120px"
+      continue_button:
+        text: "Continue"
+        width: "120px"
+  
+  # User Account Creation
+  user_setup:
+    layout: "centered"
+    background:
+      type: "solid"
+      color: "#FFFFFF"
+    
+    title:
+      text: "Create User Account"
+      color: "#2C3E50"
+      size: 24
+      weight: "bold"
+      margin_bottom: "20px"
+    
+    subtitle:
+      text: "Set up your user account and system preferences"
+      color: "#7F8C8D"
+      size: 16
+      margin_bottom: "30px"
+    
+    form_fields:
+      full_name:
+        label: "Full Name"
+        placeholder: "Enter your full name"
+        required: true
+      
+      username:
+        label: "Username"
+        placeholder: "Enter a username"
+        helper_text: "Lowercase letters and numbers only, no spaces"
+        required: true
+        validation: "^[a-z][a-z0-9_-]*$"
+      
+      password:
+        label: "Password"
+        placeholder: "Enter a strong password"
+        required: true
+        strength_meter:
+          weak_color: "#E74C3C"
+          medium_color: "#F39C12"
+          strong_color: "#2ECC71"
+      
+      confirm_password:
+        label: "Confirm Password"
+        placeholder: "Confirm your password"
+        required: true
+      
+      hostname:
+        label: "Computer Name"
+        placeholder: "Enter a name for your computer"
+        helper_text: "Used to identify your computer on the network"
+        required: true
+        default: "shadowly"
+      
+      timezone:
+        label: "Timezone"
+        type: "dropdown"
+        search_enabled: true
+      
+      keyboard_layout:
+        label: "Keyboard Layout"
+        type: "dropdown"
+    
+    additional_options:
+      auto_login:
+        label: "Log in automatically"
+        default: false
+      
+      create_admin:
+        label: "Create administrator account"
+        default: true
+        helper_text: "Administrators can install software and change system settings"
+    
+    navigation:
+      back_button:
+        text: "Back"
+        width: "120px"
+      continue_button:
+        text: "Continue"
+        width: "120px"
+  
+  # Package Selection
+  package_selection:
+    layout: "full-width"
+    background:
+      type: "solid"
+      color: "#FFFFFF"
+    
+    title:
+      text: "Software Selection"
+      color: "#2C3E50"
+      size: 24
+      weight: "bold"
+      margin_bottom: "20px"
+    
+    subtitle:
+      text: "Choose the software you want to install"
+      color: "#7F8C8D"
+      size: 16
+      margin_bottom: "30px"
+    
+    desktop_environments:
+      title: "Desktop Environment"
+      description: "Choose your preferred desktop interface"
+      selection_type: "single"
+      options:
+        - id: "gnome"
+          name: "GNOME"
+          description: "Modern, elegant desktop environment with a focus on simplicity"
+          icon: "gnome-logo"
+          recommended: true
+        
+        - id: "kde"
+          name: "KDE Plasma"
+          description: "Feature-rich and customizable desktop environment"
+          icon: "kde-logo"
+        
+        - id: "xfce"
+          name: "XFCE"
+          description: "Lightweight desktop environment without sacrificing usability"
+          icon: "xfce-logo"
+        
+        - id: "cinnamon"
+          name: "Cinnamon"
+          description: "Traditional desktop experience with modern features"
+          icon: "cinnamon-logo"
+        
+        - id: "mate"
+          name: "MATE"
+          description: "Continuation of the classic GNOME 2 desktop environment"
+          icon: "mate-logo"
+    
+    application_categories:
+      title: "Applications"
+      description: "Select application categories to install"
+      selection_type: "multiple"
+      categories:
+        - id: "internet"
+          name: "Internet"
+          description: "Web browsers, email clients, and other internet tools"
+          icon: "globe"
+          default: true
+          applications:
+            - "Firefox"
+            - "Thunderbird"
+            - "Chromium"
+        
+        - id: "multimedia"
+          name: "Multimedia"
+          description: "Audio and video players, editors, and codecs"
+          icon: "film"
+          default: true
+          applications:
+            - "VLC"
+            - "GIMP"
+            - "Audacity"
+        
+        - id: "office"
+          name: "Office"
+          description: "Word processors, spreadsheets, and presentation software"
+          icon: "file-alt"
+          default: true
+          applications:
+            - "LibreOffice"
+            - "Evince"
+            - "Calibre"
+        
+        - id: "development"
+          name: "Development"
+          description: "Programming tools and IDEs"
+          icon: "code"
+          default: false
+          applications:
+            - "Visual Studio Code"
+            - "Git"
+            - "Python"
+        
+        - id: "gaming"
+          name: "Gaming"
+          description: "Game platforms and utilities"
+          icon: "gamepad"
+          default: false
+          applications:
+            - "Steam"
+            - "Lutris"
+        
+        - id: "utilities"
+          name: "Utilities"
+          description: "System utilities and tools"
+          icon: "tools"
+          default: true
+          applications:
+            - "Archive Manager"
+            - "Disk Usage Analyzer"
+            - "System Monitor"
+    
+    disk_space:
+      required_label: "Required Space:"
+      available_label: "Available Space:"
+      sufficient_color: "#2ECC71"
+      insufficient_color: "#E74C3C"
+    
+    navigation:
+      back_button:
+        text: "Back"
+        width: "120px"
+      continue_button:
+        text: "Install"
+        width: "120px"
+  
+  # Installation Progress
+  installation_progress:
+    layout: "centered"
+    background:
+      type: "solid"
+      color: "#FFFFFF"
+    
+    title:
+      text: "Installing ShadowlyOS"
+      color: "#2C3E50"
+      size: 24
+      weight: "bold"
+      margin_bottom: "20px"
+    
+    subtitle:
+      text: "This may take a while depending on your system"
+      color: "#7F8C8D"
+      size: 16
+      margin_bottom: "30px"
+    
+    progress:
+      height: "8px"
+      border_radius: "4px"
+      background: "#ECF0F1"
+      fill: "#3498DB"
+      animation:
+        duration: "1.5s"
+        timing_function: "ease-in-out"
+    
+    status_message:
+      color: "#2C3E50"
+      font_size: 16
+      margin_top: "20px"
+    
+    current_task:
+      label_color: "#7F8C8D"
+      value_color: "#2C3E50"
+      font_size: 14
+      margin_top: "10px"
+    
+    elapsed_time:
+      label_color: "#7F8C8D"
+      value_color: "#2C3E50"
+      font_size: 14
+      margin_top: "5px"
+    
+    estimated_time:
+      label_color: "#7F8C8D"
+      value_color: "#2C3E50"
+      font_size: 14
+      margin_top: "5px"
+    
+    installation_log:
+      show_toggle: true
+      toggle_label: "Show Installation Log"
+      background: "#F8F9FA"
+      text_color: "#2C3E50"
+      font_family: "Roboto Mono"
+      font_size: 12
+      padding: "10px"
+      border_radius: "4px"
+      max_height: "200px"
+    
+    cancel_button:
+      text: "Cancel"
+      width: "120px"
+      background: "#E74C3C"
+      margin_top: "30px"
+  
+  # Installation Complete
+  installation_complete:
+    layout: "centered"
+    background:
+      type: "gradient"
+      colors:
+        - "#FFFFFF"
+        - "#ECF0F1"
+      direction: "to bottom"
+    
+    logo:
+      position: "top center"
+      size: "150px"
+      margin_bottom: "30px"
+    
+    title:
+      text: "Installation Complete!"
+      color: "#2C3E50"
+      size: 32
+      weight: "bold"
+      margin_bottom: "15px"
+    
+    subtitle:
+      text: "ShadowlyOS has been successfully installed on your computer"
+      color: "#7F8C8D"
+      size: 18
+      margin_bottom: "30px"
+    
+    success_icon:
+      name: "check-circle"
+      color: "#2ECC71"
+      size: "80px"
+      margin_bottom: "30px"
+    
+    next_steps:
+      title: "Next Steps"
+      items:
+        - icon: "power-off"
+          text: "Restart your computer to start using ShadowlyOS"
+        - icon: "book"
+          text: "Check out the documentation to learn more"
+        - icon: "users"
+          text: "Join our community for support and updates"
+    
+    restart_button:
+      text: "Restart Now"
+      width: "200px"
+      margin_top: "30px"
+    
+    continue_testing_button:
+      text: "Continue Testing"
+      width: "200px"
+      margin_top: "10px"
+      style: "outline"
+      background: "transparent"
+      text: "#3498DB"
+      border: "#3498DB"
+
+# Theme Variations
+variations:
+  # Dark Theme
+  dark:
+    global:
+      colors:
+        primary: "#2C3E50"
+        secondary: "#3498DB"
+        tertiary: "#ECF0F1"
+        background: "#1A1A1A"
+        text: "#FFFFFF"
+        text_secondary: "#BBBBBB"
+      
+      elements:
+        button:
+          background: "#3498DB"
+          text: "#FFFFFF"
+        
+        input:
+          background: "#2C3E50"
+          text: "#FFFFFF"
+          border: "#34495E"
+        
+        dropdown:
+          background: "#2C3E50"
+          text: "#FFFFFF"
+          border: "#34495E"
+        
+        card:
+          background: "#2C3E50"
+          border: "#34495E"
+    
+    screens:
+      welcome:
+        background:
+          type: "gradient"
+          colors:
+            - "#1A1A1A"
+            - "#2C3E50"
+      
+      disk_partitioning:
+        background:
+          color: "#1A1A1A"
+      
+      user_setup:
+        background:
+          color: "#1A1A1A"
+      
+      package_selection:
+        background:
+          color: "#1A1A1A"
+      
+      installation_progress:
+        background:
+          color: "#1A1A1A"
+      
+      installation_complete:
+        background:
+          type: "gradient"
+          colors:
+            - "#1A1A1A"
+            - "#2C3E50"
+  
+  # High Contrast Theme (Accessibility)
+  high_contrast:
+    global:
+      colors:
+        primary: "#000000"
+        secondary: "#0066CC"
+        tertiary: "#FFFFFF"
+        background: "#FFFFFF"
+        text: "#000000"
+        text_secondary: "#333333"
+      
+      elements:
+        button:
+          background: "#0066CC"
+          text: "#FFFFFF"
+          border: "#000000"
+          border_width: "2px"
+        
+        input:
+          background: "#FFFFFF"
+          text: "#000000"
+          border: "#000000"
+          border_width: "2px"
+        
+        dropdown:
+          background: "#FFFFFF"
+          text: "#000000"
+          border: "#000000"
+          border_width: "2px"
+        
+        checkbox:
+          border: "#000000"
+          border_width: "2px"
+          checked_background: "#0066CC"
+        
+        radio:
+          border: "#000000"
+          border_width: "2px"
+          selected_background: "#0066CC"
+        
+        progress_bar:
+          background: "#FFFFFF"
+          fill: "#0066CC"
+          border: "#000000"
+          border_width: "2px"
+
+# Responsive Design Settings
+responsive:
+  breakpoints:
+    small: "576px"
+    medium: "768px"
+    large: "992px"
+    extra_large: "1200px"
+  
+  adaptations:
+    small:
+      typography:
+        base_size: 14
+        heading_sizes:
+          h1: 28
+          h2: 22
+          h3: 18
+          h4: 16
+      
+      elements:
+        button:
+          padding: "8px 16px"
+        
+        card:
+          padding: "15px"
+      
+      screens:
+        welcome:
+          logo:
+            size: "150px"
+        
+        package_selection:
+          layout: "stacked"
+    
+    medium:
+      typography:
+        base_size: 15
+      
+      screens:
+        welcome:
+          logo:
+            size: "180px"
+
